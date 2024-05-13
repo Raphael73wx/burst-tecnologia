@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+     <link rel="stylesheet" href="vendor/OwlCarousel/assets/owl.carousel.min.css">
+     <link rel="stylesheet" href="vendor/OwlCarousel/assets/owl.theme.default.min.css">
+     <link rel="stylesheet" href="assets/style.css">
+     <title>carrinho</title>
+</head>
+
+<body>
+     <div class="container-fluid">
+          <div class="topo" id="#topo">
+               <div class="mae">
+                   <a href="index.php"><img src="assets/imagens/Group 3.png" alt="logo"></a>
+                   <div class="mae2">
+                       <ul>
+                           <li><a href="busca.php"><i class="bi bi-search"></i></a></li>
+                           <li><a href="carrinho.php"><i class="bi bi-cart3"></i></a></li>
+                           <li><a href="tela_login.php"><i class="bi bi2 bi-person"></i></a></li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+          <div class="centro">
+               <div class="produtos">
+                    <img src="" alt="">
+               </div>
+               <div class="produtos">
+                    <img src="" alt="">
+               </div>
+               <div class="produtos">
+                    <img src="" alt="">
+               </div>
+               <div class="produtos">
+                    <img src="" alt="">
+               </div>
+               <div class="produtos">
+                    <img src="" alt="">
+               </div>
+               <div class="produtos">
+                    <img src="" alt="">
+               </div>
+               <div class="produtos">
+                    <img src="" alt="">
+               </div>
+               <div class="produtos">
+                    <img src="" alt="">
+               </div>
+               <div class="produtos">
+                    <img src="" alt="">
+               </div>
+               <div class="produtos">
+                    <img src="" alt="">
+               </div>
+               <div class="produtos">
+                    <img src="" alt="">
+               </div>
+               <div class="produtos">
+                    <img src="" alt="">
+               </div>
+          </div>
+     </div>
+
+     <script src="vendor/jquery/jquery.min.js"></script>
+     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+     <script src="vendor/OwlCarousel/owl.carousel.min.js"></script>
+     <script src="assets/main.js"></script>
+</body>
+
+</html>
