@@ -3,19 +3,21 @@
 if ($_POST) {
     //VERIFICAR SE FOI ENVIADO OS CAMPOS OBRIGATORIOS
     if (empty($_POST["email"]) || empty($_POST["senha"])) {
+       
         $_SESSION["msg"] = "Por favor, preencha os campos obrigatórios!";
         $_SESSION["tipo"] = "warning";
         $_SESSION["title"] = "ops!";
 
 
-        header("location: Login.php");       
+        header("location:Login.php");       
         exit;
     }
     else {
+
         //recuperar informações do formulário login 
         $email = trim($_POST["email"]);
         $senha = trim($_POST["senha"]);
-        $remember = $_POST['remember'] ?? "off";
+        // $remember = $_POST['remember'] ?? "off";
         
         include('conexao-pdo.php');
 
@@ -31,6 +33,7 @@ if ($_POST) {
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {
+            $teste = true;
             //verifica se o botaão lembrar de mim foi ativado
             if ($remember == "on") {
                 setcookie("email",$email);
@@ -44,7 +47,7 @@ if ($_POST) {
             $row = $stmt->fetch(PDO::FETCH_OBJ);
 
             //DECLARO VARIAVEL GLOBAL INFORMANDO QUE USUARIOE ESTA AUTENTICADO
-            $_SESSION["autenticado"] = true;
+            $_SESSION["autenticado"] = true;    
             $_SESSION["pk_usuario"] = $row->pk_usuario;
              
             //transforma string em array, aonde tiver espaco ""
@@ -52,21 +55,24 @@ if ($_POST) {
             
             //concatena o primeiro nome com o sobrenome do usuario
             $_SESSION["nome_usuario"] = $nome_usuario[0] ." ". end($nome_usuario);
-            $_SESSION["foto_usuario"] = $row->foto;
+            // $_SESSION["foto_usuario"] = $row->foto;
             $_SESSION["tempo_login"] = time();
             
 
-            header('Location: ./');
+            header('Location:index.php');
             exit;
         } else {
             $_SESSION["msg"] = 'E-mail e/ou senha invalidos!';
             $_SESSION["tipo"] = 'error';
             $_SESSION["title"] = 'ops!';
 
-            header('Location: login.php');
+            header('Location:login.php');
             exit;
         }
     }
+}else{
+    header('Location:login.php');
+    exit;
 }
 ?>
 

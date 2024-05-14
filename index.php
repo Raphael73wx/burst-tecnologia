@@ -1,7 +1,9 @@
+<?php
+include('verificar-autenticidade.php');
+include('conexao-pdo.php');
 
 
-
-
+?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -19,16 +21,25 @@
 
 <body>
     <div class="container-fluid">
-    <?php
-    include('./nav.php');
-    ?>
+    <div class="topo" id="#topo">
+        <div class="mae">
+            <a href="<?php echo caminhoURL;?>index.php"><img class="img-logo" src="/dashboard/dist/img/logo-mini.png" alt="logo"></a>
+            <div class="mae2">
+                <ul>
+                    <li><a href="<?php echo caminhoURL;?>"><i class="bi bi-search"></i></a></li>
+                    <li><a href="<?php echo caminhoURL;?>carrinho.php"><i class="bi bi-cart3"></i></a></li>
+                    <li><a href="<?php echo caminhoURL;?>perfil.php"><i class="bi bi2 bi-person"></i></a></li>
+                </ul>
+            </div>
+        </div>  
+    </div>
     <div>
         <div id="carouselExample" class="carousel slide ex ">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img src="https://placehold.co/1568x400" class="d-block w-100" alt="...">
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item"> 
                     <img src="https://placehold.co/1568x400" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
@@ -673,7 +684,7 @@
         </div>
     </section>
     <div class="faixa"></div>
-     <?php include('./footer.php')?>
+     <?php include('footer.php')?>
     </div>
 
 

@@ -5,7 +5,7 @@
         <div class="col6 x2">
             <div class="main">
                 <div>
-                    <a href="faleconosco.php">
+                    <a href="<?php echo caminhoURL;?>faleconosco.php">
                         <h2>fale conosco</h2>
                     </a>
                 </div>
@@ -18,18 +18,18 @@
                     <span>(12)991460445</span>
                 </div>
                 <div>
-                    <a href="faleconosco.php">
+                    <a href="<?php echo caminhoURL;?>faleconosco.php">
                       <span>S.O.S</span>  
                     </a>               
                 </div>
                 <div>
-                    <a href="faleconosco.php">
+                    <a href="<?php echo caminhoURL;?>faleconosco.php">
                       <span><i class="bi bi-instagram"></i></span>  
                     </a>               
-                    <a href="faleconosco.php">
+                    <a href="<?php echo caminhoURL;?>faleconosco.php">
                       <span><i class="bi bi-facebook"></i></span>  
                     </a>               
-                    <a href="faleconosco.php">
+                    <a href="<?php echo caminhoURL;?>faleconosco.php">
                       <span><i class="bi bi-youtube"></i></span>  
                     </a>               
                 </div>
