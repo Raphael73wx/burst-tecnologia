@@ -1,4 +1,6 @@
 <?php
+
+session_start();
 //VERIFICA SE ESTA VINDO INFORMAÇÕES PARA VALIDAÇÃO DE E-MAIL E SENHA
 if ($_POST) {
     //VERIFICAR SE FOI ENVIADO OS CAMPOS OBRIGATORIOS
@@ -17,10 +19,11 @@ if ($_POST) {
         //recuperar informações do formulário login 
         $email = trim($_POST["email"]);
         $senha = trim($_POST["senha"]);
-        // $remember = $_POST['remember'] ?? "off";
+        $remember = $_POST['remember'] ?? "off";
         
         include('conexao-pdo.php');
-
+        
+        
         //montar sintaxe sql para consultar no banco de dados 
         $stmt = $coon->prepare("
         SELECT pk_usuario,nome
@@ -33,8 +36,8 @@ if ($_POST) {
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {
-            $teste = true;
-            //verifica se o botaão lembrar de mim foi ativado
+           
+            //verifica se o botão lembrar de mim foi ativado
             if ($remember == "on") {
                 setcookie("email",$email);
                 setcookie("senha",$senha);
@@ -57,8 +60,7 @@ if ($_POST) {
             $_SESSION["nome_usuario"] = $nome_usuario[0] ." ". end($nome_usuario);
             // $_SESSION["foto_usuario"] = $row->foto;
             $_SESSION["tempo_login"] = time();
-            
-
+             
             header('Location:index.php');
             exit;
         } else {

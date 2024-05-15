@@ -432,23 +432,6 @@ body .login a {
 /*fim da estilização do footer*/
 
 /*estilizacão de perfil*/
-.conta {
-    margin-top: 10px;
-    width: 65vw;
-    height: 105vh;
-}
-
-.conta>.row1>.col-8 {
-    display: flex;
-    align-items: center;
-    padding-left: 30px;
-
-}
-
-.row2>.r1 {
-    text-align: left;
-    padding-left: 20px;
-}
 
 /*fim da estilização de perfil*/
 

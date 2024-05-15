@@ -1,6 +1,6 @@
 <?php
-include('verificar-autenticidade.php');
-include('conexao-pdo.php');
+include('./adm/verificar-autenticidade.php');
+include('./adm/conexao-pdo.php');
 
 
 ?>
@@ -684,7 +684,7 @@ include('conexao-pdo.php');
         </div>
     </section>
     <div class="faixa"></div>
-     <?php include('footer.php')?>
+     <?php include('./adm/footer.php')?>
     </div>
 
 

@@ -22,13 +22,13 @@ if (empty($_COOKIE["email"]) || empty($_COOKIE["senha"])) {
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="dist/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="../dashboard/dist/plugins/fontawesome-free/css/all.min.css">
     <!-- sweet Alert 2  -->
-    <link rel="stylesheet" href="dist/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+    <link rel="stylesheet" href="../dashboard/dist/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
     <!-- icheck bootstrap -->
-    <link rel="stylesheet" href="dist/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <link rel="stylesheet" href="../dashboard/dist/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="../dashboard/dist/css/adminlte.min.css">
     
 </head>
 
@@ -100,13 +100,13 @@ if (empty($_COOKIE["email"]) || empty($_COOKIE["senha"])) {
     <!-- /.login-box -->
 
     <!-- jQuery -->
-    <script src="dist/plugins/jquery/jquery.min.js"></script>
+    <script src="../dashboard/dist/plugins/jquery/jquery.min.js"></script>
     <!-- SweetAlert2-->
-    <script src="dist/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <script src="../dashboard/dist/plugins/sweetalert2/sweetalert2.min.js"></script>
     <!-- Bootstrap 4 -->
-    <script src="dist/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../dashboard/dist/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="dist/js/adminlte.min.js"></script>
+    <script src="../dashboard/dist/js/adminlte.min.js"></script>
     <?php
     include("sweet-alert-2.php");
     ?>

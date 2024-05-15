@@ -22,10 +22,24 @@
                 </div>
             </div>
         </div>
-        <div>
-             
-        
+      <div class="container-md">
+        <div class="row justify-content-start">
+            <div class="col-4"><img src="./assets/imagens/Group 2.png" alt=""></div>
+            <div class="col-8">nome de usuario</div>
         </div>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col"></div>
+        </div>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col"></div>
+        </div>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col"></div>
+        </div>
+      </div>
     
     </div>
 

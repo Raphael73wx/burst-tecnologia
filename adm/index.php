@@ -12,23 +12,22 @@ $pagina_ativa = "home";
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Adm Busrt</title>
-
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="dashboard/dist/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../dashboard/dist/plugins/fontawesome-free/css/all.min.css">
   <!-- bootstrap-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <!-- Tempusdominus Bootstrap 4 -->
-  <link rel="stylesheet" href="dashboard/dist/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <link rel="stylesheet" href="../dashboard/dist/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
   <!-- iCheck -->
-  <link rel="stylesheet" href="dashboard/dist/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <link rel="stylesheet" href="../dashboard/dist/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="dashboard/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="../dashboard/dist/css/adminlte.min.css">
   <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="dashboard/dist/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <link rel="stylesheet" href="../dashboard/dist/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
 
- 
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -92,7 +91,7 @@ $pagina_ativa = "home";
               <!-- small box -->
               <div class="small-box bg-success">
                 <div class="inner">
-                  <h3><?php  echo $pr;?><sup style="font-size: 20px">%</sup></h3>
+                  <h3><?php echo intval($pr); ?><sup style="font-size: 20px">%</sup></h3>
 
                   <p>Pedidos concluídos</p>
                 </div>
@@ -148,49 +147,48 @@ $pagina_ativa = "home";
   <!-- ./wrapper -->
 
   <!-- jQuery -->
-  <script src="dashboard/dist/plugins/jquery/jquery.min.js"></script>
+  <script src="../dashboard/dist/plugins/jquery/jquery.min.js"></script>
   <!-- jQuery UI 1.11.4 -->
-  <script src="dashboard/dist/plugins/jquery-ui/jquery-ui.min.js"></script>
+  <script src="../dashboard/dist/plugins/jquery-ui/jquery-ui.min.js"></script>
   <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
   <script>
     $.widget.bridge('uibutton', $.ui.button)
   </script>
   <!-- Bootstrap 4 -->
-  <script src="dashboard/dist/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../dashboard/dist/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- Tempusdominus Bootstrap 4 -->
-  <script src="dashboard/dist/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+  <script src="../dashboard/dist/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
   <!-- overlayScrollbars -->
-  <script src="dashboard/dist/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+  <script src="../dashboard/dist/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
   <!-- ChartJS -->
-  <script src="dashboard/dist/plugins/chart.js/Chart.min.js"></script>
+  <script src="../dashboard/dist/plugins/chart.js/Chart.min.js"></script>
   <!-- AdminLTE App -->
-  <script src="dashboard/dist/js/adminlte.js"></script>
+  <script src="../dashboard/dist/js/adminlte.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
   <script>
-    
     $(function() {
 
       $("#theme-mode").click(function() {
         //pegar atributo class objeto
-         var classMode = $("#theme-mode").attr("class") 
-            if (classMode == "fas fa-sun") {
-              $("body").removeClass("dark-mode");
-              $("#theme-mode").attr("class","fas fa-moon");
-              $("#navtopo").attr("class","main-header navbar navbar-expand navbar-white navbar-light");
-              $("#asideMenu").attr("class","main-sidebar sidebar-light-primary elevation-4");
-            }else{
-              $("body").addClass("dark-mode");
-              $("#theme-mode").attr("class","fas fa-sun");
-              $("#navtopo").attr("class","main-header navbar navbar-expand nav-black navbar-dark");
-              $(" ").attr("class","main-sidebar sidebar-dark-primary elevation-4")
-            }
-        });
-       //-------------
+        var classMode = $("#theme-mode").attr("class")
+        if (classMode == "fas fa-sun") {
+          $("body").removeClass("dark-mode");
+          $("#theme-mode").attr("class", "fas fa-moon");
+          $("#navtopo").attr("class", "main-header navbar navbar-expand navbar-white navbar-light");
+          $("#asideMenu").attr("class", "main-sidebar sidebar-light-primary elevation-4");
+        } else {
+          $("body").addClass("dark-mode");
+          $("#theme-mode").attr("class", "fas fa-sun");
+          $("#navtopo").attr("class", "main-header navbar navbar-expand nav-black navbar-dark");
+          $(" ").attr("class", "main-sidebar sidebar-dark-primary elevation-4")
+        }
+      });
+      //-------------
       //- BAR CHART -
-     //-------------
-     <?php
-     $sql="
+      //-------------
+      <?php
+      $sql = "
      SELECT COUNT(pk_ordem_servico) total,
      DATE_FORMAT(data_ordem_servico,'%b/%Y')mesAno,
      (
@@ -204,68 +202,68 @@ $pagina_ativa = "home";
      GROUP BY DATE_FORMAT(data_ordem_servico,'%m/%Y')
      ORDER BY data_ordem_servico
      ";
-     try{
-      $stmt = $coon->prepare($sql);
-      $stmt->execute();
-      $dados = $stmt->fetchAll(PDO::FETCH_OBJ);
+      try {
+        $stmt = $coon->prepare($sql);
+        $stmt->execute();
+        $dados = $stmt->fetchAll(PDO::FETCH_OBJ);
 
-      $meses = array();
-      $valores = array();
-      foreach($dados as $key => $row){
-        array_push($meses,"'$row->mesAno'");
-        array_push($valores, "'$row->total'");
+        $meses = array();
+        $valores = array();
+        foreach ($dados as $key => $row) {
+          array_push($meses, "'$row->mesAno'");
+          array_push($valores, "'$row->total'");
+        }
+      } catch (PDOException $e) {
+        echo "console.log('" . $e->getMessage() . "');";
       }
-     }catch(PDOException $e){
-     echo "console.log('".$e->getMessage()."');";
-     }
-     ?>
+      ?>
 
 
-     var areaChartData = {
-      labels  : [<?php echo implode(",",$meses);?>],
-      datasets: [{
-          label               : 'Pedidos',
-          backgroundColor     : 'rgba(60,141,188,0.9)',
-          borderColor         : 'rgba(60,141,188,0.8)',
-          pointRadius          : false,
-          pointColor          : '#3b8bba',
-          pointStrokeColor    : 'rgba(60,141,188,1)',
-          pointHighlightFill  : '#fff',
-          pointHighlightStroke: 'rgba(60,141,188,1)',
-          data                : [28, 48, 40, 19, 86, 27, 90]
-        },
-        {
-          label               : 'Pedidos concluidos',
-          backgroundColor     : 'rgba(210, 214, 222, 1)',
-          borderColor         : 'rgba(210, 214, 222, 1)',
-          pointRadius         : false,
-          pointColor          : 'rgba(210, 214, 222, 1)',
-          pointStrokeColor    : '#c1c7d1',
-          pointHighlightFill  : '#fff',
-          pointHighlightStroke: 'rgba(220,220,220,1)',
-          data                : [<?php echo implode(",",$valores);?>]
-        },
-      ]
-    }
+      var areaChartData = {
+        labels: [<?php echo implode(",", $meses); ?>],
+        datasets: [{
+            label: 'Pedidos',
+            backgroundColor: 'rgba(60,141,188,0.9)',
+            borderColor: 'rgba(60,141,188,0.8)',
+            pointRadius: false,
+            pointColor: '#3b8bba',
+            pointStrokeColor: 'rgba(60,141,188,1)',
+            pointHighlightFill: '#fff',
+            pointHighlightStroke: 'rgba(60,141,188,1)',
+            data: [28, 48, 40, 19, 86, 27, 90]
+          },
+          {
+            label: 'Pedidos concluidos',
+            backgroundColor: 'rgba(210, 214, 222, 1)',
+            borderColor: 'rgba(210, 214, 222, 1)',
+            pointRadius: false,
+            pointColor: 'rgba(210, 214, 222, 1)',
+            pointStrokeColor: '#c1c7d1',
+            pointHighlightFill: '#fff',
+            pointHighlightStroke: 'rgba(220,220,220,1)',
+            data: [<?php echo implode(",", $valores); ?>]
+          },
+        ]
+      }
 
-    var barChartCanvas = $('#barChart').get(0).getContext('2d')
-    var barChartData = $.extend(true, {}, areaChartData)
-    var temp0 = areaChartData.datasets[0]
-    var temp1 = areaChartData.datasets[1]
-    barChartData.datasets[0] = temp1
-    barChartData.datasets[1] = temp0
+      var barChartCanvas = $('#barChart').get(0).getContext('2d')
+      var barChartData = $.extend(true, {}, areaChartData)
+      var temp0 = areaChartData.datasets[0]
+      var temp1 = areaChartData.datasets[1]
+      barChartData.datasets[0] = temp1
+      barChartData.datasets[1] = temp0
 
-    var barChartOptions = {
-      responsive              : true,
-      maintainAspectRatio     : false,
-      datasetFill             : false
-    }
+      var barChartOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        datasetFill: false
+      }
 
-    new Chart(barChartCanvas, {
-      type: 'bar',
-      data: barChartData,
-      options: barChartOptions
-    })
+      new Chart(barChartCanvas, {
+        type: 'bar',
+        data: barChartData,
+        options: barChartOptions
+      })
     })
   </script>
 </body>
