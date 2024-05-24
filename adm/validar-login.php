@@ -53,15 +53,17 @@ if ($_POST) {
             $_SESSION["autenticado"] = true;    
             $_SESSION["pk_usuario"] = $row->pk_usuario;
              
+            $nome_completo = $row->nome;
+            $_SESSION["nome_completo"] = $nome_completo;   
             //transforma string em array, aonde tiver espaco ""
             $nome_usuario =  explode(" ",$row->nome);
-            
+       
             //concatena o primeiro nome com o sobrenome do usuario
             $_SESSION["nome_usuario"] = $nome_usuario[0] ." ". end($nome_usuario);
             // $_SESSION["foto_usuario"] = $row->foto;
             $_SESSION["tempo_login"] = time();
              
-            header('Location:index.php');
+            header('Location: ../index.php');
             exit;
         } else {
             $_SESSION["msg"] = 'E-mail e/ou senha invalidos!';

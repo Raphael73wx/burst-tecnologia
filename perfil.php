@@ -1,3 +1,10 @@
+<?php
+include('./adm/verificar-autenticidade.php');
+include('./adm/conexao-pdo.php');
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -22,14 +29,45 @@
                 </div>
             </div>
         </div>
-      <div class="container-md">
+      <div class="container-md container-centro ">
         <div class="row justify-content-start">
-            <div class="col-4"><img src="./assets/imagens/Group 2.png" alt=""></div>
-            <div class="col-8">nome de usuario</div>
+            <div class="col-4"><img src="https://placehold.co/200x200" alt="" class="circular img-fluid"></div>
+            <div class="col-8"><h4><?php echo $_SESSION["nome_completo"]?></h4></div>
         </div>
         <div class="row">
-            <div class="col"></div>
-            <div class="col"></div>
+            <div class="col"><h4>Meu PC</h4></div>
+            <div class="col">
+            <div class="owl-carousel owl-theme">
+            <div class="item">
+                <div class="card">
+                    <a href="produtos.html"><img src="https://placehold.co/100x100" alt="Avatar" style="width:100%"></a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="card">
+                    <a href="produtos.html"><img src="https://placehold.co/100x100" alt="Avatar" style="width:100%"></a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="card">
+                    <a href="produtos.html"><img src="https://placehold.co/100x100" alt="Avatar" style="width:100%"></a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="card">
+                    <a href="produtos.html"><img src="https://placehold.co/100x100" alt="Avatar" style="width:100%"></a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="card">
+                    <a href="produtos.html"><img src="https://placehold.co/100x100" alt="Avatar" style="width:100%"></a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="card">
+                    <a href="produtos.html"><img src="https://placehold.co/100x100" alt="Avatar" style="width:100%"></a>
+                </div>
+            </div>
         </div>
         <div class="row">
             <div class="col"></div>
@@ -66,6 +104,16 @@
 </html>
 
 <!-- <div class="login conta">
+
+  <div class="row mb-3">
+                                                    <div class="col">
+                                                        <label for="foto" class="form-label">Foto</label>
+                                                        <div class="custom-file">
+                                                            <input type="file" class="custom-file-input" name="foto" id="foto">
+                                                            <label class="custom-file-label" for="customFile">Selecionar foto</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
     <div class="row1">
         <div class="col-4"><i class="bi bi2 bi-person"></i></div>
         <div class="col-8"><span>nome de usuario</span></div>

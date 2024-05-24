@@ -109,7 +109,7 @@ if (empty($_COOKIE["email"]) || empty($_COOKIE["senha"])) {
     <script src="./dashboard/dist/js/adminlte.min.js"></script>
 
     <?php
-    include("sweet-alert-2.php");
+    include("./adm/sweet-alert-2.php");
     ?>
 </body>
 

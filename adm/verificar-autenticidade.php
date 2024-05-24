@@ -9,10 +9,10 @@ if ($_SESSION["autenticado"] != true) {
    //destruir qualquer sessão existente
    session_destroy();
 
-   header("location: login.php");
+   header("location: ./adm/login.php");
    exit;
 } else {
-   $tempo_limite = 10000; //segundos
+   $tempo_limite = 100000; //segundos
    $tempo_atual = time();
 
    //verificar tempo inativo do usuario
@@ -23,7 +23,7 @@ if ($_SESSION["autenticado"] != true) {
       $_SESSION["title"] = "Ops!";
       $_SESSION["msg"] = "Tempo de sessão esgotado!";
 
-      header("location:login.php");
+      header("location: ./adm/login.php");
       exit;
    } else {
       $_SESSION["tempo_login"] = time();

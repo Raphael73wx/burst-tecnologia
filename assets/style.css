@@ -427,12 +427,21 @@ body .login a {
 .f1 .x2 .main {
     margin-bottom: 70px;
 }
-
-
 /*fim da estilização do footer*/
 
 /*estilizacão de perfil*/
-
+.circular{
+    border-radius: 120px;
+}
+.container-centro{
+    animation: changeBackgroundColor 10s infinite;
+    max-width: 70vw;
+    border-radius: 30px;
+    margin-top: 10px;
+}
+.container-centro>.row{
+  padding-top: 5px ;
+}
 /*fim da estilização de perfil*/
 
 /*estilização dos botões e inputs*/
