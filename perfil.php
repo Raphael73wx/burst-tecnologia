@@ -7,6 +7,7 @@ include('./adm/conexao-pdo.php');
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +17,7 @@ include('./adm/conexao-pdo.php');
     <link rel="stylesheet" href="assets/style.css">
     <title>conta</title>
 </head>
+
 <body>
     <div class="container-fluid ">
         <div class="topo" id="#topo">
@@ -29,57 +31,109 @@ include('./adm/conexao-pdo.php');
                 </div>
             </div>
         </div>
-      <div class="container-md container-centro ">
-        <div class="row justify-content-start">
-            <div class="col-4"><img src="https://placehold.co/200x200" alt="" class="circular img-fluid"></div>
-            <div class="col-8"><h4><?php echo $_SESSION["nome_completo"]?></h4></div>
+        <div class="container-md container-centro ">
+            <div class="row justify-content-start">
+                <div class="col-4"><img src="https://placehold.co/200x200" alt="" class="circular img-fluid"></div>
+                <div class="col-8 name">
+                    <h4><?php echo $_SESSION["nome_completo"] ?></h4>
+                    <div class="btn-group">
+                        <button class="btn btn-default dropdown-toggle dropdown-toggle" type="button" data-toggle="dropdown">
+                            <i class="bi bi-tools"></i>
+                        </button>
+                        <div class="dropdown-menu" role="menu">
+                            <a class="dropdown-item" href="">
+                                <i class="bi bi-pencil"></i>Editar
+                            </a>
+                            <a class="dropdown-item" href="">
+                                <i class="bi bi-trash"></i>Remover
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h4>Meu PC</h4>
+                </div>
+                <div class="col">
+                    <div class="owl-carousel owl-theme">
+                        <div class="item">
+                            <div class="card">
+                                <a href="produtos.html"><img src="https://placehold.co/100x100" alt="Avatar" style="width:100%"></a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="card">
+                                <a href="produtos.html"><img src="https://placehold.co/100x100" alt="Avatar" style="width:100%"></a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="card">
+                                <a href="produtos.html"><img src="https://placehold.co/100x100" alt="Avatar" style="width:100%"></a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="card">
+                                <a href="produtos.html"><img src="https://placehold.co/100x100" alt="Avatar" style="width:100%"></a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="card">
+                                <a href="produtos.html"><img src="https://placehold.co/100x100" alt="Avatar" style="width:100%"></a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="card">
+                                <a href="produtos.html"><img src="https://placehold.co/100x100" alt="Avatar" style="width:100%"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h4>recomendações</h4>
+                    </div>
+                    <div class="col">
+                        <div class="owl-carousel owl-theme">
+                            <div class="item">
+                                <div class="card">
+                                    <a href="produtos.html"><img src="https://placehold.co/100x100" alt="Avatar" style="width:100%"></a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card">
+                                    <a href="produtos.html"><img src="https://placehold.co/100x100" alt="Avatar" style="width:100%"></a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card">
+                                    <a href="produtos.html"><img src="https://placehold.co/100x100" alt="Avatar" style="width:100%"></a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card">
+                                    <a href="produtos.html"><img src="https://placehold.co/100x100" alt="Avatar" style="width:100%"></a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card">
+                                    <a href="produtos.html"><img src="https://placehold.co/100x100" alt="Avatar" style="width:100%"></a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card">
+                                    <a href="produtos.html"><img src="https://placehold.co/100x100" alt="Avatar" style="width:100%"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               <?php 
+               include('footer.php;')
+               ?>
+
+            </div>
         </div>
-        <div class="row">
-            <div class="col"><h4>Meu PC</h4></div>
-            <div class="col">
-            <div class="owl-carousel owl-theme">
-            <div class="item">
-                <div class="card">
-                    <a href="produtos.html"><img src="https://placehold.co/100x100" alt="Avatar" style="width:100%"></a>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <a href="produtos.html"><img src="https://placehold.co/100x100" alt="Avatar" style="width:100%"></a>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <a href="produtos.html"><img src="https://placehold.co/100x100" alt="Avatar" style="width:100%"></a>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <a href="produtos.html"><img src="https://placehold.co/100x100" alt="Avatar" style="width:100%"></a>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <a href="produtos.html"><img src="https://placehold.co/100x100" alt="Avatar" style="width:100%"></a>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <a href="produtos.html"><img src="https://placehold.co/100x100" alt="Avatar" style="width:100%"></a>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col"></div>
-            <div class="col"></div>
-        </div>
-        <div class="row">
-            <div class="col"></div>
-            <div class="col"></div>
-        </div>
-      </div>
-    
-    </div>
 
 
 
@@ -96,11 +150,12 @@ include('./adm/conexao-pdo.php');
 
 
 
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="vendor/OwlCarousel/owl.carousel.min.js"></script>
-    <script src="assets/main.js"></script>
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="vendor/OwlCarousel/owl.carousel.min.js"></script>
+        <script src="assets/main.js"></script>
 </body>
+
 </html>
 
 <!-- <div class="login conta">

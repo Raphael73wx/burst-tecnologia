@@ -442,6 +442,12 @@ body .login a {
 .container-centro>.row{
   padding-top: 5px ;
 }
+.name{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
 /*fim da estilização de perfil*/
 
 /*estilização dos botões e inputs*/
