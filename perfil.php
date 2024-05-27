@@ -22,7 +22,7 @@ include('./adm/conexao-pdo.php');
     <div class="container-fluid ">
         <div class="topo" id="#topo">
             <div class="mae">
-                <a href="index.html"><img src="assets/imagens/Group 3.png" alt="logo"></a>
+                <a href="index.php"><img src="assets/imagens/Group 3.png" alt="logo"></a>
                 <div class="mae2">
                     <ul>
                         <li><a href="busca.php"><i class="bi bi-search"></i></a></li>

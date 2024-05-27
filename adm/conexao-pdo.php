@@ -4,7 +4,7 @@ define('username','root');
 define('password','');
 try {
     $coon = new PDO('mysql:host=localhost;
-    dbname=busrt',
+    dbname=burst',
     username,
     password
 );
