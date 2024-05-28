@@ -5,7 +5,7 @@ include('verificar-autenticidade.php');
 session_start();
 session_destroy();
 
-header("location: ". caminhoURL ."login.php")
+header("location: ". caminhoURL2 ."login.php")
 
 
 

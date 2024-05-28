@@ -34,21 +34,20 @@ include('./adm/conexao-pdo.php');
         <div class="container-md container-centro ">
             <div class="row justify-content-start">
                 <div class="col-4"><img src="https://placehold.co/200x200" alt="" class="circular img-fluid"></div>
-                <div class="col-8 name">
+                <div class="col-6 name">
                     <h4><?php echo $_SESSION["nome_completo"] ?></h4>
-                    <div class="btn-group">
-                        <button class="btn btn-default dropdown-toggle dropdown-toggle" type="button" data-toggle="dropdown">
-                            <i class="bi bi-tools"></i>
-                        </button>
-                        <div class="dropdown-menu" role="menu">
-                            <a class="dropdown-item" href="">
-                                <i class="bi bi-pencil"></i>Editar
-                            </a>
-                            <a class="dropdown-item" href="">
-                                <i class="bi bi-trash"></i>Remover
-                            </a>
-                        </div>
-                    </div>
+                </div>
+                <div class="col-2 name">
+                    <a href="editar.php" class="btn btn-default " type="button" data-toggle="dropdown">
+                        <i class="bi bi-gear-fill icones"></i>
+                    </a>
+                    <a href="<?php echo caminhoURL2 ?>pedidos.php" class="nav-link flex">
+                        <i class="nav-icon bi bi-box-seam text-success  mr-1 icones"></i>
+                            <span class="right badge badge-danger">5</span>
+                    </a>
+                    <a href="adm/logout.php" class="btn btn-default " type="button" data-toggle="dropdown">
+                        <i class="bi bi-box-arrow-right icones"></i>
+                    </a>
                 </div>
             </div>
             <div class="row">
@@ -128,28 +127,11 @@ include('./adm/conexao-pdo.php');
                         </div>
                     </div>
                 </div>
-               <?php 
-               include('footer.php;')
-               ?>
-
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        <?php
+        include('adm/footer.php')
+        ?>
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
         <script src="vendor/OwlCarousel/owl.carousel.min.js"></script>

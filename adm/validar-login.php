@@ -70,7 +70,7 @@ if ($_POST) {
             $_SESSION["tipo"] = 'error';
             $_SESSION["title"] = 'ops!';
 
-            header('Location:login.php');
+            header('Location: ../login.php');
             exit;
         }
     }

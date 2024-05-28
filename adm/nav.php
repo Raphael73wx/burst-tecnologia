@@ -107,7 +107,7 @@ try {
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="<?php echo caminhoURL;?>logout.php">
+      <a class="nav-link" href="<?php echo caminhoURL2;?>logout.php">
         <i class="fas fa-sign-out-alt"></i>
       </a>
     </li>
