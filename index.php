@@ -680,6 +680,9 @@ include('./adm/conexao-pdo.php');
             </div>
         </section>
         <div class="faixa"></div>
+        <?php
+        include("./adm/footer.php") 
+        ?>
         
     </div>
 

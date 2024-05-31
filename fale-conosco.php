@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid ">
         <div class="topo" id="#topo">
             <div class="mae">
                 <a href="index.php"><img src="assets/imagens/Group 3.png" alt="logo"></a>
@@ -25,7 +25,43 @@
                 </div>
             </div>
         </div>
-        <div class="pai">
+        <div class="container-md container-centro ">
+            <div class="row justify-content-start compras">
+                <h4>compras:</h4>
+            </div>
+            <div class="row">
+                <a href="" class="linha1">
+                    <div class="col-3"><i class="bi bi-bag-x-fill"></i></div>
+                    <div class="col-8"><h5>cancelar compras</h5></div>
+                    <div class="col-1"><i class="bi bi-caret-right-fill"></i></div>
+                </a>
+            </div>
+            <div class="row">
+                <a href="">
+                    devoluçao de compras
+                </a>
+            </div>
+            <div class="row">
+                <a href="">
+                    reembolso
+                </a>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h4>Meu PC</h4>
+                </div>
+                <div class="col">
+                </div>
+                <div class="row">
+                </div>
+            </div>
+        </div>
+ 
+
+    </div>
+
+<!-- 
+    <div class="pai">
             <form method="get" class="meio">
                 <div>
                     <h3>Para receber ajuda :</h3>
@@ -57,10 +93,7 @@
                 </div>
 
             </form>
-        </div>
-
-    </div>
-
+        </div> -->
 
 
 

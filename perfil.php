@@ -34,10 +34,10 @@ include('./adm/conexao-pdo.php');
         <div class="container-md container-centro ">
             <div class="row justify-content-start">
                 <div class="col-4"><img src="https://placehold.co/200x200" alt="" class="circular img-fluid"></div>
-                <div class="col-6 name">
+                <div class="col-5 name">
                     <h4><?php echo $_SESSION["nome_completo"] ?></h4>
                 </div>
-                <div class="col-2 name">
+                <div class="col-3 name">
                     <a href="editar.php" class="btn btn-default " type="button" data-toggle="dropdown">
                         <i class="bi bi-gear-fill icones"></i>
                     </a>
@@ -88,7 +88,7 @@ include('./adm/conexao-pdo.php');
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row pa">
                     <div class="col">
                         <h4>recomendações</h4>
                     </div>

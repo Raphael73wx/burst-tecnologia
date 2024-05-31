@@ -57,7 +57,6 @@ if ($_POST) {
             $_SESSION["nome_completo"] = $nome_completo;   
             //transforma string em array, aonde tiver espaco ""
             $nome_usuario =  explode(" ",$row->nome);
-       
             //concatena o primeiro nome com o sobrenome do usuario
             $_SESSION["nome_usuario"] = $nome_usuario[0] ." ". end($nome_usuario);
             // $_SESSION["foto_usuario"] = $row->foto;
