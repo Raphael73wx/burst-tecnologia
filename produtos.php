@@ -1,3 +1,7 @@
+<?php
+include('./adm/verificar-autenticidade.php');
+include('./adm/conexao-pdo.php');
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -82,8 +86,7 @@
                 <div class="z1">
                     <div class="col4 b2">
                         <div>
-                            <h5>Fonte MSI MAG A650BN, ATX, 650W, 80 PLUS Bronze, PFC Ativo, Entrada Bivolt, Preto -
-                                306-7ZP2B22-CE0</h5>
+                            <h5></h5>
                         </div>
                         <div class="estrelas">
                             <div class="star"><i class="bi bi-star-fill"></i></div>

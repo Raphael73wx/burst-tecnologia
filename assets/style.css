@@ -31,12 +31,12 @@ body {
 /*estilo da nav usada em todas as paginas*/
 .topo {
     width: 100%;
-    height: 10vh;
+    height: 70px;
     animation: changeBackgroundColor 10s infinite;
 }
-/* .mae>a>.img-logo{
+.mae>a>.img-logo{
     height: 50px;
-} */
+} 
 .topo>.bi-person {
     margin-right: 20px;
     font-size: 35px;
@@ -49,20 +49,20 @@ body {
 
 body .topo .mae a,
 body .topo .mae a {
-    margin-top: 10px;
+    margin-top: 6px;
     margin-left: 15px;
-}
+} 
 
 .logo {
     margin: 30px
-}
+} 
 
-.topo>.mae {
+ .topo>.mae {
     display: flex;
     justify-content: space-between;
-}
+} 
 
-.topo>.mae ul {
+ .topo>.mae ul {
     list-style: none;
     display: inline-block;
     margin-top: 0;
@@ -92,17 +92,34 @@ body .topo .mae a {
     margin-top: 10px;
 }
 
-/*Fim do estilo da navbar*/
+/*Fim do estilo da navbar
 
 /* comeco da pagina de s.o.s */
-.linha1{
+.compras{
+    padding-left: 20px;
+}
+.linha{
     display: flex;
     flex-direction: row;
 }
-.linha1>div>i{
+.linha>div>i{
    font-size: 25px;
 }
+.linha>.so{
+   padding-left: 40px;
+}   
+.container-centro div a{
+    text-decoration: none;
+    color: black;
+}
+.container-centro .linha:hover{
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 
+}
+.st{
+    display: flex;
+    justify-content: center;
+}
 
 /*fim da pagina s.o.s*/
 
