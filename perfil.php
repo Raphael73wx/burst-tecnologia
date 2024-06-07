@@ -20,17 +20,7 @@ include('./adm/conexao-pdo.php');
 
 <body>
     <div class="container-fluid ">
-        <div class="topo" id="#topo">
-            <div class="mae">
-                <a href="index.php"><img src="assets/imagens/Group 3.png" alt="logo"></a>
-                <div class="mae2">
-                    <ul>
-                        <li><a href="busca.php"><i class="bi bi-search"></i></a></li>
-                        <li><a href="carrinho.php"><i class="bi bi-cart3"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+    <?php include("nav.php");?>
         <div class="container-md container-centro ">
             <div class="row justify-content-start">
                 <div class="col-4"><img src="https://placehold.co/200x200" alt="" class="circular img-fluid"></div>

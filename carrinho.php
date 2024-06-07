@@ -1,3 +1,9 @@
+<?php
+include('./adm/verificar-autenticidade.php');
+include('./adm/conexao-pdo.php');
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -14,18 +20,7 @@
 
 <body>
      <div class="container-fluid">
-          <div class="topo" id="#topo">
-               <div class="mae">
-                   <a href="index.php"><img src="assets/imagens/Group 3.png" alt="logo"></a>
-                   <div class="mae2">
-                       <ul>
-                           <li><a href="busca.php"><i class="bi bi-search"></i></a></li>
-                           <li><a href="carrinho.php"><i class="bi bi-cart3"></i></a></li>
-                           <li><a href="tela_login.php"><i class="bi bi2 bi-person"></i></a></li>
-                       </ul>
-                   </div>
-               </div>
-           </div>
+     <?php include("nav.php");?>
           <div class="centro">
                <div class="produtos">
                     <img src="" alt="">

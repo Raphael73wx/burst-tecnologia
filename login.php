@@ -10,7 +10,6 @@ if (empty($_COOKIE["email"]) || empty($_COOKIE["senha"])) {
     $email = $_COOKIE["email"];
     $senha = $_COOKIE["senha"];
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

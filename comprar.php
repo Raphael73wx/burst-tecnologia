@@ -1,3 +1,9 @@
+<?php
+include('./adm/verificar-autenticidade.php');
+include('./adm/conexao-pdo.php');
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
