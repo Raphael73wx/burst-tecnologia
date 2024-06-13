@@ -18,13 +18,13 @@ include('./adm/conexao-pdo.php');
     <title>conta</title>
 </head>
 
-<body>
+<body class="temp">
     <div class="container-fluid ">
-    <?php include("nav.php");?>
+        <div class="barra"><a href="<?php echo caminhoURL?>"><img src="assets/imagens/logonav2.png" alt=""></a></div>
         <div class="container-md container-centro ">
             <div class="row justify-content-start">
-                <div class="col-4"><img src="https://placehold.co/200x200" alt="" class="circular img-fluid"></div>
-                <div class="col-5 name">
+                <div class="col-2"><img src="https://placehold.co/200x200" alt="" class="circular img-fluid"></div>
+                <div class="col-7 name">
                     <h4><?php echo $_SESSION["nome_completo"] ?></h4>
                 </div>
                 <div class="col-3 name">
@@ -119,9 +119,6 @@ include('./adm/conexao-pdo.php');
                 </div>
             </div>
         </div>
-        <?php
-        include('adm/footer.php')
-        ?>
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
         <script src="vendor/OwlCarousel/owl.carousel.min.js"></script>

@@ -52,11 +52,6 @@ body .topo .mae a {
     margin-top: 6px;
     margin-left: 15px;
 } 
-
-.logo {
-    margin: 30px
-} 
-
  .topo>.mae {
     display: flex;
     justify-content: space-between;
@@ -162,107 +157,23 @@ body .topo .mae a {
 /* fim da estilização dos cards*/
 
 /*inicio da estilização da pagina de produtos*/
-.produto {
-    display: flex;
-    flex-direction: row;
-    width: 100vw;
-    height: 80vh;
-}
-
-.produto>.x1 {
-    display: flex;
-    flex-grow: 4;
-    height: 50vh;
+.x1{
     width: 70vw;
-    justify-content: center;
-
-}
-
-.produto>.x1 .img {
-    height: 50vh;
-    width: 25vw;
-    margin: 20px;
-    background-image: url(imagens/2.jpg);
-    background-size: cover;
-    background-position: center;
-
-}
-
-.produto>.x2 {
-    flex-grow: 4;
-    display: flex;
-    flex-direction: column;
-    max-width: 860px;
-}
-
-.produto>.x2>div {
-    margin: 20px;
-    animation: changeBackgroundColor 10s infinite;
+    background-color: #ffff;
     border-radius: 20px;
-    height: 100vh;
+    margin-top: 20px;
+}
+.fundo{
+    background-color: #ebebeb;
 }
 
-.produto>.x2>div .preco {
-    color: #73C300;
-    font-size: 40px;
+.direita{
+    background-color: #3d7a99;
+     border-radius: 20px;
 }
-
-.produto>.x2 div>h5 {
-    color: white;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+.prob{
+    max-width: 550px;
 }
-
-.estrelas {
-    display: flex;
-    flex-direction: row;
-}
-
-.estrelas>.star {
-    padding-left: 5px;
-    font-size: 20px;
-    color: #F2C832;
-}
-
-.comprar {
-    display: flex;
-    width: 120px;
-    background-color: #73C300;
-    border-radius: 10px;
-    margin-left: 10px;
-}
-
-.comprar>div>a {
-    color: white;
-    text-decoration: none;
-}
-
-.comprar h5 {
-    margin: 5px;
-}
-
-.comprar i {
-    padding: 5px;
-    font-size: 20px;
-}
-.z1{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.b2{
-    padding: 10px 0 0 10px;
-}
-.maex{
-    display: flex;
-}
-.maex ul {
-    list-style-type: none;
-}
-.maex ul li  {
-    margin: 5px;
-}
-
-
 /*Fim da pagina de produtos*/
 
 /*estilo do formulario de login/cadastro*/
@@ -356,20 +267,23 @@ body .login a {
 
 .circular{
     border-radius: 120px;
+    margin-bottom: 10px;
 }
 .container-centro{
-    animation: changeBackgroundColor 10s infinite;
     max-width: 70vw;
-    border-radius: 30px;
-    margin-top: 10px;
 }
 .container-centro>.pa{
   padding-top: 5px ;
 }
 .name{
     display: flex;
-    justify-content: center;
     align-items: center;
+    
+}
+.temp{
+    animation: changeBackgroundColor 10s infinite;
+}
+.barra{
     
 }
 /*fim da estilização de perfil*/
