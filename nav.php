@@ -1,6 +1,6 @@
 <div class="topo" id="#topo">
     <div class="mae">
-        <a href="<?php echo caminhoURL?>"><img src="assets/imagens/logonav2.png" alt="logo"></a>
+        <a href="<?php echo caminhoURL?>"><img src="assets/imagens/assetsall/logonav2.png" alt="logo"></a>
         <div class="mae2">
             <ul>
                 <li><a href="<?php echo caminhoURL?>"><i class="bi bi-search"></i></a></li>

@@ -1,6 +1,6 @@
 <footer class="f1">
         <div class="col6 x1">
-            <div><a href="#topo"><img src="assets/imagens/Group 2.png" alt="logo"></a></div>
+            <div><a href="#topo"><img src="assets/imagens/logonav2.png" alt="logo"></a></div>
         </div>
         <div class="col6 x2">
             <div class="main">

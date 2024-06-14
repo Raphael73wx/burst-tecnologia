@@ -30,44 +30,67 @@ include('./adm/conexao-pdo.php');
                             <li class="carousel__slide prob">
                                 <figure>
                                     <div>
-                                        <img src="assets/imagens/monitor/1.jpg" alt="">
+                                        <img src="assets/imagens/1.jpg" alt="">
                                     </div>
                                 </figure>
                             </li>
                             <li class="carousel__slide prob">
                                 <figure>
                                     <div>
-                                        <img src="assets/imagens/monitor/2.jpg" alt="">
+                                        <img src="assets/imagens/2.jpg" alt="">
                                     </div>
                                 </figure>
                             </li>
                             <li class="carousel__slide prob">
                                 <figure>
                                     <div>
-                                        <img src="assets/imagens/monitor/3.jpg" alt="">
+                                        <img src="assets/imagens/3.jpg" alt="">
                                     </div>
                                 </figure>
                             </li>
-    
+
                         </ul>
                         <ul class="carousel__thumbnails">
                             <li>
-                                <label for="slide-1"><img src="assets/imagens/monitor/1.jpg" alt=""></label>
+                                <label for="slide-1"><img src="assets/imagens/1.jpg" alt=""></label>
                             </li>
                             <li>
-                                <label for="slide-2"><img src="assets/imagens/monitor/2.jpg" alt=""></label>
+                                <label for="slide-2"><img src="assets/imagens/2.jpg" alt=""></label>
                             </li>
                             <li>
-                                <label for="slide-3"><img src="assets/imagens/monitor/3.jpg" alt=""></label>
+                                <label for="slide-3"><img src="assets/imagens/3.jpg" alt=""></label>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-6 direita">
-                    
+                    <div class="row">
+                        <h4 class="temp2">
+                            <!-- <?php echo $nome ?> -->
+                            MONITOR GAMER PICHAU ATHEN V3, 24 POL
+                        </h4>
+                    </div>
+                    <div class="linhac"></div>
+                    <div class="row l2">
+                        <div class="col-6">Categoria: software</div>
+                        <div class="col-6 b">Avaliação</div>
+                    </div>
+                    <div class="linhac"></div>
+                    <div class="row">
+                        <div class="col-1 bi1"><i class="bi bi-cash"></i></div>
+                        <div class="col-11 bi3">R$960,99</div>
+                    </div>
+                    <div class="row">
+                        <div class="">
+                            <button class="btnc">
+                            <i class="bi bi-cart3"></i>
+                            <h4>comprar</h4>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        
+
         </div>
 
     </div>

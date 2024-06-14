@@ -174,6 +174,31 @@ body .topo .mae a {
 .prob{
     max-width: 550px;
 }
+.temp2{
+    margin-top: 30px;
+}
+.bi1,
+.bi3{
+    font-size: 40px;
+    color: #00A217;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.linhac{
+    width: 100%;
+    border: 1px solid #202020;
+    margin: 5px;
+}
+.btnc{
+    background-color: #00A217;
+    font-size: 30px;
+    border-radius: 20px;
+    border: none;
+    display: flex;
+    align-items: center;
+}
+.b{
+    text-align: end;
+}
 /*Fim da pagina de produtos*/
 
 /*estilo do formulario de login/cadastro*/
