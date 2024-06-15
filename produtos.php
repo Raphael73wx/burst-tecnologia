@@ -19,7 +19,7 @@ include('./adm/conexao-pdo.php');
 <body class="fundo">
     <div class="container-fluid">
         <?php include("nav.php"); ?>
-        <div class="container-md x1 container-centro ">
+        <div class="container-md x container-centro ">
             <div class="row">
                 <div class="col-6">
                     <div class="carousel">
