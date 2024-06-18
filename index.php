@@ -52,7 +52,7 @@ include('./adm/conexao-pdo.php');
 
 <body>
     <div class="container-fluid">
-    <?php include("nav.php");?>
+        <?php include("nav.php"); ?>
         <div>
             <div id="carouselExample" class="carousel slide ex ">
                 <div class="carousel-inner">
@@ -77,634 +77,76 @@ include('./adm/conexao-pdo.php');
             </div>
         </div>
         <div class="faixa"></div>
-        <section>
-            <div class="owl-carousel owl-theme">
-                <div class="item">
-                    <div class="card">
-                        <a href="produtos.php"><img src="assets/imagens/teste1.jpg" alt="Avatar" style="width:100%"></a>
-                        <div class="container">
-                            <a href="produtos.php">
-                                <h4><b>nome do produto</b></h4>
-                            </a>
-                            <a href="produtos.php">
-                                <p><?php echo $preco?>
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <a href="produtos.php"><img src="assets/imagens/teste1.jpg" alt="Avatar" style="width:100%"></a>
-                        <div class="container">
-                            <a href="produtos.php">
-                                <h4><b>nome do produto</b></h4>
-                            </a>
-                            <a href="produtos.php">
-                                <p>R$
-                                    3.499
-                                    ,
-                                    20
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <a href="produtos.php"><img src="assets/imagens/teste1.jpg" alt="Avatar" style="width:100%"></a>
-                        <div class="container">
-                            <a href="produtos.php">
-                                <h4><b>nome do produto</b></h4>
-                            </a>
-                            <a href="produtos.php">
-                                <p>R$
-                                    3.499
-                                    ,
-                                    20
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <a href="produtos.php"><img src="assets/imagens/teste1.jpg" alt="Avatar" style="width:100%"></a>
-                        <div class="container">
-                            <a href="produtos.php">
-                                <h4><b>nome do produto</b></h4>
-                            </a>
-                            <a href="produtos.php">
-                                <p>R$
-                                    3.499
-                                    ,
-                                    20
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <a href="produtos.php"><img src="assets/imagens/teste1.jpg" alt="Avatar" style="width:100%"></a>
-                        <div class="container">
-                            <a href="produtos.php">
-                                <h4><b>nome do produto</b></h4>
-                            </a>
-                            <a href="produtos.php">
-                                <p>R$
-                                    3.499
-                                    ,
-                                    20
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <a href="produtos.php"><img src="assets/imagens/teste1.jpg" alt="Avatar" style="width:100%"></a>
-                        <div class="container">
-                            <a href="produtos.php">
-                                <h4><b>nome do produto</b></h4>
-                            </a>
-                            <a href="produtos.php">
-                                <p>R$
-                                    3.499
-                                    ,
-                                    20
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <a href="produtos.php"><img src="assets/imagens/teste1.jpg" alt="Avatar" style="width:100%"></a>
-                        <div class="container">
-                            <a href="produtos.php">
-                                <h4><b>nome do produto</b></h4>
-                            </a>
-                            <a href="produtos.php">
-                                <p>R$
-                                    3.499
-                                    ,
-                                    20
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <a href="produtos.php"><img src="assets/imagens/teste1.jpg" alt="Avatar" style="width:100%"></a>
-                        <div class="container">
-                            <a href="produtos.php">
-                                <h4><b>nome do produto</b></h4>
-                            </a>
-                            <a href="produtos.php">
-                                <p>R$
-                                    3.499
-                                    ,
-                                    20
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <a href="produtos.php"><img src="assets/imagens/teste1.jpg" alt="Avatar" style="width:100%"></a>
-                        <div class="container">
-                            <a href="produtos.php">
-                                <h4><b>nome do produto</b></h4>
-                            </a>
-                            <a href="produtos.php">
-                                <p>R$
-                                    3.499
-                                    ,
-                                    20
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <a href="produtos.php"><img src="assets/imagens/teste1.jpg" alt="Avatar" style="width:100%"></a>
-                        <div class="container">
-                            <a href="produtos.php">
-                                <h4><b>nome do produto</b></h4>
-                            </a>
-                            <a href="produtos.php">
-                                <p>R$
-                                    3.499
-                                    ,
-                                    20
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <a href="produtos.php"><img src="assets/imagens/teste1.jpg" alt="Avatar" style="width:100%"></a>
-                        <div class="container">
-                            <a href="produtos.php">
-                                <h4><b>nome do produto</b></h4>
-                            </a>
-                            <a href="produtos.php">
-                                <p>R$
-                                    3.499
-                                    ,
-                                    20
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <a href="produtos.php"><img src="assets/imagens/teste1.jpg" alt="Avatar" style="width:100%"></a>
-                        <div class="container">
-                            <a href="produtos.php">
-                                <h4><b>nome do produto</b></h4>
-                            </a>
-                            <a href="produtos.php">
-                                <p>R$
-                                    3.499
-                                    ,
-                                    20
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="faixa"></div>
-        <section>
-            <div class="owl-carousel owl-theme">
-                <div class="item">
-                    <div class="card">
-                        <a href="produtos.php"><img src="assets/imagens/teste1.jpg" alt="Avatar" style="width:100%"></a>
-                        <div class="container">
-                            <a href="produtos.php">
-                                <h4><b>nome do produto</b></h4>
-                            </a>
-                            <a href="produtos.php">
-                                <p>R$
-                                    3.499
-                                    ,
-                                    20
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <a href="produtos.php"><img src="assets/imagens/teste1.jpg" alt="Avatar" style="width:100%"></a>
-                        <div class="container">
-                            <a href="produtos.php">
-                                <h4><b>nome do produto</b></h4>
-                            </a>
-                            <a href="produtos.php">
-                                <p>R$
-                                    3.499
-                                    ,
-                                    20
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <a href="produtos.php"><img src="assets/imagens/teste1.jpg" alt="Avatar" style="width:100%"></a>
-                        <div class="container">
-                            <a href="produtos.php">
-                                <h4><b>nome do produto</b></h4>
-                            </a>
-                            <a href="produtos.php">
-                                <p>R$
-                                    3.499
-                                    ,
-                                    20
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <a href="produtos.php"><img src="assets/imagens/teste1.jpg" alt="Avatar" style="width:100%"></a>
-                        <div class="container">
-                            <a href="produtos.php">
-                                <h4><b>nome do produto</b></h4>
-                            </a>
-                            <a href="produtos.php">
-                                <p>R$
-                                    3.499
-                                    ,
-                                    20
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <a href="produtos.php"><img src="assets/imagens/teste1.jpg" alt="Avatar" style="width:100%"></a>
-                        <div class="container">
-                            <a href="produtos.php">
-                                <h4><b>nome do produto</b></h4>
-                            </a>
-                            <a href="produtos.php">
-                                <p>R$
-                                    3.499
-                                    ,
-                                    20
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <a href="produtos.php"><img src="assets/imagens/teste1.jpg" alt="Avatar" style="width:100%"></a>
-                        <div class="container">
-                            <a href="produtos.php">
-                                <h4><b>nome do produto</b></h4>
-                            </a>
-                            <a href="produtos.php">
-                                <p>R$
-                                    3.499
-                                    ,
-                                    20
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <a href="produtos.php"><img src="assets/imagens/teste1.jpg" alt="Avatar" style="width:100%"></a>
-                        <div class="container">
-                            <a href="produtos.php">
-                                <h4><b>nome do produto</b></h4>
-                            </a>
-                            <a href="produtos.php">
-                                <p>R$
-                                    3.499
-                                    ,
-                                    20
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <a href="produtos.php"><img src="assets/imagens/teste1.jpg" alt="Avatar" style="width:100%"></a>
-                        <div class="container">
-                            <a href="produtos.php">
-                                <h4><b>nome do produto</b></h4>
-                            </a>
-                            <a href="produtos.php">
-                                <p>R$
-                                    3.499
-                                    ,
-                                    20
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <a href="produtos.php"><img src="assets/imagens/teste1.jpg" alt="Avatar" style="width:100%"></a>
-                        <div class="container">
-                            <a href="produtos.php">
-                                <h4><b>nome do produto</b></h4>
-                            </a>
-                            <a href="produtos.php">
-                                <p>R$
-                                    3.499
-                                    ,
-                                    20
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <a href="produtos.php"><img src="assets/imagens/teste1.jpg" alt="Avatar" style="width:100%"></a>
-                        <div class="container">
-                            <a href="produtos.php">
-                                <h4><b>nome do produto</b></h4>
-                            </a>
-                            <a href="produtos.php">
-                                <p>R$
-                                    3.499
-                                    ,
-                                    20
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <a href="produtos.php"><img src="assets/imagens/teste1.jpg" alt="Avatar" style="width:100%"></a>
-                        <div class="container">
-                            <a href="produtos.php">
-                                <h4><b>nome do produto</b></h4>
-                            </a>
-                            <a href="produtos.php">
-                                <p>R$
-                                    3.499
-                                    ,
-                                    20
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <a href="produtos.php"><img src="assets/imagens/teste1.jpg" alt="Avatar" style="width:100%"></a>
-                        <div class="container">
-                            <a href="produtos.php">
-                                <h4><b>nome do produto</b></h4>
-                            </a>
-                            <a href="produtos.php">
-                                <p>R$
-                                    3.499
-                                    ,
-                                    20
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="faixa"></div>
-        <section>
-            <div class="owl-carousel owl-theme">
-                <div class="item">
-                    <div class="card">
-                        <a href="produtos.php"><img src="assets/imagens/teste1.jpg" alt="Avatar" style="width:100%"></a>
-                        <div class="container">
-                            <a href="produtos.php">
-                                <h4><b>nome do produto</b></h4>
-                            </a>
-                            <a href="produtos.php">
-                                <p>R$
-                                    3.499
-                                    ,
-                                    20
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <a href="produtos.php"><img src="assets/imagens/teste1.jpg" alt="Avatar" style="width:100%"></a>
-                        <div class="container">
-                            <a href="produtos.php">
-                                <h4><b>nome do produto</b></h4>
-                            </a>
-                            <a href="produtos.php">
-                                <p>R$
-                                    3.499
-                                    ,
-                                    20
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <a href="produtos.php"><img src="assets/imagens/teste1.jpg" alt="Avatar" style="width:100%"></a>
-                        <div class="container">
-                            <a href="produtos.php">
-                                <h4><b>nome do produto</b></h4>
-                            </a>
-                            <a href="produtos.php">
-                                <p>R$
-                                    3.499
-                                    ,
-                                    20
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <a href="produtos.php"><img src="assets/imagens/teste1.jpg" alt="Avatar" style="width:100%"></a>
-                        <div class="container">
-                            <a href="produtos.php">
-                                <h4><b>nome do produto</b></h4>
-                            </a>
-                            <a href="produtos.php">
-                                <p>R$
-                                    3.499
-                                    ,
-                                    20
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <a href="produtos.php"><img src="assets/imagens/teste1.jpg" alt="Avatar" style="width:100%"></a>
-                        <div class="container">
-                            <a href="produtos.php">
-                                <h4><b>nome do produto</b></h4>
-                            </a>
-                            <a href="produtos.php">
-                                <p>R$
-                                    3.499
-                                    ,
-                                    20
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <a href="produtos.php"><img src="assets/imagens/teste1.jpg" alt="Avatar" style="width:100%"></a>
-                        <div class="container">
-                            <a href="produtos.php">
-                                <h4><b>nome do produto</b></h4>
-                            </a>
-                            <a href="produtos.php">
-                                <p>R$
-                                    3.499
-                                    ,
-                                    20
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <a href="produtos.php"><img src="assets/imagens/teste1.jpg" alt="Avatar" style="width:100%"></a>
-                        <div class="container">
-                            <a href="produtos.php">
-                                <h4><b>nome do produto</b></h4>
-                            </a>
-                            <a href="produtos.php">
-                                <p>R$
-                                    3.499
-                                    ,
-                                    20
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <a href="produtos.php"><img src="assets/imagens/teste1.jpg" alt="Avatar" style="width:100%"></a>
-                        <div class="container">
-                            <a href="produtos.php">
-                                <h4><b>nome do produto</b></h4>
-                            </a>
-                            <a href="produtos.php">
-                                <p>R$
-                                    3.499
-                                    ,
-                                    20
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <a href="produtos.php"><img src="assets/imagens/teste1.jpg" alt="Avatar" style="width:100%"></a>
-                        <div class="container">
-                            <a href="produtos.php">
-                                <h4><b>nome do produto</b></h4>
-                            </a>
-                            <a href="produtos.php">
-                                <p>R$
-                                    3.499
-                                    ,
-                                    20
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <a href="produtos.php"><img src="assets/imagens/teste1.jpg" alt="Avatar" style="width:100%"></a>
-                        <div class="container">
-                            <a href="produtos.php">
-                                <h4><b>nome do produto</b></h4>
-                            </a>
-                            <a href="produtos.php">
-                                <p>R$
-                                    3.499
-                                    ,
-                                    20
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <a href="produtos.php"><img src="assets/imagens/teste1.jpg" alt="Avatar" style="width:100%"></a>
-                        <div class="container">
-                            <a href="produtos.php">
-                                <h4><b>nome do produto</b></h4>
-                            </a>
-                            <a href="produtos.php">
-                                <p>R$
-                                    3.499
-                                    ,
-                                    20
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <a href="produtos.php"><img src="assets/imagens/teste1.jpg" alt="Avatar" style="width:100%"></a>
-                        <div class="container">
-                            <a href="produtos.php">
-                                <h4><b>nome do produto</b></h4>
-                            </a>
-                            <a href="produtos.php">
-                                <p>R$
-                                    3.499
-                                    ,
-                                    20
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="faixa"></div>
+
         <?php
-        include("./adm/footer.php") 
+
+        try {
+            $sql = "
+            SELECT p.pk_produto , p.preco , p.nome_do_produto , p.foto ,
+            c.categoria
+            FROM produto p
+            JOIN categoria c ON p.fk_categoria = c.pk_categoria
+            ORDER BY c.categoria , p.nome_do_produto
+            ";
+
+            $stmt = $coon->prepare($sql);
+            $stmt->execute();
+
+            $dados = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+            $nome_categoria = "";
+
+            if ($stmt->rowCount() > 0) {
+
+                foreach ($dados as $key => $row) {
+                    
+                    if ($nome_categoria != $row->categoria) {
+                        if(!empty($nome_categoria)) {
+                            echo '
+                            </div>
+                            </section>
+                            <div class="faixa"></div>
+                            ';
+                        }
+                        echo '
+                        <section>
+                            <h2 class="h2f">'.$row->categoria.'</h2>
+                            <div class="owl-carousel owl-theme">
+                        ';
+                    }
+    
+                    echo '
+                    <div class="item">
+                        <div class="card">
+                            <a href="produtos.php?ref='.$row->pk_produto.'">
+                                <img src="assets/imagens/'.$row->foto.'" alt="'.$row->nome_do_produto.'" style="width:100%">
+                                <div class="container">
+                                    <h4><b>'.$row->nome_do_produto.'</b></h4>
+                                    <p>'.$row->preco.'</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    ';
+
+                    $nome_categoria = $row->categoria;
+                }
+
+                echo '
+                </div>
+                </section>
+                <div class="faixa"></div>
+                ';
+
+            }
+
+        } catch (PDOException $ex) {
+            echo $ex->getMessage();
+        }
+
+        include("./adm/footer.php")
         ?>
-        
+
     </div>
 
 

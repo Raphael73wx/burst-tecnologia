@@ -1,8 +1,8 @@
 
 //carrossel de produtos :
 $('.owl-carousel').owlCarousel({
-    loop:true,
-    margin:10,
+    loop:false,
+    margin:5,
     nav:true,
     responsive:{
         0:{
@@ -21,7 +21,7 @@ $('.loop').owlCarousel({
     center: true,
     items:2,
     loop:true,
-    margin:10,
+    margin:5,
     responsive:{
         600:{
             items:4
@@ -32,7 +32,7 @@ $('.nonloop').owlCarousel({
     center: true,
     items:2,
     loop:false,
-    margin:10,
+    margin:5,
     responsive:{
         600:{
             items:4
