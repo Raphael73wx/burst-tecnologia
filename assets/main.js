@@ -2,7 +2,7 @@
 //carrossel de produtos :
 $('.owl-carousel').owlCarousel({
     loop:false,
-    margin:5,
+    margin:10,
     nav:true,
     responsive:{
         0:{

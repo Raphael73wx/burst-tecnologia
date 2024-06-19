@@ -110,7 +110,7 @@ include('./adm/conexao-pdo.php');
                         }
                         echo '
                         <section>
-                            <h2 class="h2f">'.$row->categoria.'</h2>
+                            <h2 class="h2f">'. $row->categoria .'</h2>
                             <div class="owl-carousel owl-theme">
                         ';
                     }
@@ -118,10 +118,10 @@ include('./adm/conexao-pdo.php');
                     echo '
                     <div class="item">
                         <div class="card">
-                            <a href="produtos.php?ref='.$row->pk_produto.'">
+                            <a href="produtos.php?ref='.base64_encode($row->pk_produto).'">
                                 <img src="assets/imagens/'.$row->foto.'" alt="'.$row->nome_do_produto.'" style="width:100%">
                                 <div class="container">
-                                    <h4><b>'.$row->nome_do_produto.'</b></h4>
+                                    <h5><b>'.$row->nome_do_produto.'</b></h5>
                                     <p>'.$row->preco.'</p>
                                 </div>
                             </a>
