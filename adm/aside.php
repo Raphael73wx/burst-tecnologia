@@ -40,6 +40,16 @@
                 <span class="right badge badge-danger"><?php echo $tp;?></span>
               </p>
             </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?php echo caminhoURL2?>produtos/" class="nav-link <?php echo $pagina_ativa == 'produtos'? 'active' : ''; ?>">
+              <i class="nav-icon bi bi-box-seam text-success  mr-1 "></i>
+              <p>
+                  produtos
+                <!-- <span class="right badge badge-danger"></span> -->
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
