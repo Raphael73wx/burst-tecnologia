@@ -21,6 +21,11 @@ if ($_POST) {
 
             $novo_nome = array('','','');
 
+            // for($i=0;$i<count($fotos);$i++) {
+            //     var_dump($fotos['name'][$i]);
+            // }
+            // exit;
+
             foreach ($fotos as $key => $foto) {
 
                 var_dump($foto);exit;
