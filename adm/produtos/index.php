@@ -71,7 +71,7 @@ $pagina_ativa = "produtos";
                         <td>Categoria</td>
                         <td>Nome </td>
                         <td>Preco</td>
-                        <td>foto</td>
+                        <td>foto 1</td>
                         <td>foto 2 </td>
                         <td>foto 3 </td>
                       </tr>

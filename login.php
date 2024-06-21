@@ -11,104 +11,52 @@ if (empty($_COOKIE["email"]) || empty($_COOKIE["senha"])) {
     $senha = $_COOKIE["senha"];
 }
 ?>
+
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
-
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="./dashboard/dist/plugins/fontawesome-free/css/all.min.css">
-    <!-- sweet Alert 2  -->
-    <link rel="stylesheet" href="./dashboard/dist/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
-    <!-- icheck bootstrap -->
-    <link rel="stylesheet" href="./dashboard/dist/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="./dashboard/dist/css/adminlte.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/OwlCarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="vendor/OwlCarousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>login</title>
 </head>
 
-<body class="hold-transition login-page dark-mode">
-    <div class="login-box">
-        <!-- /.login-logo -->
-        <div class="card card-outline card-primary">
-            <div class="card-header text-center">
-                <a href="#" class="h4"><b>Br<br>Burst System Service</b></a>
-            </div>
-            <div class="card-body">
-                <p class="login-box-msg">Informe seus dados para fazer login</p>
-
-                <form action="validar-login.php" method="post">
-                    <div class="input-group mb-3">
-                        <input value="<?php echo $email; ?>" required type="email" class="form-control" placeholder="Email" name="email">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="input-group mb-3">
-                        <input value="<?php echo $senha; ?>" required type="password" class="form-control" placeholder="Senha" name="senha">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-8">
-                            <div class="icheck-primary">
-                                <input <?php echo $checked;?> type="checkbox" id="remember" name="remember">
-                                <label for="remember">
-                                    lembrar-me
-                                </label>
-                            </div>
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">Entrar</button>
-                        </div>
-                        <!-- /.col -->
-                    </div>
-                </form>
-
-                <div class="social-auth-links text-center mt-2 mb-3">
-                    <!-- <a href="#" class="btn btn-block btn-primary">
-                        <i class="fab fa-facebook mr-2"></i> entre usando facebook
-                    </a> -->
-                    <a href="#" class="btn btn-block btn-danger">
-                        <i class="fab fa-google mr-2"></i> entre usando Google
-                    </a>
-                </div>
-                <!-- /.social-auth-links -->
-
-                <p class="mb-1">
-                    <a href="esqueceu-senha.php">esqueceu a senha?</a>
-                </p>
-                <!-- <p class="mb-0">
-                    <a href="register.html" class="text-center">fazer cadastro</a>
-                </p> -->
-            </div>
-            <!-- /.card-body -->
+<body>
+    <div class="row log">
+        <div class="col-6 c1 ">
+            <a href="index.php"><img class="img-fluid" src="assets/imagens/assetsall/logof.png" alt="."></a>
         </div>
-        <!-- /.card -->
+        <div class="col-6">
+        <form method="post" action="adm/validar-login.php"  class="login">
+            <div class="bi-persond"><i class="bi bi2 bi-person"></i></div>
+            <div class="email">
+                <label for="email" class="email"></label>
+                <input type="email" name="email" id="email" placeholder="Email" class="form-control" value="<?php echo $email; ?>" >
+            </div>
+            <div class="senha" style="margin: 0;">
+                <label for="senha"></label>
+                <input type="password" name="senha" id="senha" placeholder="senha" class="form-control" value="<?php echo $senha; ?>">
+            </div>
+            <div class="entrar">
+                <div><input type="submit" value="entrar" id="entrar" class="btn btn-primary"></div>
+                <div class="btn btn-primary dupla" style="margin: 0;"
+                ><a href="recuperarsenha.php">mudar senha</a></div>
+                <div class="btn btn-primary dupla"><a href="index3.php">fazer cadastro</a></div>
+            </div>
+        </form>
     </div>
-    <!-- /.login-box -->
+    </div>
 
-    <!-- jQuery -->
-    <script src="./dashboard/dist/plugins/jquery/jquery.min.js"></script>
-    <!-- SweetAlert2-->
-    <script src="./dashboard/dist/plugins/sweetalert2/sweetalert2.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="./dashboard/dist/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="./dashboard/dist/js/adminlte.min.js"></script>
-
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/OwlCarousel/owl.carousel.min.js"></script>
+    <script src="assets/main.js"></script>
     <?php
-    include("./adm/sweet-alert-2.php");
+    include("adm/sweet-alert-2.php");
     ?>
 </body>
 

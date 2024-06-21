@@ -22,8 +22,10 @@ if ($_POST) {
             $novo_nome = array('','','');
 
             foreach ($fotos as $key => $foto) {
+
+                var_dump($foto);exit;
                 # code...
-                if ($foto["error"] != 4) {
+                if ($foto[$key]["error"] != 4) {
                     $ext_permitidos = array(
                         "bmp",
                         "jpg",
@@ -32,11 +34,11 @@ if ($_POST) {
                         "jfif",
                         "tiff"
                     );
-                    $extensao = pathinfo($foto["name"], PATHINFO_EXTENSION);
+                    echo $extensao = pathinfo($foto[$key]["name"], PATHINFO_EXTENSION);
                     if (in_array($extensao, $ext_permitidos)) {
-                        $novo_nome[$key] = hash("sha256", uniqid() . rand() . $foto["tmp_name"]) . "." . $extensao;
+                        $novo_nome[$key] = hash("sha256", uniqid() . rand() . $foto[$key]["tmp_name"]) . "." . $extensao;
     
-                        move_uploaded_file($foto["tmp_name"], "fotos/$novo_nome[$key]");
+                        move_uploaded_file($foto[$key]["tmp_name"], "fotos/$novo_nome[$key]");
                         $update_foto = "foto_$key = '$novo_nome[$key]'";
     
                         $_SESSION["foto_produto"] = $novo_nome[$key];
@@ -48,7 +50,7 @@ if ($_POST) {
                         exit;
                     }
                 } else {
-                    $update_foto = "foto_$key=foto_$key";
+                    $update_foto = "foto_$key=foto_$key"; 
                 }
             }
 

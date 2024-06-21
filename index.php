@@ -4,39 +4,6 @@ include('./adm/conexao-pdo.php');
 
 
 
-// $sql = "
-// select nome_do_produto, preco,fk_categoria,foto
-// from produtos
-// ordem by nome_do_produto
-// ";
-// $stmt = $coon->prepare($sql);
-// $stmt->bindParam(':nome_do_produto',$Nome);
-// $stmt->bindParam(':preco',$preco);
-// $stmt->bindParam(':fk_categoria',$fk_categoria);
-// $stmt->bindParam(':foto',$foto);
-// $stmt->execute();
-// $dados = $stmt->fetchAll(PDO::FETCH_OBJ);
-
-
-// foreach ($dados as $key => $row) {
-//     $item .=  '<div class="item">
-//                     <div class="card">
-//                          <a href="produtos.php"><img src="'. $row->$foto .'" alt="Avatar" style="width:100%"></a>
-//                                 <div class="container">
-//                                          <a href="produtos.php">
-//                                                 <h4><b>'. $row->$nome_do_produto .'</b></h4>
-//                                         </a>
-//                                         <a href="produtos.php">
-//                                             <p>' . $row->$preco .'
-//                                             </p>
-//                                         </a>
-//                                 </div>
-//                      </div>
-//             </div>  '
-// }
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -82,7 +49,7 @@ include('./adm/conexao-pdo.php');
 
         try {
             $sql = "
-            SELECT p.pk_produto , p.preco , p.nome_do_produto , p.foto ,
+            SELECT p.pk_produto , p.preco , p.nome_do_produto , p.foto_1 ,
             c.categoria
             FROM produto p
             JOIN categoria c ON p.fk_categoria = c.pk_categoria
@@ -119,7 +86,7 @@ include('./adm/conexao-pdo.php');
                     <div class="item">
                         <div class="card">
                             <a href="produtos.php?ref='.base64_encode($row->pk_produto).'">
-                                <img src="assets/imagens/'.$row->foto.'" alt="'.$row->nome_do_produto.'" style="width:100%">
+                                <img src="assets/imagens/'.$row->foto_1.'" alt="'.$row->nome_do_produto.'" style="width:100%">
                                 <div class="container">
                                     <h5><b>'.$row->nome_do_produto.'</b></h5>
                                     <p>'.$row->preco.'</p>

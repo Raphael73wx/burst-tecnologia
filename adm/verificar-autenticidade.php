@@ -23,7 +23,7 @@ if ($_SESSION["autenticado"] != true) {
       $_SESSION["title"] = "Ops!";
       $_SESSION["msg"] = "Tempo de sessão esgotado!";
 
-      header("location: ./adm/login.php");
+      header("location: ../login.php");
       exit;
    } else {
       $_SESSION["tempo_login"] = time();

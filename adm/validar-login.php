@@ -26,7 +26,7 @@ if ($_POST) {
         
         //montar sintaxe sql para consultar no banco de dados 
         $stmt = $coon->prepare("
-        SELECT pk_usuario,nome
+        SELECT pk_usuario,nome,foto
         FROM usuario
         WHERE email LIKE :email
         AND senha LIKE :senha
@@ -52,9 +52,10 @@ if ($_POST) {
             //DECLARO VARIAVEL GLOBAL INFORMANDO QUE USUARIOE ESTA AUTENTICADO
             $_SESSION["autenticado"] = true;    
             $_SESSION["pk_usuario"] = $row->pk_usuario;
-             
+            $_SESSION["foto_usuario"] = $row->foto;
+
             $nome_completo = $row->nome;
-            $_SESSION["nome_completo"] = $nome_completo;   
+            $_SESSION["nome_completo"] = $nome_completo;      
             //transforma string em array, aonde tiver espaco ""
             $nome_usuario =  explode(" ",$row->nome);
             //concatena o primeiro nome com o sobrenome do usuario
@@ -74,7 +75,7 @@ if ($_POST) {
         }
     }
 }else{
-    header('Location:login.php');
+    header('Location: login.php');
     exit;
 }
 ?>

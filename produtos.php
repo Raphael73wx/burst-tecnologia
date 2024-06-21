@@ -6,7 +6,7 @@ $pk_produto= base64_decode(trim($_GET["ref"]));
 // $pk_produto = trim($_POST["pk_produto"]);
                     
 $sql ="
-select p.nome_do_produto, p.preco, p.foto, p.foto_2, p.foto_3, c.categoria
+select p.nome_do_produto, p.preco, p.foto_1, p.foto_2, p.foto_3, c.categoria
 from  produto p     
 join categoria c on p.fk_categoria = c.pk_categoria
 where pk_produto = :pk_produto
@@ -20,7 +20,7 @@ if ($stmt->rowCount() > 0 ) {
     $dado = $stmt->fetch(PDO::FETCH_OBJ);
     $preco = $dado->preco;
     $nome_do_produto = $dado->nome_do_produto;
-    $foto = $dado->foto;
+    $foto_1 = $dado->foto_1;
     $foto_2 = $dado->foto_2;
     $foto_3 = $dado->foto_3;
     $categoria = $dado->categoria;
@@ -56,7 +56,7 @@ if ($stmt->rowCount() > 0 ) {
                             <li class="carousel__slide prob">
                                 <figure>
                                     <div>
-                                        <img src="assets/imagens/<?php echo $foto?>" alt="">
+                                        <img src="assets/imagens/<?php echo $foto_1?>" alt="">
                                     </div>
                                 </figure>
                             </li>
@@ -78,7 +78,7 @@ if ($stmt->rowCount() > 0 ) {
                         </ul>
                         <ul class="carousel__thumbnails mini">
                             <li>
-                                <label for="slide-1"><img src="assets/imagens/<?php echo $foto?>" alt=""></label>
+                                <label for="slide-1"><img src="assets/imagens/<?php echo $foto_1?>" alt=""></label>
                             </li>
                             <li>
                                 <label for="slide-2"><img src="assets/imagens/<?php echo $foto_2?>" alt=""></label>
