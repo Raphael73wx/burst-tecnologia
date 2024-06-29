@@ -36,7 +36,7 @@ if ($_POST) {
         $foto_3 = $_FILES["foto_3"];
 
         try {
-            if($foto_1["error"] != 4) {
+            if ($foto_1["error"] != 4) {
                 $ext_permitidos = array(
                     "bmp",
                     "jpg",
@@ -46,23 +46,22 @@ if ($_POST) {
                     "tiff"
                 );
                 $extensao = pathinfo($foto_1["name"], PATHINFO_EXTENSION);
-                if (in_array($extensao,$ext_permitidos)) {
-                    $novo_nome_1 = hash("sha256", uniqid() . rand() . $foto_1["tmp_name"]). "." . $extensao;
+                if (in_array($extensao, $ext_permitidos)) {
+                    $novo_nome_1 = hash("sha256", uniqid() . rand() . $foto_1["tmp_name"]) . "." . $extensao;
                     // var_dump($foto_1);exit;      
                     move_uploaded_file($foto_1["tmp_name"], "../../assets/imagens/$novo_nome_1");
                     $update_foto = "foto_1 = '$novo_nome_1'";
-                }else {
+                } else {
                     $_SESSION["tipo"] = "error";
                     $_SESSION["title"] = "Ops!";
                     $_SESSION["msg"] = "Arquivo de imagem NÃO permitido.";
                     header("location: ./");
                     exit;
                 }
-            
-            }else{
-                $update_foto = "foto_1=foto_1";
+            } else {
+                $update_foto_1 = "foto_1=foto_1";
             }
-            if($foto_2["error"] != 4) {
+            if ($foto_2["error"] != 4) {
                 $ext_permitidos = array(
                     "bmp",
                     "jpg",
@@ -72,22 +71,21 @@ if ($_POST) {
                     "tiff"
                 );
                 $extensao = pathinfo($foto_2["name"], PATHINFO_EXTENSION);
-                if (in_array($extensao,$ext_permitidos)) {
-                    $novo_nome_2 = hash("sha256", uniqid() . rand() . $foto_2["tmp_name"]). "." . $extensao;
+                if (in_array($extensao, $ext_permitidos)) {
+                    $novo_nome_2 = hash("sha256", uniqid() . rand() . $foto_2["tmp_name"]) . "." . $extensao;
                     move_uploaded_file($foto_2["tmp_name"], "../assets/imagens/$novo_nome_2");
                     $update_foto = "foto_2 = '$novo_nome_2'";
-                }else {
+                } else {
                     $_SESSION["tipo"] = "error";
                     $_SESSION["title"] = "Ops!";
                     $_SESSION["msg"] = "Arquivo de imagem NÃO permitido.";
                     header("location: ./");
                     exit;
                 }
-            
-            }else{
-                $update_foto = "foto_2=foto_2";
+            } else {
+                $update_foto_2 = "foto_2=foto_2";
             }
-            if($foto_3["error"] != 4) {
+            if ($foto_3["error"] != 4) {
                 $ext_permitidos = array(
                     "bmp",
                     "jpg",
@@ -97,20 +95,19 @@ if ($_POST) {
                     "tiff"
                 );
                 $extensao = pathinfo($foto_3["name"], PATHINFO_EXTENSION);
-                if (in_array($extensao,$ext_permitidos)) {
-                    $novo_nome_3 = hash("sha256", uniqid() . rand() . $foto_3["tmp_name"]). "." . $extensao;
+                if (in_array($extensao, $ext_permitidos)) {
+                    $novo_nome_3 = hash("sha256", uniqid() . rand() . $foto_3["tmp_name"]) . "." . $extensao;
                     move_uploaded_file($foto_3["tmp_name"], "../assets/imagens/$novo_nome_3");
                     $update_foto = "foto_3 = '$novo_nome_3'";
-                }else {
+                } else {
                     $_SESSION["tipo"] = "error";
                     $_SESSION["title"] = "Ops!";
                     $_SESSION["msg"] = "Arquivo de imagem NÃO permitido.";
                     header("location: ./");
                     exit;
                 }
-            
-            }else{
-                $update_foto = "foto_3=foto_3";
+            } else {
+                $update_foto_3 = "foto_3=foto_3";
             }
 
 
@@ -127,7 +124,7 @@ if ($_POST) {
                 $stmt->bindParam(':foto_3', $novo_nome_3);
             } else {
                 $sql = "
-                UPDATE produto SET nome_do_produto =:nome, preco =:preco, foto =:foto_1, foto_2 =:foto_2,foto_3 =:foto_3
+                UPDATE produto SET nome_do_produto =:nome, preco =:preco, $update_foto_1, $update_foto_2,$update_foto_3
                 WHERE pk_produto = :pk_produto
                 ";
                 $stmt = $coon->prepare($sql);
@@ -136,8 +133,8 @@ if ($_POST) {
                 $stmt->bindParam(':foto_1', $novo_nome_1);
                 $stmt->bindParam(':foto_2', $novo_nome_2);
                 $stmt->bindParam(':foto_3', $novo_nome_3);
-            }
 
+            }
             //executa inset ou update acima
             $stmt->execute();
             $_SESSION["tipo"] = 'success';
@@ -149,7 +146,7 @@ if ($_POST) {
         } catch (PDOException $ex) {
             $_SESSION["tipo"] = 'error';
             $_SESSION["title"] = 'Ops!';
-            $_SESSION["msg"] =  '$ex->getMessage()';
+            $_SESSION["msg"] =  $ex->getMessage();
             header("location: ./");
             exit;
         }

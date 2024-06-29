@@ -115,7 +115,7 @@ if (empty($_GET["ref"])) {
                                                 <input type="text" required class="form-control" id="preco" name="preco" value="<?php echo $preco; ?>" data-mask="000.000.000-00">
                                             </div>
                                             <div class="col">
-                                                        <label for="foto" class="form-label">Foto 1</label>
+                                                        <label for="foto 1" class="form-label">Foto 1</label>
                                                         <div class="custom-file">
                                                             <input type="file" class="custom-file-input" name="foto_1" id="foto_1">
                                                             <label class="custom-file-label" for="customFile"><?php echo $foto_1?></label>
@@ -124,14 +124,14 @@ if (empty($_GET["ref"])) {
                                         </div>
                                         <div class="row mb-3">
                                                     <div class="col">
-                                                        <label for="foto" class="form-label">Foto 2</label>
+                                                        <label for="foto 2" class="form-label">Foto 2</label>
                                                         <div class="custom-file">
                                                             <input type="file" class="custom-file-input" name="foto_2" id="foto_2">
                                                             <label class="custom-file-label" for="customFile"><?php echo $foto_2?></label>
                                                         </div>
                                                     </div>
                                                     <div class="col">
-                                                        <label for="foto" class="form-label">Foto 3</label>
+                                                        <label for="foto 3" class="form-label">Foto 3</label>
                                                         <div class="custom-file">
                                                             <input type="file" class="custom-file-input" name="foto_3" id="foto_3">
                                                             <label class="custom-file-label" for="customFile"><?php echo $foto_3?></label>
