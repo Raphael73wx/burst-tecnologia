@@ -10,20 +10,46 @@ $total_pedido = 0;
 
 
 <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
-     <link rel="stylesheet" href="vendor/OwlCarousel/assets/owl.carousel.min.css">
-     <link rel="stylesheet" href="vendor/OwlCarousel/assets/owl.theme.default.min.css">
-     <link rel="stylesheet" href="assets/style.css">
-     <title>carrinho</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/OwlCarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="vendor/OwlCarousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>carrinho</title>
 </head>
 
 <body>
-     <div class="container-fluid">
-     <?php include("nav.php");?>
-          <div class="row">
-          <div class="col-md-5 col-lg-4 order-md-last">
+    <div class="container-fluid">
+        <?php include("nav.php"); ?>
+        <div class="row">
+            </section>
+            <div class="owl-carousel owl-theme">
+                <div class="container">
+                    <div class="item">
+                        <div class="card">
+                            <a href="produtos.php?ref='.base64_encode($row->pk_produto).'">
+                                <img src="assets/imagens/usuarios/eu.jpg" alt="'.$row->nome_do_produto.'" style="width:100%">
+                                <h5><b>nome do produto</b></h5>
+                                <p>preco</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section>
+        </div>
+    </div>
+    <?php include("adm/footer.php"); ?>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/OwlCarousel/owl.carousel.min.js"></script>
+    <script src="assets/main.js"></script>
+</body>
+
+</html>
+
+<!-- <div class="col-md-5 col-lg-4 order-md-last">
                     <h4 class="d-flex justify-content-between align-items-center mb-3">
                         <span class="text-primary">Carrinho</span>
                         <span class="badge bg-primary rounded-pill"><?php echo count($_SESSION['carrinho']); ?></span>
@@ -69,15 +95,4 @@ $total_pedido = 0;
                         }
                         ?>
                     </ul>
-                </div>
-          </div>
-     </div>
-     <?php include("adm/footer.php");?>
-
-     <script src="vendor/jquery/jquery.min.js"></script>
-     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-     <script src="vendor/OwlCarousel/owl.carousel.min.js"></script>
-     <script src="assets/main.js"></script>
-</body>
-
-</html>
+                </div> -->

@@ -26,7 +26,7 @@ if ($_POST) {
         
         //montar sintaxe sql para consultar no banco de dados 
         $stmt = $coon->prepare("
-        SELECT pk_usuario,nome,foto
+        SELECT pk_usuario,nome,foto,fk_admin
         FROM usuario
         WHERE email LIKE :email
         AND senha LIKE :senha
@@ -34,9 +34,7 @@ if ($_POST) {
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':senha', $senha);
         $stmt->execute();
-
         if ($stmt->rowCount() > 0) {
-           
             //verifica se o botão lembrar de mim foi ativado
             if ($remember == "on") {
                 setcookie("email",$email);
@@ -48,6 +46,9 @@ if ($_POST) {
 
             //ORGANIZA OS DADOS DO BANCO COMO OBJETOS NA VARIAVEL $ROW
             $row = $stmt->fetch(PDO::FETCH_OBJ);
+            if ($row->fk_admin != 0) {
+               $_SESSION["permissao"] = true;
+            }
 
             //DECLARO VARIAVEL GLOBAL INFORMANDO QUE USUARIOE ESTA AUTENTICADO
             $_SESSION["autenticado"] = true;    
@@ -63,7 +64,7 @@ if ($_POST) {
             // $_SESSION["foto_usuario"] = $row->foto;
             $_SESSION["tempo_login"] = time();
              
-            header('Location: ../index.php');
+            header('Location: index.php'); 
             exit;
         } else {
             $_SESSION["msg"] = 'E-mail e/ou senha invalidos!';

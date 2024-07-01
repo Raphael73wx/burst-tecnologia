@@ -28,7 +28,8 @@ if (empty($_GET["ref"])) {
         $dado = $stmt->fetch(PDO::FETCH_OBJ);
         $nome = $dado->nome_do_produto;
         $preco = $dado->preco;
-        $foto_1= $dado->foto_1;
+        $categoria = $dado->fk_categoria;
+        $foto_1 = $dado->foto_1;
         $foto_2 = $dado->foto_2;
         $foto_3 = $dado->foto_3;
     } else {
@@ -69,6 +70,7 @@ if (empty($_GET["ref"])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
+
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
 
@@ -114,30 +116,42 @@ if (empty($_GET["ref"])) {
                                                 <label for="produto" class="form-label">Preço</label>
                                                 <input type="text" required class="form-control" id="preco" name="preco" value="<?php echo $preco; ?>" data-mask="000.000.000-00">
                                             </div>
+                                            <div class="col-md-2">
+                                             <label for="produto" class="form-label">categoria</label>
+                                                <tr>
+                                                    <td>
+                                                        <select required class="form-select" aria-label="Disabled select example" name="">
+                                                            <option selected value="periferico">periferico</option>
+                                                            <option selected value="software">software</option>
+                                                            <option selected value="hardware">hardware</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                            </div>
                                             <div class="col">
-                                                        <label for="foto 1" class="form-label">Foto 1</label>
-                                                        <div class="custom-file">
-                                                            <input type="file" class="custom-file-input" name="foto_1" id="foto_1">
-                                                            <label class="custom-file-label" for="customFile"><?php echo $foto_1?></label>
-                                                        </div>
-                                                    </div>  
+                                                <label for="foto 1" class="form-label">Foto 1</label>
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input" name="foto_1" id="foto_1">
+                                                    <label class="custom-file-label" for="customFile"><?php echo $foto_1 ?></label>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="row mb-3">
-                                                    <div class="col">
-                                                        <label for="foto 2" class="form-label">Foto 2</label>
-                                                        <div class="custom-file">
-                                                            <input type="file" class="custom-file-input" name="foto_2" id="foto_2">
-                                                            <label class="custom-file-label" for="customFile"><?php echo $foto_2?></label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col">
-                                                        <label for="foto 3" class="form-label">Foto 3</label>
-                                                        <div class="custom-file">
-                                                            <input type="file" class="custom-file-input" name="foto_3" id="foto_3">
-                                                            <label class="custom-file-label" for="customFile"><?php echo $foto_3?></label>
-                                                        </div>
-                                                    </div>
+                                            <div class="col">
+                                                <label for="foto 2" class="form-label">Foto 2</label>
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input" name="foto_2" id="foto_2">
+                                                    <label class="custom-file-label" for="customFile"><?php echo $foto_2 ?></label>
                                                 </div>
+                                            </div>
+                                            <div class="col">
+                                                <label for="foto 3" class="form-label">Foto 3</label>
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input" name="foto_3" id="foto_3">
+                                                    <label class="custom-file-label" for="customFile"><?php echo $foto_3 ?></label>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <!-- /.card-body -->
                                     <div class="card-footer text-right">
