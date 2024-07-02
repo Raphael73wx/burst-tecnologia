@@ -1,3 +1,9 @@
+<?php
+
+@define("caminhoURL","http://localhost/raphael/burst/");
+@define("caminhoURL2","http://localhost/raphael/burst/adm/");
+?>
+
 <div class="topo" id="#topo">
     <div class="mae">
         <a href="<?php echo caminhoURL?>"><img src="assets/imagens/assetsall/logonav2.png" alt="logo"></a>

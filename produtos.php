@@ -1,5 +1,6 @@
 <?php
-include('./adm/verificar-autenticidade.php');
+
+
 include('./adm/conexao-pdo.php');
 
 $pk_produto= base64_decode(trim($_GET["ref"]));

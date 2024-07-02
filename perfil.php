@@ -35,7 +35,7 @@ include('./adm/conexao-pdo.php');
                         <i class="nav-icon bi bi-box-seam text-success  mr-1 icones"></i>
                             <span class="right badge badge-danger">5</span>
                     </a>
-                    <a href="adm/logout.php" class="btn btn-default " type="button" data-toggle="dropdown">
+                    <a href="logout.php" class="btn btn-default " type="button" data-toggle="dropdown">
                         <i class="bi bi-box-arrow-right icones"></i>
                     </a>
                 </div>

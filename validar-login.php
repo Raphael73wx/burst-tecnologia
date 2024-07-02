@@ -21,17 +21,17 @@ if ($_POST) {
         $senha = trim($_POST["senha"]);
         $remember = $_POST['remember'] ?? "off";
         
-        include('conexao-pdo.php');
+        include('./adm/conexao-pdo.php');
         
         
         //montar sintaxe sql para consultar no banco de dados 
         $stmt = $coon->prepare("
-        SELECT pk_usuario,nome,foto,fk_admin
+        SELECT pk_usuario,nome,foto
         FROM usuario
         WHERE email LIKE :email
         AND senha LIKE :senha
         ");
-        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':email', $email);  
         $stmt->bindParam(':senha', $senha);
         $stmt->execute();
         if ($stmt->rowCount() > 0) {
@@ -45,16 +45,10 @@ if ($_POST) {
             }
 
             //ORGANIZA OS DADOS DO BANCO COMO OBJETOS NA VARIAVEL $ROW
-            $row = $stmt->fetch(PDO::FETCH_OBJ);
-            if ($row->fk_admin = null) {
-               $_SESSION["autenticado"] = false;
-            }
-            else{
-                $_SESSION["autenticado"] = true; 
-            }
+            
 
             //DECLARO VARIAVEL GLOBAL INFORMANDO QUE USUARIOE ESTA AUTENTICADO
-              
+            $_SESSION["autenticado"] = true;    
             $_SESSION["pk_usuario"] = $row->pk_usuario;
             $_SESSION["foto_usuario"] = $row->foto;
 
@@ -67,14 +61,14 @@ if ($_POST) {
             // $_SESSION["foto_usuario"] = $row->foto;
             $_SESSION["tempo_login"] = time();
              
-            header('Location: index.php'); 
+            header('Location: ./'); 
             exit;
         } else {
             $_SESSION["msg"] = 'E-mail e/ou senha invalidos!';
             $_SESSION["tipo"] = 'error';
             $_SESSION["title"] = 'ops!';
 
-            header('Location: ../login.php');
+            header('Location: login.php');
             exit;
         }
     }

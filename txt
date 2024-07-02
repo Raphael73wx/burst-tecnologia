@@ -1,1 +1,4 @@
  <!-- include('./adm/footer.php')  -->
+   <td>' . $row->foto_2 . '</td>
+                      <td>' . $row->foto_3 . '</td>
+                       <img src="assets/imagens/'.$row->foto_1.'" alt="'.$row->nome_do_produto.'" style="width:100%">

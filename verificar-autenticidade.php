@@ -1,9 +1,7 @@
 <?php
 session_start();
-
 define("caminhoURL","http://localhost/raphael/burst/");
 define("caminhoURL2","http://localhost/raphael/burst/adm/");
-
 
 if ($_SESSION["autenticado"] != true) {
    //destruir qualquer sessão existente

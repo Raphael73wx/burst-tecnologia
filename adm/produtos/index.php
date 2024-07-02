@@ -59,7 +59,7 @@ $pagina_ativa = "produtos";
             <div class="col">
               <div class="card card-danger card-outline">
                 <div class="card-header">
-                  <h3 class="card-title">Lista de CLientes</h3>
+                  <h3 class="card-title">Lista de Produtos</h3>
                   <a href="./form.php" class="btn bt-sm btn-info float-right rounded-circle">
                     <i class="bi bi-plus"></i>
                   </a>
@@ -71,6 +71,8 @@ $pagina_ativa = "produtos";
                         <td>Categoria</td>
                         <td>Nome </td>
                         <td>Preco</td>
+                        <td>categoria</td>
+                        <td>cor</td>
                         <td>foto 1</td>
                         <td>foto 2 </td>
                         <td>foto 3 </td>
@@ -90,15 +92,26 @@ $pagina_ativa = "produtos";
                       //recebe as informações vindas do MYSQL
                       $dados = $stmt->fetchAll(PDO::FETCH_OBJ);
                       //laço de repetição para printar informações
+
+
                       foreach ($dados as $row) {
+                        if ($row->fk_categoria == 1) {
+                          $categoria = "periferico";
+                        }elseif($row->fk_categoria == 2) {
+                          $categoria = "software";
+                        }else{
+                          $categoria = "hardware";
+                        }
                         echo '
                       <tr>
                       <td>' . $row->pk_produto . '</td>
                       <td>' . $row->nome_do_produto . '</td>
                       <td>' . $row->preco . '</td>
-                      <td>' . $row->foto_1 . '</td>
-                      <td>' . $row->foto_2 . '</td>
-                      <td>' . $row->foto_3 . '</td>
+                      <td>' . $categoria. '</td>
+                      <td>' . $row->cor. '</td>
+                      <td><img src="../../assets/imagens/' . $row->foto_1 . '" style="width:80px;height=80px;"></td>
+                      <td><img src="../../assets/imagens/' . $row->foto_2 . '" style="width:80px;height=80px;"></td>
+                      <td><img src="../../assets/imagens/' . $row->foto_3 . '" style="width:80px;height=80px;"></td>
                       <td>
                         <div class="btn-group">
                           <button class="btn btn-default dropdown-toggle dropdown-toggle" type="button" data-toggle="dropdown">
@@ -108,7 +121,7 @@ $pagina_ativa = "produtos";
                             <a class="dropdown-item" href="form.php?ref=' . base64_encode($row->pk_produto) . '">
                               <i class="bi bi-pencil"></i>Editar
                             </a>
-                            <a class="dropdown-item" href="remover.php?ref='.base64_encode($row->pk_produto).'">
+                            <a class="dropdown-item" href="remover.php?ref=' . base64_encode($row->pk_produto) . '">
                               <i class="bi bi-trash"></i>Remover
                             </a>
                           </div>
@@ -171,8 +184,8 @@ $pagina_ativa = "produtos";
   include("../sweet-alert-2.php");
   ?>
 
- 
- 
+
+
   <script>
     $(function() {
 

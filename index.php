@@ -1,7 +1,5 @@
 <?php
-include('./adm/verificar-autenticidade.php');
 include('./adm/conexao-pdo.php');
-
 
 
 ?>
@@ -72,10 +70,10 @@ include('./adm/conexao-pdo.php');
                             echo '
                             </div>
                             </section>
-                            <div class="faixa"></div>
                             ';
                         }
                         echo '
+                        
                         <section>
                             <h2 class="h2f">'. $row->categoria .'</h2>
                             <div class="owl-carousel owl-theme">
@@ -102,7 +100,6 @@ include('./adm/conexao-pdo.php');
                 echo '
                 </div>
                 </section>
-                <div class="faixa"></div>
                 ';
 
             }

@@ -31,7 +31,7 @@ if (empty($_COOKIE["email"]) || empty($_COOKIE["senha"])) {
             <a href="index.php"><img class="img-fluid" src="assets/imagens/assetsall/logof.png" alt="."></a>
         </div>
         <div class="col-6">
-        <form method="post" action="adm/validar-login.php"  class="login">
+        <form method="post" action="validar-login.php"  class="login">
             <div class="bi-persond"><i class="bi bi2 bi-person"></i></div>
             <div class="email">
                 <label for="email" class="email"></label>
@@ -44,8 +44,8 @@ if (empty($_COOKIE["email"]) || empty($_COOKIE["senha"])) {
             <div class="entrar">
                 <div><input type="submit" value="entrar" id="entrar" class="btn btn-primary"></div>
                 <div class="btn btn-primary dupla" style="margin: 0;"
-                ><a href="recuperarsenha.php">mudar senha</a></div>
-                <div class="btn btn-primary dupla"><a href="index3.php">fazer cadastro</a></div>
+                ><a href="recuperar-senha.php">mudar senha</a></div>
+                <div class="btn btn-primary dupla"><a href="cadastro.php">fazer cadastro</a></div>
             </div>
         </form>
     </div>

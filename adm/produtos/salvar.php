@@ -28,20 +28,18 @@ if ($_POST) {
         header("location: ./");
         exit;
     } else {
-        $categoria = "";
-        if (trim($_POST["periferico"])) {
-        $categoria = 1;
-        }
-        if (trim($_POST["software"])) {
-        $categoria = 2;
-        }
-        if (trim($_POST["hardware"])) {
-        $categoria = 3;
-        }
+        //
+        
+        // elseif(trim($_POST["software"]) ) {
+        // $categoria = 2;
+        // }
+        // elseif(trim($_POST["hardware"])){
+        // $categoria = 3;
+        // }
         $pk_produto = trim($_POST["pk_produto"]);
         $nome = trim($_POST["nome"]);
         $preco = trim($_POST["preco"]);
-        $fk_categoria = trim($_POST[""]);
+        $categoria = trim($_POST["categoria"]);
         $foto_1 = $_FILES["foto_1"];
         $foto_2 = $_FILES["foto_2"];
         $foto_3 = $_FILES["foto_3"];
@@ -84,7 +82,7 @@ if ($_POST) {
                 $extensao = pathinfo($foto_2["name"], PATHINFO_EXTENSION);
                 if (in_array($extensao, $ext_permitidos)) {
                     $novo_nome_2 = hash("sha256", uniqid() . rand() . $foto_2["tmp_name"]) . "." . $extensao;
-                    move_uploaded_file($foto_2["tmp_name"], "../assets/imagens/$novo_nome_2");
+                    move_uploaded_file($foto_2["tmp_name"], "../../assets/imagens/$novo_nome_2");
                     $update_foto = "foto_2 = '$novo_nome_2'";
                 } else {
                     $_SESSION["tipo"] = "error";
@@ -108,7 +106,7 @@ if ($_POST) {
                 $extensao = pathinfo($foto_3["name"], PATHINFO_EXTENSION);
                 if (in_array($extensao, $ext_permitidos)) {
                     $novo_nome_3 = hash("sha256", uniqid() . rand() . $foto_3["tmp_name"]) . "." . $extensao;
-                    move_uploaded_file($foto_3["tmp_name"], "../assets/imagens/$novo_nome_3");
+                    move_uploaded_file($foto_3["tmp_name"], "../../assets/imagens/$novo_nome_3");
                     $update_foto = "foto_3 = '$novo_nome_3'";
                 } else {
                     $_SESSION["tipo"] = "error";
@@ -124,13 +122,14 @@ if ($_POST) {
 
             if (empty($pk_produto)) {
                 $sql = "
-             INSERT INTO produto (nome_do_produto,preco,fk_categoria,foto_1,foto_2,foto_3)
-             VALUES(:nome,:preco,:fk_categoria,:foto_1,:foto_2,:foto_3)
+             INSERT INTO produto (nome_do_produto,preco,fk_categoria,foto_1,foto_2,foto_3,cor)
+             VALUES(:nome,:preco,:fk_categoria,:foto_1,:foto_2,:foto_3,:cor)
              ";
                 $stmt = $coon->prepare($sql);
                 $stmt->bindParam(':nome', $nome);
                 $stmt->bindParam(':preco', $preco);
                 $stmt->bindParam(':fk_categoria',$categoria);
+                $stmt->bindParam(':cor',$cor);
                 $stmt->bindParam(':foto_1', $novo_nome_1);
                 $stmt->bindParam(':foto_2', $novo_nome_2);
                 $stmt->bindParam(':foto_3', $novo_nome_3);

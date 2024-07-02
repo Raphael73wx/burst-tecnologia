@@ -6,6 +6,8 @@ $pagina_ativa = "produtos";
 if (empty($_GET["ref"])) {
     $pk_produto = "";
     $nome = "";
+    $categoria = "";
+    $cor = "";
     $preco = "";
     $foto_1 = "";
     $foto_2 = "";
@@ -28,6 +30,7 @@ if (empty($_GET["ref"])) {
         $dado = $stmt->fetch(PDO::FETCH_OBJ);
         $nome = $dado->nome_do_produto;
         $preco = $dado->preco;
+        $cor = $dado->cor;
         $categoria = $dado->fk_categoria;
         $foto_1 = $dado->foto_1;
         $foto_2 = $dado->foto_2;
@@ -114,20 +117,26 @@ if (empty($_GET["ref"])) {
                                             </div>
                                             <div class="col-md-2">
                                                 <label for="produto" class="form-label">Preço</label>
-                                                <input type="text" required class="form-control" id="preco" name="preco" value="<?php echo $preco; ?>" data-mask="000.000.000-00">
+                                                <input type="text" required class="form-control" id="preco" name="preco" value="<?php echo $preco; ?>" data-mask="R$000.00">
                                             </div>
                                             <div class="col-md-2">
-                                             <label for="produto" class="form-label">categoria</label>
+                                                <label for="produto" class="form-label">Cor</label>
+                                                <input type="text" required class="form-control" id="cor" name="cor" value="<?php echo $cor; ?>">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label for="produto" class="form-label">categoria</label>
                                                 <tr>
                                                     <td>
-                                                        <select required class="form-select" aria-label="Disabled select example" name="">
-                                                            <option selected value="periferico">periferico</option>
-                                                            <option selected value="software">software</option>
-                                                            <option selected value="hardware">hardware</option>
+                                                        <select required class="form-select" aria-label="Disabled select example" name="categoria">
+                                                            <option selected value="1">periferico</option>
+                                                            <option selected value="2">software</option>
+                                                            <option selected value="3">hardware</option>
                                                         </select>
                                                     </td>
                                                 </tr>
                                             </div>
+                                        </div>
+                                        <div class="row mb-3">
                                             <div class="col">
                                                 <label for="foto 1" class="form-label">Foto 1</label>
                                                 <div class="custom-file">
@@ -135,8 +144,6 @@ if (empty($_GET["ref"])) {
                                                     <label class="custom-file-label" for="customFile"><?php echo $foto_1 ?></label>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row mb-3">
                                             <div class="col">
                                                 <label for="foto 2" class="form-label">Foto 2</label>
                                                 <div class="custom-file">
