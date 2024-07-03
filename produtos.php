@@ -46,7 +46,7 @@ if ($stmt->rowCount() > 0 ) {
 <body class="fundo">
     <div class="container-fluid">
         <?php include("nav.php"); ?>
-        <div class="container-md x container-centro ">
+        <div class="container-xxl x">
                 <div class="row">
                 <div class="col-6">
                     <div class="carousel">
@@ -105,12 +105,16 @@ if ($stmt->rowCount() > 0 ) {
                         <div class="col-11 bi3"><?php echo $preco?></div>
                     </div>
                     <div class="row">
-                        <div class="">
-                            <button class="btnc">
+                        <div class="tes">
+                            <a class="btnc" href="comprar.php?ref' . base64_encode($row->pk_produto) . '">
                             <i class="bi bi-cart3"></i>
                             <h4>comprar</h4>
-                            </button>
+                            </a>
                         </div>
+                        </a>
+                            <!-- <a class="dropdown-item" href="remover.php?ref=' . base64_encode($row->pk_produto) . '">
+                              <i class="bi bi-trash"></i>Remover
+                            </a> -->
                     </div>
                 </div>
             </div>
