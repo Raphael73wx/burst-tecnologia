@@ -33,7 +33,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?php echo caminhoURL2 ?>pedidos.php" class="nav-link <?php echo $pagina_ativa == 'pedidos' ? 'active' : ''; ?>">
+          <a href="<?php echo caminhoURL2 ?>pedidos/" class="nav-link <?php echo $pagina_ativa == 'pedidos' ? 'active' : ''; ?>">
             <i class="nav-icon bi bi-box-seam text-success  mr-1 "></i>
             <p>
               Pedidos

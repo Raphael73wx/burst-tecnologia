@@ -171,6 +171,12 @@ body .topo .mae a {
     width: 960px;
     max-width: 100%;
 }
+.owl-item{
+    max-width: 300px;
+}
+.item{
+    max-width: 200px;
+}
 
 /* fim da estilização dos cards*/
 

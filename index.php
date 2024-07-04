@@ -79,7 +79,6 @@ include('./adm/conexao-pdo.php');
                             <div class="owl-carousel owl-theme">
                         ';
                     }
-    
                     echo '
                     <div class="item">
                         <div class="card">

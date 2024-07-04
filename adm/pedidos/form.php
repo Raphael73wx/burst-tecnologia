@@ -1,40 +1,38 @@
 <?php
 include('../verificar-autenticidade.php');
 include('../conexao-pdo.php');
-$pagina_ativa = "produtos";
+$pagina_ativa = "pedidos";
 
 if (empty($_GET["ref"])) {
-    $pk_produto = "";
-    $nome = "";
-    $categoria = "";
-    $cor = "";
-    $preco = "";
-    $foto_1 = "";
-    $foto_2 = "";
-    $foto_3 = "";
+    $pk_pedidos = "";
+    $pedido = "";
+    $forma_p = "";
+    $endereco = "";
+    $numero_p = "";
+    $data_ini = "";
+    $data_fim = "";
 } else {
-    $pk_produto = base64_decode(trim($_GET["ref"]));
+    $pk_pedidos = base64_decode(trim($_GET["ref"]));
     $sql = "
     SELECT *
-    FROM produto
-    WHERE pk_produto =:pk_produto
+    FROM pedidos
+    WHERE pk_pedidos =:pk_pedidos
     ";
     //prepara a sintaxe
     $stmt = $coon->prepare($sql);
     //substitui a string :pk+servico pela váriavel $pk_servico
-    $stmt->bindParam(':pk_produto', $pk_produto);
+    $stmt->bindParam(':pk_pedidos', $pk_pedidos);
     //executa a sintaxe final do MYSQL
     $stmt->execute();
     //verifica se encontrou algum registro no banco de dados
     if ($stmt->rowCount() > 0) {
         $dado = $stmt->fetch(PDO::FETCH_OBJ);
-        $nome = $dado->nome_do_produto;
-        $preco = $dado->preco;
-        $cor = $dado->cor;
-        $categoria = $dado->fk_categoria;
-        $foto_1 = $dado->foto_1;
-        $foto_2 = $dado->foto_2;
-        $foto_3 = $dado->foto_3;
+        $pedido = $dado->pedido;
+        $forma_p = $dado->forma_de_pagamento;
+        $endereco = $dado->endereco_de_entrega;
+        $numero_p = $dado->numero_do_pedido;
+        $data_ini = $dado->data_ini;
+        $data_fim = $dado->data_fim;
     } else {
         $_SESSION["tipo"] = 'error';
         $_SESSION["title"] = 'Ops!';
@@ -109,66 +107,33 @@ if (empty($_GET["ref"])) {
                                         <div class="row">
                                             <div class="col-md-2">
                                                 <label for="pk_produto" class="form-label">Cód</label>
-                                                <input readonly required type="text" class="form-control" name="pk_produto" id="pk_produto" value="<?php echo $pk_produto; ?>">
+                                                <input readonly required type="text" class="form-control" name="pk_pedidos" id="pk_pedidos" value="<?php echo $pk_pedidos; ?>">
+                                            </div>
+                                            <div class="col-md-5">
+                                                <label for="produto" class="form-label">Pedido</label>
+                                                <input type="text" required class="form-control" id="pedido" name="pedido" value="<?php echo $pedido; ?>">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label for="produto" class="form-label">Forma de pagamento</label>
+                                                <input type="text" required class="form-control" id="forma_p" name="forma_p" value="<?php echo $forma_p; ?>">
                                             </div>
                                             <div class="col-md-3">
-                                                <label for="produto" class="form-label">Nome</label>
-                                                <input type="text" required class="form-control" id="nome" name="nome" value="<?php echo $nome; ?>">
-                                            </div>
-                                            <div class="col-md-2">
-                                                <label for="produto" class="form-label">Preço</label>
-                                                <input type="text" required class="form-control" id="preco" name="preco" value="<?php echo $preco; ?>" data-mask="R$000.00">
-                                            </div>
-                                            <div class="col-md-2">
-                                                <label for="produto" class="form-label">Cor</label>
-                                                <input type="text" class="form-control" id="cor" name="cor" value="<?php echo $cor; ?>">
-                                            </div>
-                                            <div class="col-md-2">
-                                                <label for="produto" class="form-label">categoria</label>
-                                                <tr>
-                                                    <td>
-                                                        <select required class="form-select" aria-label="Disabled select example" name="categoria">
-                                                            <option selected value="1">periferico</option>
-                                                            <option selected value="2">software</option>
-                                                            <option selected value="3">hardware</option>
-                                                        </select>
-                                                    </td>
-                                                </tr>
+                                                <label for="produto" class="form-label">numero do pedido</label>
+                                                <input readonly type="text" class="form-control" id="numero_p" name="numero_p" value="<?php echo $numero_p; ?>">
                                             </div>
                                         </div>
                                         <div class="row mb-3">
-                                            <div class="col">
-                                                <div class="form-group">
-                                                    <label for="exampleInputFile">Foto 1</label>
-                                                    <div class="input-group">
-                                                        <div class="custom-file">
-                                                            <input type="file" class="custom-file-input" name="foto_1" id="foto_1" accept="image/*">
-                                                            <label class="custom-file-label" for="exampleInputFile">Selecionar</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                            <div class="col-md-6">
+                                                <label for="produto" class="form-label">endereco</label>
+                                                <input type="text" class="form-control" id="endereco" name="endereco" value="<?php echo $endereco; ?>">
                                             </div>
-                                            <div class="col">
-                                                <div class="form-group">
-                                                    <label for="exampleInputFile">Foto 2</label>
-                                                    <div class="input-group">
-                                                        <div class="custom-file">
-                                                            <input type="file" class="custom-file-input" name="foto_2" id="foto_2" accept="image/*">
-                                                            <label class="custom-file-label" for="exampleInputFile">Selecionar</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                            <div class="col-md-3">
+                                                <label for="produto" class="form-label">data de inicio</label>
+                                                <input type="date" class="form-control" id="data_ini" name="data_ini" value="<?php echo $data_ini; ?>">
                                             </div>
-                                            <div class="col">
-                                                <div class="form-group">
-                                                    <label for="exampleInputFile">Foto 3</label>
-                                                    <div class="input-group">
-                                                        <div class="custom-file">
-                                                            <input type="file" class="custom-file-input" name="foto_3" id="foto_3" accept="image/*">
-                                                            <label class="custom-file-label" for="exampleInputFile">Selecionar</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                            <div class="col-md-3">
+                                                <label for="produto" class="form-label">data fim</label>
+                                                <input type="date" class="form-control" id="data_fim" name="data_fim" value="<?php echo $data_fim; ?>">
                                             </div>
                                         </div>
                                     </div>

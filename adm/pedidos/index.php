@@ -1,6 +1,6 @@
 <?php
-include('verificar-autenticidade.php');
-include('conexao-pdo.php');
+include('../verificar-autenticidade.php');
+include('../conexao-pdo.php');
 $pagina_ativa = "pedidos";
 ?>
 
@@ -17,19 +17,19 @@ $pagina_ativa = "pedidos";
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="../dashboard/dist/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="../../dashboard/dist/plugins/fontawesome-free/css/all.min.css">
     <!-- bootstrap-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
-    <link rel="stylesheet" href="../dashboard/dist/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <link rel="stylesheet" href="../../dashboard/dist/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
     <!-- iCheck -->
-    <link rel="stylesheet" href="../dashboard/dist/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <link rel="stylesheet" href="../../dashboard/dist/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="../dashboard/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="../../dashboard/dist/css/adminlte.min.css">
     <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="../dashboard/dist/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="../../dashboard/dist/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- sweet Alert 2  -->
-    <link rel="stylesheet" href="../dashboard/dist/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+    <link rel="stylesheet" href="../../dashboard/dist/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -37,11 +37,11 @@ $pagina_ativa = "pedidos";
 
         <!-- Preloade-->
         <?php
-        include('nav.php');
+        include('../nav.php');
         ?>
         <!-- Main Sidebar Container -->
         <?php
-        include('aside.php');
+        include('../aside.php');
         ?>
 
         <!-- Navbar -->
@@ -69,7 +69,8 @@ $pagina_ativa = "pedidos";
                                                 <td>Pedido</td>
                                                 <td>Forma de Pagamento </td>
                                                 <td>Endereco de entrega</td>
-                                                <td>data</td>
+                                                <td>data inicio</td>
+                                                <td>data fim</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -94,6 +95,7 @@ $pagina_ativa = "pedidos";
                                             <td>' . $row->forma_de_pagamento . '</td>
                                             <td>' . $row->endereco_de_entrega . '</td>
                                             <td>' . $row->data_ini . '</td>
+                                            <td>' . $row->data_fim . '</td>
                                             
                                             <td>
                                             <div class="btn-group">
@@ -131,9 +133,6 @@ $pagina_ativa = "pedidos";
         <!-- /.content-wrapper -->
 
         <!-- footer -->
-        <?php
-        include('footer.php');
-        ?>
         <!-- footer -->
 
         <!-- Control Sidebar -->
@@ -145,26 +144,26 @@ $pagina_ativa = "pedidos";
     <!-- ./wrapper -->
 
     <!-- jQuery -->
-    <script src="../dashboard/dist/plugins/jquery/jquery.min.js"></script>
+    <script src="../../dashboard/dist/plugins/jquery/jquery.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
-    <script src="../dashboard/dist/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../dashboard/dist/plugins/jquery-ui/jquery-ui.min.js"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
         $.widget.bridge('uibutton', $.ui.button)
     </script>
     <!-- Bootstrap 4 -->
-    <script src="../dashboard/dist/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../dashboard/dist/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Tempusdominus Bootstrap 4 -->
-    <script src="../dashboard/dist/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="../../dashboard/dist/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
     <!-- overlayScrollbars -->
-    <script src="../dashboard/dist/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <script src="../../dashboard/dist/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="../dashboard/dist/js/adminlte.js"></script>
+    <script src="../../dashboard/dist/js/adminlte.js"></script>
     <!-- SweetAlert2-->
-    <script src="../dashboard/dist/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <script src="../../dashboard/dist/plugins/sweetalert2/sweetalert2.min.js"></script>
 
     <?php
-    include("sweet-alert-2.php");
+    include("../sweet-alert-2.php");
     ?>
 
 

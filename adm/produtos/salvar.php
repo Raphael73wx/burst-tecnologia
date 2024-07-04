@@ -61,7 +61,7 @@ if ($_POST) {
                     $novo_nome_1 = hash("sha256", uniqid() . rand() . $foto_1["tmp_name"]) . "." . $extensao;
                     // var_dump($foto_1);exit;      
                     move_uploaded_file($foto_1["tmp_name"], "../../assets/imagens/$novo_nome_1");
-                    $update_foto = "foto_1 = '$novo_nome_1'";
+                    $update_foto_1 = "foto_1 = '$novo_nome_1'";
                 } else {
                     $_SESSION["tipo"] = "error";
                     $_SESSION["title"] = "Ops!";
@@ -86,7 +86,7 @@ if ($_POST) {
                 if (in_array($extensao, $ext_permitidos)) {
                     $novo_nome_2 = hash("sha256", uniqid() . rand() . $foto_2["tmp_name"]) . "." . $extensao;
                     move_uploaded_file($foto_2["tmp_name"], "../../assets/imagens/$novo_nome_2");
-                    $update_foto = "foto_2 = '$novo_nome_2'";
+                    $update_foto_2 = "foto_2 = '$novo_nome_2'";
                 } else {
                     $_SESSION["tipo"] = "error";
                     $_SESSION["title"] = "Ops!";
@@ -111,7 +111,7 @@ if ($_POST) {
                 if (in_array($extensao, $ext_permitidos)) {
                     $novo_nome_3 = hash("sha256", uniqid() . rand() . $foto_3["tmp_name"]) . "." . $extensao;
                     move_uploaded_file($foto_3["tmp_name"], "../../assets/imagens/$novo_nome_3");
-                    $update_foto = "foto_3 = '$novo_nome_3'";
+                    $update_foto_3 = "foto_3 = '$novo_nome_3'";
                 } else {
                     $_SESSION["tipo"] = "error";
                     $_SESSION["title"] = "Ops!";
@@ -139,15 +139,15 @@ if ($_POST) {
                 $stmt->bindParam(':foto_3', $novo_nome_3);
             } else {
                 $sql = "
-                UPDATE produto SET nome_do_produto =:nome, preco =:preco, $update_foto_1, $update_foto_2,$update_foto_3
+                UPDATE produto SET nome_do_produto =:nome, preco =:preco, fk_categoria =:fk_categoria, cor=:cor, $update_foto_1, $update_foto_2,$update_foto_3
                 WHERE pk_produto = :pk_produto
                 ";
                 $stmt = $coon->prepare($sql);
                 $stmt->bindParam(':nome', $nome);
                 $stmt->bindParam(':preco', $preco);
-                $stmt->bindParam(':foto_1', $novo_nome_1);
-                $stmt->bindParam(':foto_2', $novo_nome_2);
-                $stmt->bindParam(':foto_3', $novo_nome_3);
+                $stmt->bindParam(':fk_categoria', $categoria);
+                $stmt->bindParam(':cor', $cor);
+                $stmt->bindParam(':pk_produto', $pk_produto);
             }
             //executa inset ou update acima
             $stmt->execute();
