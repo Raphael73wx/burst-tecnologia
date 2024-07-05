@@ -3,21 +3,21 @@
 
 include('./adm/conexao-pdo.php');
 
-$pk_produto= base64_decode(trim($_GET["ref"]));
+$pk_produto = base64_decode(trim($_GET["ref"]));
 // $pk_produto = trim($_POST["pk_produto"]);
-                    
-$sql ="
+
+$sql = "
 select p.nome_do_produto, p.preco, p.foto_1, p.foto_2, p.foto_3, c.categoria
 from  produto p     
 join categoria c on p.fk_categoria = c.pk_categoria
 where pk_produto = :pk_produto
 ";
-             
+
 $stmt = $coon->prepare($sql);
-$stmt->bindParam(":pk_produto",$pk_produto);
+$stmt->bindParam(":pk_produto", $pk_produto);
 
 $stmt->execute();
-if ($stmt->rowCount() > 0 ) {
+if ($stmt->rowCount() > 0) {
     $dado = $stmt->fetch(PDO::FETCH_OBJ);
     $preco = $dado->preco;
     $nome_do_produto = $dado->nome_do_produto;
@@ -47,7 +47,7 @@ if ($stmt->rowCount() > 0 ) {
     <div class="container-fluid">
         <?php include("nav.php"); ?>
         <div class="container-xxl x">
-                <div class="row">
+            <div class="row">
                 <div class="col-6">
                     <div class="carousel">
                         <input type="radio" name="slides" checked="checked" id="slide-1">
@@ -57,21 +57,21 @@ if ($stmt->rowCount() > 0 ) {
                             <li class="carousel__slide prob">
                                 <figure>
                                     <div>
-                                        <img src="assets/imagens/<?php echo $foto_1?>" alt="">
+                                        <img src="assets/imagens/<?php echo $foto_1 ?>" alt="">
                                     </div>
                                 </figure>
                             </li>
                             <li class="carousel__slide prob">
                                 <figure>
                                     <div>
-                                        <img src="assets/imagens/<?php echo $foto_2?>" alt="">
+                                        <img src="assets/imagens/<?php echo $foto_2 ?>" alt="">
                                     </div>
                                 </figure>
                             </li>
                             <li class="carousel__slide prob">
                                 <figure>
                                     <div>
-                                        <img src="assets/imagens/<?php echo $foto_3?>" alt="">
+                                        <img src="assets/imagens/<?php echo $foto_3 ?>" alt="">
                                     </div>
                                 </figure>
                             </li>
@@ -79,40 +79,45 @@ if ($stmt->rowCount() > 0 ) {
                         </ul>
                         <ul class="carousel__thumbnails mini">
                             <li>
-                                <label for="slide-1"><img src="assets/imagens/<?php echo $foto_1?>" alt=""></label>
+                                <label for="slide-1"><img src="assets/imagens/<?php echo $foto_1 ?>" alt=""></label>
                             </li>
                             <li>
-                                <label for="slide-2"><img src="assets/imagens/<?php echo $foto_2?>" alt=""></label>
+                                <label for="slide-2"><img src="assets/imagens/<?php echo $foto_2 ?>" alt=""></label>
                             </li>
                             <li>
-                                <label for="slide-3"><img src="assets/imagens/<?php echo $foto_3?>" alt=""></label>
+                                <label for="slide-3"><img src="assets/imagens/<?php echo $foto_3 ?>" alt=""></label>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-6 direita">
-                    <div class="row">
-                        <h4 class="temp2"><?php echo $nome_do_produto?></h4>
+                    <div class="row l1">
+                        <h4 class="temp2"><?php echo $nome_do_produto ?></h4>
                     </div>
                     <div class="linhac"></div>
                     <div class="row l2">
-                        <div class="col-6">Categoria: <?php echo $categoria?></div>
-                        <div class="col-6 b">Avaliação</div>
+                        <div class="col-6">
+                            <h5>Categoria: <?php echo $categoria ?></h5>
+                        </div>
+                        <div class="col-6 b">
+                            <h5>Avaliação<h5>
+                        </div>
                     </div>
                     <div class="linhac"></div>
-                    <div class="row">
+                    <div class="row l3">
                         <div class="col-1 bi1"><i class="bi bi-cash"></i></div>
-                        <div class="col-11 bi3"><?php echo $preco?></div>
+                        <div class="col-11 bi3"><?php echo $preco ?></div>
                     </div>
-                    <div class="row">
-                        <div class="tes">
-                            <a class="btnc" href="comprar.php?ref' . base64_encode($row->pk_produto) . '">
-                            <i class="bi bi-cart3"></i>
-                            <h4>comprar</h4>
+                    <div class="row l4">
+                        <div class="tes row">
+                            <a class="btnc1 col-1" href="carrinho.php?ref' . base64_encode($row->pk_produto) . '">
+                                <i class="bi bi-cart3"></i></a>
+                            <a class="btnc2 col-10" href="comprar.php?ref' . base64_encode($row->pk_produto) . '">
+                                <h5>comprar</h5>
                             </a>
                         </div>
                         </a>
-                            <!-- <a class="dropdown-item" href="remover.php?ref=' . base64_encode($row->pk_produto) . '">
+                        <!-- <a class="dropdown-item" href="remover.php?ref=' . base64_encode($row->pk_produto) . '">
                               <i class="bi bi-trash"></i>Remover
                             </a> -->
                     </div>
@@ -120,8 +125,6 @@ if ($stmt->rowCount() > 0 ) {
             </div>
 
         </div>
-
-
     </div>
 
 

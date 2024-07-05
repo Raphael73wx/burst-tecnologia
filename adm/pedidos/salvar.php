@@ -5,41 +5,45 @@ include("../conexao-pdo.php");
 //verifica se está vindo informações via post
 if ($_POST) {
     //verifica campos obrigatórios
-    if (empty($_POST["NOME"]) || empty($_POST["CPF"]) || empty($_POST["WHATSAPP"]) || empty($_POST["EMAIL"]) ) {
+    if (empty($_POST["pedido"]) || empty($_POST["forma_p"]) || empty($_POST["endereco"])) {
         $_SESSION["tipo"] = 'warning';
         $_SESSION["title"] = 'Ops!';
         $_SESSION["msg"] = 'Por favor, preencha os campos obrigatórios.';
         header("location: ./");
         exit;
     } else {
-        $PK_CLIENTE = trim($_POST["PK_CLIENTE"]);
-        $NOME = trim($_POST["NOME"]);
-        $CPF = trim($_POST["CPF"]);
-        $WHATSAPP = trim($_POST["WHATSAPP"]);
-        $EMAIL = trim($_POST["EMAIL"]);
-
+        $pk_pedidos = trim($_POST["pk_pedidos"]);
+        $pedido = trim($_POST["pedido"]);
+        $forma_p = trim($_POST["forma_p"]);
+        $endereco = trim($_POST["endereco"]);
+        $data_ini = trim($_POST["data_ini"]);
+        $data_fim = trim($_POST["data_fim"]);
+        $numero_p = trim($_POST["numero_p"]);
         try {
-            if (empty($PK_CLIENTE)) {
+            if (empty($pk_pedidos)) {
                 $sql = "
-             INSERT INTO clientes (NOME,CPF,WHATSAPP,EMAIL)
-             VALUES(:NOME,:CPF,:WHATSAPP,:EMAIL)
+             INSERT INTO pedidos (pedido,forma_de_pagamento,endereco_de_entrega,numero_do_pedido,data_ini,data_fim)
+             VALUES(:pedido,:forma_p,:endereco,:numero_p,CURDATE(),:data_fim)
              ";
+             $numero_p = rand(0,2000000);
                 $stmt = $coon->prepare($sql);
-                $stmt->bindParam(':NOME',$NOME);
-                $stmt->bindParam(':CPF',$CPF);
-                $stmt->bindParam(':WHATSAPP',$WHATSAPP);
-                $stmt->bindParam(':EMAIL',$EMAIL);
+                $stmt->bindParam(':pedido',$pedido);
+                $stmt->bindParam(':forma_p',$forma_p);
+                $stmt->bindParam(':endereco',$endereco);
+                $stmt->bindParam(':numero_p',$numero_p);
+                $stmt->bindParam(':data_fim',$data_fim);
             } else {
                 $sql = "
-                UPDATE clientes SET NOME =:NOME, CPF =:CPF,WHATSAPP =:WHATSAPP, EMAIL =:EMAIL
-                WHERE PK_CLIENTE = :PK_CLIENTE
+                UPDATE pedidos SET pedido =:pedido, forma_de_pagamento =:forma_p, endereco_de_entrega =:endereco,numero_do_pedido =:numero_p,data_fim =:data_fim, data_ini =:data_ini
+                WHERE pk_pedidos = :pk_pedidos
                 ";
                 $stmt = $coon->prepare($sql);
-                $stmt->bindParam(':PK_CLIENTE', $PK_CLIENTE);
-                $stmt->bindParam(':NOME', $NOME);
-                $stmt->bindParam(':CPF', $CPF);
-                $stmt->bindParam(':WHATSAPP', $WHATSAPP);
-                $stmt->bindParam(':EMAIL', $EMAIL);
+                $stmt->bindParam(':pk_pedidos',$pk_pedidos);
+                $stmt->bindParam(':pedido',$pedido);
+                $stmt->bindParam(':forma_p',$forma_p);
+                $stmt->bindParam(':endereco',$endereco);
+                $stmt->bindParam(':numero_p',$numero_p);
+                $stmt->bindParam(':data_ini',$data_ini);
             }
 
             //executa inset ou update acima
@@ -47,10 +51,11 @@ if ($_POST) {
             $_SESSION["tipo"] = 'success';
             $_SESSION["title"] = 'Oba!';
             $_SESSION["msg"] = 'Registro salvo com sucesso!';
-            
             header("location: ./");
             exit;
         } catch (PDOException $ex) {
+            echo $ex;
+            exit;
             $_SESSION["tipo"] = 'error';
             $_SESSION["title"] = 'Ops!';
             $_SESSION["msg"] =  '$ex->getMessage()';
@@ -59,3 +64,23 @@ if ($_POST) {
         }
     }
 }
+
+// if ($this->existeEmail($usuarios_email) == false) {
+//     $sql = "INSERT INTO usuarios (usuarios_nome, usuarios_email, usuarios_senha, usuarios_permissoes, usuarios_imagem) VALUES (?, ?, ?, ?, ?)";
+//     $sql = Conexao::getInstance()->prepare($sql);
+//     $sql -> bindValue(1, $usuarios_nome);
+//     $sql -> bindValue(2, $usuarios_email);
+//     $sql -> bindValue(3, $usuarios_senha);
+//     $sql -> bindValue(4, $usuarios_permissoes);
+//     $sql -> bindValue(5, $usuarios_imagem);                                  
+//     //$sql -> execute();
+//             if($sql->execute()){
+//                     $sql = "INSERT INTO colaboradores (colaboradores_usuarios_id, colaboradores_status) VALUES (LAST_INSERT_ID(), 1)";
+//                     $sql = Conexao::getInstance()->prepare($sql);
+//                     $sql -> execute();                                                                  
+//             };
+//                           return true;
+
+// }else{
+// return false;
+// }           
