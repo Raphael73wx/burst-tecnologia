@@ -133,7 +133,7 @@ body .topo .mae a {
 /*fim da pagina s.o.s*/
 
 /*card usado nos carrossels da pagina home*/
-.card {
+.item>.card {
     max-width: 200px;
     animation: changeBackgroundColor 10s infinite;
     transition: 0.3s;
@@ -185,7 +185,7 @@ body .topo .mae a {
     background-color: #ffff;
     border-radius: 20px;
     margin-top: 10px;
-    max-height: 600px;
+    max-height: 550px;
 }
 
 .fundo {
@@ -196,10 +196,27 @@ body .topo .mae a {
     background-color: #3d7a99;
     border-radius: 20px;
     display: flex;
+    max-height: 550px;
     flex-direction: column;
 }
 .l4{
-    justify-content: space-around;
+    justify-content: end;
+    padding-bottom: 30px;
+    padding-left: 15px;
+}
+.l3{
+    justify-content: end;
+    flex-grow:2; 
+    flex-direction: column;
+    
+}
+.l2{
+    justify-content: start;
+    
+}
+.l1{
+    justify-content: end;
+    
 }
 .prob {
     max-width: 550px;
@@ -229,6 +246,9 @@ h5{
 }
 .btnc1{
     margin-right: 10px;
+}
+.btnc1 .bi-cart3{
+    margin: 0;
 }
 .btnc1,.btnc2{
     background-color: #00A217;
@@ -374,7 +394,12 @@ body .login a {
 .barra {}
 
 /*fim da estilização de perfil*/
-
+/* estilização da pagina confirmar compra */
+.cimg{
+    max-width: 100px;
+    max-height: 100px;
+}
+/* fim da pagina confirmar compra  */
 /*estilização dos botões e inputs*/
 .senha {
     display: flex;
@@ -384,13 +409,6 @@ body .login a {
 
 .ts {
     margin-top: 30px;
-}
-
-input[type=text] {
-    width: 200px;
-    border-radius: 30px;
-    border: none;
-    margin-bottom: 5px;
 }
 
 input[type=password] {

@@ -1,13 +1,11 @@
 <?php
-
-
 include('./adm/conexao-pdo.php');
 
 $pk_produto = base64_decode(trim($_GET["ref"]));
 // $pk_produto = trim($_POST["pk_produto"]);
 
 $sql = "
-select p.nome_do_produto, p.preco, p.foto_1, p.foto_2, p.foto_3, c.categoria
+select p.pk_produto, p.nome_do_produto, p.preco, p.foto_1, p.foto_2, p.foto_3, c.categoria
 from  produto p     
 join categoria c on p.fk_categoria = c.pk_categoria
 where pk_produto = :pk_produto
@@ -45,7 +43,7 @@ if ($stmt->rowCount() > 0) {
 
 <body class="fundo">
     <div class="container-fluid">
-        <?php include("nav.php"); ?>
+        <?php include("nav.php"); ?> 
         <div class="container-xxl x">
             <div class="row">
                 <div class="col-6">
@@ -90,42 +88,46 @@ if ($stmt->rowCount() > 0) {
                         </ul>
                     </div>
                 </div>
-                <div class="col-6 direita">
+                
+                <div class="col-6 direita" style="max-height: 550px;">
                     <div class="row l1">
                         <h4 class="temp2"><?php echo $nome_do_produto ?></h4>
                     </div>
                     <div class="linhac"></div>
                     <div class="row l2">
                         <div class="col-6">
-                            <h5>Categoria: <?php echo $categoria ?></h5>
-                        </div>
-                        <div class="col-6 b">
-                            <h5>Avaliação<h5>
+                            <h5><?php echo $categoria ?></h5>
                         </div>
                     </div>
                     <div class="linhac"></div>
                     <div class="row l3">
-                        <div class="col-1 bi1"><i class="bi bi-cash"></i></div>
-                        <div class="col-11 bi3"><?php echo $preco ?></div>
+                        <div class="col-2 b">
+                            <h5>Avaliação<h5>
+                        </div>
                     </div>
+                    <div class="row">
+                    <div class="col-1 bi1"><i class="bi bi-cash"></i></div>
+                    <div class="col-9 bi3"><?php echo $preco ?></div>
+                    </div>
+                    <?php
+                    echo'
                     <div class="row l4">
                         <div class="tes row">
-                            <a class="btnc1 col-1" href="carrinho.php?ref' . base64_encode($row->pk_produto) . '">
+                            <a class="btnc1 col-1" href="carrinho.php?ref=' . base64_encode($dado->pk_produto) . '">
                                 <i class="bi bi-cart3"></i></a>
-                            <a class="btnc2 col-10" href="comprar.php?ref' . base64_encode($row->pk_produto) . '">
+                            <a class="btnc2 col-10" href="comprar.php?ref=' . base64_encode($dado->pk_produto) .'">
                                 <h5>comprar</h5>
                             </a>
                         </div>
                         </a>
-                        <!-- <a class="dropdown-item" href="remover.php?ref=' . base64_encode($row->pk_produto) . '">
-                              <i class="bi bi-trash"></i>Remover
-                            </a> -->
-                    </div>
+                    </div>';
+                    ?>
                 </div>
             </div>
-
         </div>
+        
     </div>
+ 
 
 
 
