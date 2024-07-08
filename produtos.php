@@ -88,7 +88,6 @@ if ($stmt->rowCount() > 0) {
                         </ul>
                     </div>
                 </div>
-                
                 <div class="col-6 direita" style="max-height: 550px;">
                     <div class="row l1">
                         <h4 class="temp2"><?php echo $nome_do_produto ?></h4>
@@ -102,7 +101,7 @@ if ($stmt->rowCount() > 0) {
                     <div class="linhac"></div>
                     <div class="row l3">
                         <div class="col-2 b">
-                            <h5>Avaliação<h5>
+                            <a href="avaliacoes.php">avaliacoes</a>
                         </div>
                     </div>
                     <div class="row">

@@ -28,14 +28,6 @@ if ($_POST) {
         header("location: ./");
         exit;
     } else {
-        //
-
-        // elseif(trim($_POST["software"]) ) {
-        // $categoria = 2;
-        // }
-        // elseif(trim($_POST["hardware"])){
-        // $categoria = 3;
-        // }
         $pk_produto = trim($_POST["pk_produto"]);
         $nome = trim($_POST["nome"]);
         $preco = trim($_POST["preco"]);

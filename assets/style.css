@@ -395,6 +395,12 @@ body .login a {
 
 /*fim da estilização de perfil*/
 /* estilização da pagina confirmar compra */
+.mh{
+    max-height: 40px;
+}
+.ft{
+    font-size: 20px;
+}
 .cimg{
     max-width: 100px;
     max-height: 100px;
