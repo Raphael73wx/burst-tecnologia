@@ -1,7 +1,6 @@
 <?php
 include('./adm/conexao-pdo.php');
 
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -42,7 +41,7 @@ include('./adm/conexao-pdo.php');
             </div>
         </div>
         <div class="faixa"></div>
-
+         
         <?php
 
         try {

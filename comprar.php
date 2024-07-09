@@ -3,12 +3,39 @@ include('./adm/verificar-autenticidade.php');
 include('./adm/conexao-pdo.php');
 $pk_produto = base64_decode(trim($_GET["ref"]));
 // $pk_produto = trim($_POST["pk_produto"]);
+$nome_completo = $_SESSION["nome_completo"];
 $sql = "
-select p.pk_produto, p.nome_do_produto, p.preco, p.foto_1, c.categoria
+select p.pk_produto, p.nome_do_produto, p.preco, p.foto_1, u.nome ,u.cpf ,u.email
 from  produto p     
-join categoria c on p.fk_categoria = c.pk_categoria
+join usuario u on u.nome = u.nome
 where pk_produto = :pk_produto
 ";
+
+// UPDATE ordens_servicos
+// SET data_inicio =:data_inicio,
+// data_fim =:data_fim,
+// fk_cliente = (
+//     SELECT pk_cliente
+//     FROM clientes
+//     WHERE cpf LIKE :cpf 
+// ) 
+// WHERE pk_ordem_servico = :pk_ordem_servico
+// ";
+// UPDATE ordens_servicos SET
+// valor_total =(
+//     SELECT SUM(valor)
+//     FROM rl_servicos_os
+//     WHERE fk_ordem_servico = pk_ordem_servico
+// )
+// WHERE pk_ordem_servico = :pk_ordem_servico
+// ";
+// SELECT PRIMEIRO_NOME, ULTIMO_NOME, DATEDIFF(YEAR, DATA_ADMISSAO, GETDATE())
+// AS ANOS DE EMPRESA
+// FROM FUNCIONARIOS F INNER JOIN DEPARTAMENTOS D
+// ON F.ID_DEPARTAMENTO = D.ID_DEPARTAMENTO
+// WHERE F.SALARIO = (SELECT MAX(SALARIO) FROM FUNCIONARIOS FF, DEPARTAMENTOS DD
+// WHERE FF.ID_DEPARTAMENTO = DD.ID_DEPARTAMENTO
+// AND DD.ID_DEPARTAMENTO = F.ID_DEPARTAMENTO);
 
 $stmt = $coon->prepare($sql);
 $stmt->bindParam(":pk_produto", $pk_produto);
@@ -17,9 +44,11 @@ $stmt->execute();
 if ($stmt->rowCount() > 0) {
     $dado = $stmt->fetch(PDO::FETCH_OBJ);
     $nome_do_produto = $dado->nome_do_produto;
+    $nome = $dado->nome;
     $foto_1 = $dado->foto_1;
+    $cpf = $dado->cpf;
+    $email = $dado->email;
     $preco = $dado->preco;
-    $categoria = $dado->categoria;
 }
 
 
@@ -55,13 +84,17 @@ if ($stmt->rowCount() > 0) {
                                 <div class="col-md-1">
                                     <label for="produto" class="form-label"><img class="cimg" src="assets/imagens/<?php echo $foto_1 ?>" alt=""></label>
                                 </div>
-                                <div class="col-md-5">
-                                    <label for="produto" class="form-label">Produto</label>
-                                    <input type="text" required class="form-control" id="pedido" name="pedido" value="<?php echo $nome_do_produto ?>">
-                                </div>
                                 <div class="col-md-4">
+                                    <label for="produto" class="form-label">Produto</label>
+                                    <input type="text" required class="form-control" id="pedido" name="pedido" value="<?php echo $nome_do_produto ?>" readonly>
+                                </div>
+                                <div class="col-md-3">
                                     <label for="nome" class="form-label">Destinario</label>
                                     <input type="text" required class="form-control" id="nome" name="nome" value="<?php echo $nome ?>" readonly>
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="preco" class="form-label">Preco</label>
+                                    <input type="text" required class="form-control" id="preco" name="preco" value="<?php echo $preco ?>" readonly>
                                 </div>
                                 <div class="col-md-2">
                                     <label for="forma_p" class="form-label">Forma de pagamento</label>
@@ -75,50 +108,52 @@ if ($stmt->rowCount() > 0) {
                             <div class="row">
                                 <div class="col-md-3">
                                     <label for="CPF" class="form-label">CPF</label>
-                                    <input type="text" class="form-control" id="cpf" name="cpf" value="<?php echo $cpf ?>">
+                                    <input type="text" class="form-control" id="cpf" name="cpf" value="<?php echo $cpf ?>" readonly>
                                 </div>
-                                <div class="col-md-5">
+                                <div class="col-md-3">
                                     <label for="email" class="form-label">Email</label>
-                                    <input type="text" class="form-control" id="email" name="email" value="<?php echo $email ?>">
+                                    <input type="text" class="form-control" id="email" name="email" value="<?php echo $email ?>" readonly>
                                 </div>
-                                <div class="col-md-4">
-                                <label for="cep" class="form-label">CEP</label>
-                                <div class="input-group">
-                                    <input type="text" maxlength="8" class="form-control mh" id="cep" name="cep" placeholder="CEP" required>
-                                    <span class="input-group-text mh">
-                                        <button type="button" class="btn btn-default btn-sm" id="buscar_cep">
-                                            <i class="bi bi-search ft"  ></i>
-                                        </button>
-                                    </span>
+                                <div class="col-md-3">
+                                    <label for="cep" class="form-label">CEP</label>
+                                    <div class="input-group">
+                                        <input type="text" maxlength="8" class="form-control mh" id="cep" name="cep" placeholder="CEP" required>
+                                        <span class="input-group-text mh">
+                                            <button type="button" class="btn btn-default btn-sm" id="buscar_cep">
+                                                <i class="bi bi-search ft"></i>
+                                            </button>
+                                        </span>
+                                    </div>
                                 </div>
+                                <div class="col-md-3">
+                                    <label for="estado" class="form-label">Estado</label>
+                                    <input type="text" class="form-control" id="estado" name="estado" placeholder="Estado" required>
                                 </div>
                             </div>
                             <div class="row">
-                            <div class="col-md-6">
-                                <label for="logradouro" class="form-label">Logradouro</label>
-                                <input type="text" class="form-control" id="logradouro" name="logradouro" placeholder="Logradouro" required>
-                            </div>
+                                <div class="col-md-6">
+                                    <label for="logradouro" class="form-label">Logradouro</label>
+                                    <input type="text" class="form-control" id="logradouro" name="logradouro" placeholder="Logradouro" required>
+                                </div>
 
-                            <div class="col-md-3">
-                                <label for="cidade" class="form-label">Cidade</label>
-                                <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Cidade" required>
-                            </div>
-
-                            <div class="col-md-3">
-                                <label for="estado" class="form-label">Estado</label>
-                                <input type="text" class="form-control" id="estado" name="estado" placeholder="Estado" required>
-                            </div>
-
+                                <div class="col-md-3">
+                                    <label for="cidade" class="form-label">Cidade</label>
+                                    <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Cidade" required>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="estado" class="form-label">numero de entrega</label>
+                                    <input type="text" class="form-control" id="numero" name="numero" placeholder="numero" required>
+                                </div>
                             </div>
                         </div>
 
                         <div class="card-footer text-right">
-                           <?php echo' <a href="produtos.php?ref=' . base64_encode($dado->pk_produto) . '" class="btn btn-outline-danger rounded-circle">
+                            <?php echo ' <a href="produtos.php?ref=' . base64_encode($dado->pk_produto) . '" class="btn btn-outline-danger ">
                                 <i class="bi bi-arrow-left"></i>
                             </a>
-                            '?>
-                            <button type="submit" class="btn btn-primary rounded-circle">
-                                <i class="bi bi-floppy"></i>
+                            ' ?>
+                            <button type="submit" class="btn btn-success ">
+                                <i class="bi bi-cash"></i>
                             </button>
                         </div>
                     </div>
@@ -141,7 +176,7 @@ if ($stmt->rowCount() > 0) {
                 //Consulta o webservice viacep.com.br/
                 $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function(dados) {
 
-                    console.log("Dados => " , dados)
+                    console.log("Dados => ", dados)
 
                     if (!("erro" in dados)) {
                         //Atualiza os campos com os valores da consulta.

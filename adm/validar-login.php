@@ -46,20 +46,19 @@ if ($_POST) {
 
             //ORGANIZA OS DADOS DO BANCO COMO OBJETOS NA VARIAVEL $ROW
             $row = $stmt->fetch(PDO::FETCH_OBJ);
-            if ($row->fk_admin = null) {
-               $_SESSION["autenticado"] = false;
-            }
-            else{
+            // if ($row->fk_admin = null) {
+            //    $_SESSION["autenticado"] = false;
+            // }
+            // else{
                 $_SESSION["autenticado"] = true; 
-            }
+            // }
 
             //DECLARO VARIAVEL GLOBAL INFORMANDO QUE USUARIOE ESTA AUTENTICADO
               
             $_SESSION["pk_usuario"] = $row->pk_usuario;
             $_SESSION["foto_usuario"] = $row->foto;
 
-            $nome_completo = $row->nome;
-            $_SESSION["nome_completo"] = $nome_completo;      
+            $_SESSION["nome_completo"] = $row->nome;      
             //transforma string em array, aonde tiver espaco ""
             $nome_usuario =  explode(" ",$row->nome);
             //concatena o primeiro nome com o sobrenome do usuario
