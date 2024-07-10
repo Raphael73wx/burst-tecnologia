@@ -3,7 +3,6 @@ include('./adm/verificar-autenticidade.php');
 include('./adm/conexao-pdo.php');
 $pk_produto = base64_decode(trim($_GET["ref"]));
 // $pk_produto = trim($_POST["pk_produto"]);
-$nome_completo = $_SESSION["nome_completo"];
 $sql = "
 select p.pk_produto, p.nome_do_produto, p.preco, p.foto_1, u.nome ,u.cpf ,u.email
 from  produto p     
@@ -82,7 +81,7 @@ if ($stmt->rowCount() > 0) {
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-1">
-                                    <label for="produto" class="form-label"><img class="cimg" src="assets/imagens/<?php echo $foto_1 ?>" alt=""></label>
+                                    <label for="produto" class="form-label"><img class="cimg" src="assets/imagens/<?php echo $foto_1 ?>" alt="" id="foto_1" name="foto_1" ></label>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="produto" class="form-label">Produto</label>

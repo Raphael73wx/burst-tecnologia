@@ -75,7 +75,7 @@ include('./adm/conexao-pdo.php');
                         
                         <section>
                             <h2 class="h2f">'. $row->categoria .'</h2>
-                            <div class="owl-carousel owl-theme">
+                            <div class="owl-carousel owl-theme owl">
                         ';
                     }
                     echo '
@@ -106,7 +106,7 @@ include('./adm/conexao-pdo.php');
             echo $ex->getMessage();
         }
 
-        include("./adm/footer.php")
+        include("footer.php")
         ?>
 
     </div>

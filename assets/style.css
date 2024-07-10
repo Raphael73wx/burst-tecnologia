@@ -98,8 +98,32 @@ body .topo .mae a {
 /*Fim do estilo da navbar
 
 /* comeco da pagina de s.o.s */
-.compras {
-    padding-left: 20px;
+.sos {
+    background-color: #ebebeb;
+}
+
+/* {} */
+.c-sos {
+    background-color: white;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    flex-direction: column;
+}
+
+.st {
+    font-size: 30px;
+    align-items: center;
+}
+
+.r-card {
+    padding: 10px;
+}
+
+.cd-sos {
+    display: flex;
+    flex-direction: column;
 }
 
 .linha {
@@ -108,11 +132,7 @@ body .topo .mae a {
 }
 
 .linha>div>i {
-    font-size: 25px;
-}
-
-.linha>.so {
-    padding-left: 40px;
+    font-size: 40px;
 }
 
 .container-centro div a {
@@ -120,14 +140,9 @@ body .topo .mae a {
     color: black;
 }
 
-.container-centro .linha:hover {
+.container-centro:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 
-}
-
-.st {
-    display: flex;
-    justify-content: center;
 }
 
 /*fim da pagina s.o.s*/
@@ -141,28 +156,29 @@ body .topo .mae a {
     height: 390px;
 }
 
-.card a {
+.item>.card a {
     text-decoration: none;
     color: black;
 }
 
-.card p {
+.item>.card p {
     font-size: 25px;
     border-radius: 30px;
     font-weight: bolder;
-    
+
 }
-.card h5 {
+
+.item>.card h5 {
     text-overflow: ellipsis;
 
 }
 
-.card>a>img {
+.item>.card>a>img {
     border-radius: 5px;
     max-height: 198px;
 }
 
-.card:hover {
+.item>.card:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -171,11 +187,15 @@ body .topo .mae a {
     width: 960px;
     max-width: 100%;
 }
-.owl-item{
+
+.owl-item {
     max-width: 300px;
 }
-.item{
+.item {
     max-width: 200px;
+}
+.tt .item {
+    max-height: 175px;
 }
 
 /* fim da estilização dos cards*/
@@ -199,25 +219,30 @@ body .topo .mae a {
     max-height: 550px;
     flex-direction: column;
 }
-.l4{
+
+.l4 {
     justify-content: end;
     padding-bottom: 30px;
     padding-left: 15px;
 }
-.l3{
+
+.l3 {
     justify-content: end;
-    flex-grow:2; 
+    flex-grow: 2;
     flex-direction: column;
-    
+
 }
-.l2{
+
+.l2 {
     justify-content: start;
-    
+
 }
-.l1{
+
+.l1 {
     justify-content: end;
-    
+
 }
+
 .prob {
     max-width: 550px;
 }
@@ -225,13 +250,15 @@ body .topo .mae a {
 .temp2 {
     margin-top: 30px;
 }
-h5{
-    margin-bottom: 0 ;
+
+h5 {
+    margin-bottom: 0;
 }
 
-.tes{
+.tes {
     display: flex;
 }
+
 .bi1,
 .bi3 {
     font-size: 40px;
@@ -244,13 +271,17 @@ h5{
     border: 1px solid #202020;
     margin: 5px;
 }
-.btnc1{
+
+.btnc1 {
     margin-right: 10px;
 }
-.btnc1 .bi-cart3{
+
+.btnc1 .bi-cart3 {
     margin: 0;
 }
-.btnc1,.btnc2{
+
+.btnc1,
+.btnc2 {
     background-color: #00A217;
     font-size: 30px;
     border-radius: 10px;
@@ -258,19 +289,22 @@ h5{
     align-items: center;
     text-decoration: none;
     color: #202020;
-    justify-content:center;
-    
+    justify-content: center;
+
 }
 
 .b {
     text-align: end;
 }
-.mini label{
-  margin-bottom: 5px;
+
+.mini label {
+    margin-bottom: 5px;
 }
-.col-6{
+
+.col-6 {
     max-height: 600px;
 }
+
 /*Fim da pagina de produtos*/
 
 /*estilo do formulario de login/cadastro*/
@@ -339,7 +373,7 @@ body .login a {
     margin-top: 15px;
     display: flex;
     justify-content: space-around;
-    align-items: flex-end;
+    align-items: center;
 
 }
 
@@ -348,17 +382,9 @@ body .login a {
     color: black;
 }
 
-.f1 .x1 {
-    padding-bottom: 50px;
-}
-
 .f1 .x2 div {
     margin: 5px;
     margin-right: 5px;
-}
-
-.f1 .x2 .main {
-    margin-bottom: 70px;
 }
 
 /*fim da estilização do footer*/
@@ -386,26 +412,38 @@ body .login a {
     align-items: center;
 
 }
-
+.ll1{
+    display: flex;
+    flex-direction: column;
+}
 .temp {
     animation: changeBackgroundColor 10s infinite;
 }
 
-.barra {}
+.barra {
+    height: 30px;
+}
 
 /*fim da estilização de perfil*/
+
+
 /* estilização da pagina confirmar compra */
-.mh{
+.mh {
     max-height: 40px;
 }
-.ft{
+
+.ft {
     font-size: 20px;
 }
-.cimg{
+
+.cimg {
     max-width: 100px;
     max-height: 100px;
 }
+
 /* fim da pagina confirmar compra  */
+
+
 /*estilização dos botões e inputs*/
 .senha {
     display: flex;

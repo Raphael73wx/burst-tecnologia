@@ -1,12 +1,9 @@
 <?php
+include('./adm/verificar-autenticidade.php');
 include("./adm/conexao-pdo.php");
-include('./adm/validar-login.php');
-$fk_usuario = $_SESSION["pk_usuario"];
-var_dump($fk_usuario);
-exit;
+
 // VERIFICA SE ESTÁ VINDO ALGUM PRODUTO VIA POST
 if ($_POST) {
-
     $pedido = $_POST["pedido"];
     $preco = $_POST["preco"];
     $nome = $_POST["nome"];
@@ -34,6 +31,18 @@ if ($_POST) {
         $stmt->execute();
 
         $fk_pedido = $coon->lastInsertId();
+        $sql = "
+        SELECT pk_produto
+        from produto 
+        where nome_do_produto = :pedido
+        ";
+        $stmt = $coon->prepare($sql);
+        $stmt->bindParam(':pedido',$pedido);
+        $stmt->execute();
+        if ($stmt->rowCount() > 0) {
+            $dado = $stmt->fetch(PDO::FETCH_OBJ);
+            $pk_produto = $dado->pk_produto;
+        }
 
         $sql = "
         INSERT INTO rl_pedido_produto (fk_pedidos,fk_produtos,preco) 
@@ -43,14 +52,24 @@ if ($_POST) {
         // foreach ($_SESSION["carrinho"] as $key => $item) {
         //     $sql.= "($id_pedido, $item[id_produto], $item[id_tamanho], $item[id_cor], $item[qtde], $item[preco]),";
         // }
-        $fk_produto = $pk_produto;
         $stmt = $coon->prepare($sql);
         $stmt->bindParam(':fk_pedidos',$fk_pedido);
-        $stmt->bindParam(':fk_produtos',$fk_produto);
+        $stmt->bindParam(':fk_produtos',$pk_produto);
         $stmt->bindParam(':preco',$preco);
         $stmt->execute();
         // $sql = substr($sql,0,-1);
-        $fk_usuario = $_SESSION["pk_usuario"];
+        $sql = "
+        SELECT pk_usuario
+        from usuario 
+        where cpf = :cpf 
+        ";
+        $stmt = $coon->prepare($sql);
+        $stmt->bindParam(':cpf',$cpf);
+        $stmt->execute();
+        if ($stmt->rowCount() > 0) {
+            $dado = $stmt->fetch(PDO::FETCH_OBJ);
+            $fk_usuario = $dado->pk_usuario;
+        }
         $sql = "
         INSERT INTO rl_usuario_pedido (fk_usuario,fk_pedidos) 
         VALUES(:fk_usuario,:fk_pedidos)
