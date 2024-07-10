@@ -133,6 +133,9 @@ $pagina_ativa = "pedidos";
         <!-- /.content-wrapper -->
 
         <!-- footer -->
+        <?php
+        include('../footer.php');
+        ?>
         <!-- footer -->
 
         <!-- Control Sidebar -->
