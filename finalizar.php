@@ -127,7 +127,7 @@ if ($_POST) {
         $mail->Body         = "
         <h2>Confirmação  de pedido<h2>
         <p>Você solicitou . $pedido .<p>
-        <p>
+        <p> 
             Seu pedido saiu para entrega :<br>
             <strong>URL:</strong> http://localhost/burst/ <br>
             <strong>$endereco:</strong><br>
@@ -146,6 +146,7 @@ if ($_POST) {
     echo $ex->getMessage();
     exit;
     }
-    header("Location: avaliar.php?pk_pedido=$pk_pedido&pk_produto=$pk_produto");
+    header("Location: avaliar.php?pk_produto=$pk_produto&numero_p=$numero_p");
+    // ?ref=' . base64_encode($dado->pk_produto) . '"
     exit;
 }

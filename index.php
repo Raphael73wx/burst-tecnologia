@@ -41,7 +41,7 @@ include('./adm/conexao-pdo.php');
             </div>
         </div>
         <div class="faixa"></div>
-         
+
         <?php
 
         try {
@@ -63,9 +63,9 @@ include('./adm/conexao-pdo.php');
             if ($stmt->rowCount() > 0) {
 
                 foreach ($dados as $key => $row) {
-                    
+
                     if ($nome_categoria != $row->categoria) {
-                        if(!empty($nome_categoria)) {
+                        if (!empty($nome_categoria)) {
                             echo '
                             </div>
                             </section>
@@ -74,18 +74,18 @@ include('./adm/conexao-pdo.php');
                         echo '
                         
                         <section>
-                            <h2 class="h2f">'. $row->categoria .'</h2>
+                            <h2 class="h2f">' . $row->categoria . '</h2>
                             <div class="owl-carousel owl-theme owl">
                         ';
                     }
                     echo '
                     <div class="item">
                         <div class="card">
-                            <a href="produtos.php?ref='.base64_encode($row->pk_produto).'">
-                                <img src="assets/imagens/'.$row->foto_1.'" alt="'.$row->nome_do_produto.'" style="width:100%">
+                            <a href="produtos.php?ref=' . base64_encode($row->pk_produto) . '">
+                                <img src="assets/imagens/' . $row->foto_1 . '" alt="' . $row->nome_do_produto . '" style="width:100%">
                                 <div class="container">
-                                    <h5><b>'.$row->nome_do_produto.'</b></h5>
-                                    <p>'.$row->preco.'</p>
+                                    <h5><b>' . $row->nome_do_produto . '</b></h5>
+                                    <p>' . $row->preco . '</p>
                                 </div>
                             </a>
                         </div>
@@ -99,9 +99,7 @@ include('./adm/conexao-pdo.php');
                 </div>
                 </section>
                 ';
-
             }
-
         } catch (PDOException $ex) {
             echo $ex->getMessage();
         }
@@ -114,8 +112,9 @@ include('./adm/conexao-pdo.php');
 
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/main.js"></script>
     <script src="vendor/OwlCarousel/owl.carousel.min.js"></script>
+    <script src="assets/main.js"></script>
+    
 
 </body>
 

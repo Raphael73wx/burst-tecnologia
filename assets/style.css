@@ -453,6 +453,36 @@ body .login a {
 }
 
 /* fim da pagina confirmar compra  */
+:root {
+    --amarelo: #fc0;
+    --cinza: #cccc;
+
+}
+
+.estrelas input[type=radio] {
+    display: none;
+}
+
+.estrelas label i.opcao.fa:before {
+    content: '\f005';
+    color: var(--amarelo);
+}
+
+.estrelas input[type=radio]:checked~label i.fa:before {
+    color: var(--cinza);
+}
+.estrela-preenchidas{
+    color: var(--amarelo);
+}
+.estrela-vazia{
+    color: var(--cinza);
+}
+
+
+/* estilizacao da pagina avaliar  */
+
+
+/* fim da pagina avaliar  */
 
 
 /*estilização dos botões e inputs*/
