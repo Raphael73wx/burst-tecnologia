@@ -3,6 +3,7 @@ include('./adm/verificar-autenticidade.php');
 include('./adm/conexao-pdo.php');
 $foto = $_SESSION["foto_usuario"];
 $nome = $_SESSION["nome_completo"];
+
 ?>
 
 <!DOCTYPE html>
@@ -20,10 +21,10 @@ $nome = $_SESSION["nome_completo"];
 
 <body class="temp">
     <div class="container-fluid ">
-        <div class="barra"><a href="<?php echo caminhoURL ?>"><img src="assets/imagens/assetsall/logonav2.png" alt=""></a></div>
+        <div class="barra"><a href="<?php echo caminhoURL ?>"><img src="assets/imagens/assetsall/logonav2.png" alt="" class="p-na"></a></div>
         <div class="container-md container-centro ">
             <div class="row justify-content-start">
-                <div class="col-2"><img src="<?php echo caminhoURL . 'assets/imagens/usuarios/' . $foto ?>" alt="" class="circular img-fluid"></div>
+                <div class="col-2 p-ma"><img src="<?php echo caminhoURL . 'assets/imagens/usuarios/' . $foto ?>" alt="" class="circular img-fluid"></div>
                 <div class="col-7 name">
                     <h4><?php echo $nome  ?></h4>
                 </div>
@@ -31,7 +32,7 @@ $nome = $_SESSION["nome_completo"];
                     <a href="editar.php" class="btn btn-default " type="button" data-toggle="dropdown">
                         <i class="bi bi-gear-fill icones"></i>
                     </a>
-                    <a href="<?php echo caminhoURL2 ?>pedidos.php" class="nav-link flex">
+                    <a href="<?php echo caminhoURL ?>pedidosc.php" class="nav-link flex p-a">
                         <i class="nav-icon bi bi-box-seam text-success  mr-1 icones"></i>
                         <span class="right badge badge-danger">5</span>
                     </a>

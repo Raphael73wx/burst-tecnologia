@@ -2,7 +2,6 @@
 include('../verificar-autenticidade.php');
 include('../conexao-pdo.php');
 $pagina_ativa = "pedidos";
-
 if (empty($_GET["ref"])) {
     $pk_pedidos = "";
     $pedido = "";
@@ -101,7 +100,7 @@ if (empty($_GET["ref"])) {
                             <form action="salvar.php" method="post" enctype="multipart/form-data">
                                 <div class="card card-danger card-outline">
                                     <div class="card-header">
-                                        <h3 class="card-title">Lista de produtos</h3>
+                                        <h3 class="card-title">pedido</h3>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
@@ -146,6 +145,16 @@ if (empty($_GET["ref"])) {
                                             <i class="bi bi-floppy"></i>
                                         </button>
                                     </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="row mt-3">
+                        <div class="col">
+                            <form action="salvar.php" method="post" enctype="multipart/form-data">
+
                             </form>
                         </div>
                     </div>

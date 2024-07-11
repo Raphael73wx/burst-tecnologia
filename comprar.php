@@ -10,32 +10,6 @@ join usuario u on u.nome = u.nome
 where pk_produto = :pk_produto
 ";
 
-// UPDATE ordens_servicos
-// SET data_inicio =:data_inicio,
-// data_fim =:data_fim,
-// fk_cliente = (
-//     SELECT pk_cliente
-//     FROM clientes
-//     WHERE cpf LIKE :cpf 
-// ) 
-// WHERE pk_ordem_servico = :pk_ordem_servico
-// ";
-// UPDATE ordens_servicos SET
-// valor_total =(
-//     SELECT SUM(valor)
-//     FROM rl_servicos_os
-//     WHERE fk_ordem_servico = pk_ordem_servico
-// )
-// WHERE pk_ordem_servico = :pk_ordem_servico
-// ";
-// SELECT PRIMEIRO_NOME, ULTIMO_NOME, DATEDIFF(YEAR, DATA_ADMISSAO, GETDATE())
-// AS ANOS DE EMPRESA
-// FROM FUNCIONARIOS F INNER JOIN DEPARTAMENTOS D
-// ON F.ID_DEPARTAMENTO = D.ID_DEPARTAMENTO
-// WHERE F.SALARIO = (SELECT MAX(SALARIO) FROM FUNCIONARIOS FF, DEPARTAMENTOS DD
-// WHERE FF.ID_DEPARTAMENTO = DD.ID_DEPARTAMENTO
-// AND DD.ID_DEPARTAMENTO = F.ID_DEPARTAMENTO);
-
 $stmt = $coon->prepare($sql);
 $stmt->bindParam(":pk_produto", $pk_produto);
 

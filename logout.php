@@ -1,12 +1,10 @@
 <?php
 
-include('verificar-autenticidade.php');
+include('adm/verificar-autenticidade.php');
 //destruir qualquer sessaõ existente
 session_start();
 session_destroy();
 
 header("location: ". caminhoURL ."login.php")
-
-
 
 ?>

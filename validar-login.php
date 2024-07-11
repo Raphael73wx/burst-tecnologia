@@ -11,7 +11,7 @@ if ($_POST) {
         $_SESSION["title"] = "ops!";
 
 
-        header("location:Login.php");       
+        header("location: login.php");       
         exit;
     }
     else {
@@ -47,6 +47,7 @@ if ($_POST) {
             //ORGANIZA OS DADOS DO BANCO COMO OBJETOS NA VARIAVEL $ROW
             
 
+            $row = $stmt->fetch(PDO::FETCH_OBJ);
             //DECLARO VARIAVEL GLOBAL INFORMANDO QUE USUARIOE ESTA AUTENTICADO
             $_SESSION["autenticado"] = true;    
             $_SESSION["pk_usuario"] = $row->pk_usuario;

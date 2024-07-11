@@ -390,6 +390,12 @@ body .login a {
 /*fim da estilização do footer*/
 
 /*estilizacão de perfil*/
+.p-ma{
+    padding-top: 10px ;
+}
+.p-a{
+    margin-left: 10px;
+}
 .icones {
     font-size: 25px;
 }
@@ -401,6 +407,7 @@ body .login a {
 
 .container-centro {
     max-width: 70vw;
+    border-radius: 30px;
 }
 
 .container-centro>.pa {
@@ -422,6 +429,10 @@ body .login a {
 
 .barra {
     height: 30px;
+}
+.p-na{
+    margin-top: 6px;
+    margin-left: 15px;
 }
 
 /*fim da estilização de perfil*/

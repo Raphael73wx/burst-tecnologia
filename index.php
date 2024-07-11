@@ -114,8 +114,8 @@ include('./adm/conexao-pdo.php');
 
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="vendor/OwlCarousel/owl.carousel.min.js"></script>
     <script src="assets/main.js"></script>
+    <script src="vendor/OwlCarousel/owl.carousel.min.js"></script>
 
 </body>
 

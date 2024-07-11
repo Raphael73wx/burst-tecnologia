@@ -26,7 +26,7 @@ if ($_POST) {
         
         //montar sintaxe sql para consultar no banco de dados 
         $stmt = $coon->prepare("
-        SELECT pk_usuario,nome,foto,
+        SELECT pk_usuario,nome,foto
         FROM usuario
         WHERE email LIKE :email
         AND senha LIKE :senha
