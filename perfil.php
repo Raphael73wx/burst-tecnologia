@@ -3,6 +3,7 @@ include('./adm/verificar-autenticidade.php');
 include('./adm/conexao-pdo.php');
 $foto = $_SESSION["foto_usuario"];
 $nome = $_SESSION["nome_completo"];
+$pk_usuario = $_SESSION["pk_usuario"];
 
 ?>
 
@@ -29,7 +30,7 @@ $nome = $_SESSION["nome_completo"];
                     <h4><?php echo $nome  ?></h4>
                 </div>
                 <div class="col-3 name">
-                    <a href="editar.php" class="btn btn-default " type="button" data-toggle="dropdown">
+                <?php echo '<a href="editar.php?pk_usuario='.$pk_usuario.'" class="btn btn-default " type="button" data-toggle="dropdown">';?>
                         <i class="bi bi-gear-fill icones"></i>
                     </a>
                     <a href="<?php echo caminhoURL ?>pedidosc.php" class="nav-link flex p-a">

@@ -27,27 +27,42 @@ if (empty($_COOKIE["email"]) || empty($_COOKIE["senha"])) {
 
 <body>
     <div class="row log">
-        <div class="col-6 c1 ">
+        <div class="col-4 c1">
             <a href="index.php"><img class="img-fluid" src="assets/imagens/assetsall/logof.png" alt="."></a>
         </div>
         <div class="col-6">
-        <form method="post" action="validar-login.php"  class="login">
-            <div class="bi-persond"><i class="bi bi2 bi-person"></i></div>
-            <div class="email">
-                <label for="email" class="email"></label>
-                <input type="email" name="email" id="email" placeholder="Email" class="form-control" value="<?php echo $email; ?>" >
-            </div>
-            <div class="senha" style="margin: 0;">
-                <label for="senha"></label>
-                <input type="password" name="senha" id="senha" placeholder="senha" class="form-control" value="<?php echo $senha; ?>">
-            </div>
-            <div class="entrar">
-                <div><input type="submit" value="entrar" id="entrar" class="btn btn-primary"></div>
-                <div class="btn btn-primary dupla" style="margin: 0;"
-                ><a href="recuperar-senha.php">mudar senha</a></div>
-                <div class="btn btn-primary dupla"><a href="cadastro.php">fazer cadastro</a></div>
-            </div>
-        </form>
+            <form action="validar-login.php" method="post" class="login">
+                <i class="bi bi2 bi-person"></i>
+                <div class="row">
+                    <div class="col">
+                        <label for="email" class="form-label">email</label>
+                        <input type="text" id="email" name="email" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="senha" class="form-label">senha</label>
+                        <input type="password" id="senha" name="senha" class="form-control">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        <button type="submit" class="btn btn-primary">
+                            entrar
+                        </button>
+                    </div>
+                    <div class="col">
+                        <a href="cadastro.php" class="btn btn-primary">cadastrar</a>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        <a href="recuperar-senha.php" class="btn btn-primary">esqueceu a senha</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+
     </div>
     </div>
 

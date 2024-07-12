@@ -310,10 +310,9 @@ h5 {
 /*estilo do formulario de login/cadastro*/
 .login {
     display: flex;
-    height: 60vh;
-    width: 25vw;
+    height: 70vh;
+    width: 40vw;
     margin: auto;
-    text-align: center;
     flex-direction: column;
     align-items: center;
     border: 2px solid black;
@@ -322,7 +321,6 @@ h5 {
 
 .log {
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
     animation: changeBackgroundColor 10s infinite;
@@ -338,15 +336,7 @@ h5 {
 
 .login .bi-person {
     font-size: 100px;
-}
-
-.login .bi-persond {
-    padding-top: 30px;
-}
-
-body .login a {
-    color: white;
-    text-decoration: none;
+    padding-top: 15px;
 }
 
 .bi-search {
@@ -496,35 +486,6 @@ body .login a {
 
 
 /*estilização dos botões e inputs*/
-.senha {
-    display: flex;
-    flex-direction: column;
-
-}
-
-.ts {
-    margin-top: 30px;
-}
-
-input[type=password] {
-    width: 200px;
-    border-radius: 30px;
-    margin-top: 5px;
-    border: none;
-}
-
-input[type=email] {
-    width: 200px;
-    border-radius: 30px;
-    border: none;
-}
-
-input[type=submit] {
-    border-radius: 30px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    border: none;
-}
 
 /*fim das estilizações de botões e input*/
 /*efeito rgb usado em todas paginas */

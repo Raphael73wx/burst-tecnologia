@@ -1,7 +1,7 @@
 <?php
 include('../verificar-autenticidade.php');
 include('../conexao-pdo.php');
-$pagina_ativa = "produtos";
+$pagina_ativa = "recomendacoes";
 ?>
 
 
@@ -60,15 +60,13 @@ $pagina_ativa = "produtos";
               <div class="card card-danger card-outline">
                 <div class="card-header">
                   <h3 class="card-title">Lista de Produtos</h3>
-                  <a href="./form.php" class="btn bt-sm btn-info float-right rounded-circle">
-                    <i class="bi bi-plus"></i>
                   </a>
                 </div>
                 <div class="card-body">
                   <table class="table">
                     <thead>
                       <tr>
-                        <td>Cod</td>
+                        <td>Categoria</td>
                         <td>Nome </td>
                         <td>Preco</td>
                         <td>categoria</td>
@@ -119,10 +117,7 @@ $pagina_ativa = "produtos";
                           </button>
                           <div class="dropdown-menu" role="menu">
                             <a class="dropdown-item" href="form.php?ref=' . base64_encode($row->pk_produto) . '">
-                              <i class="bi bi-pencil"></i>Editar
-                            </a>
-                            <a class="dropdown-item" href="remover.php?ref=' . base64_encode($row->pk_produto) . '">
-                              <i class="bi bi-trash"></i>Remover
+                              <i class="bi bi-diagram-3"></i> ligar
                             </a>
                           </div>
                         </div>

@@ -105,7 +105,7 @@ if ($stmt->rowCount() > 0) {
                             <?php echo ' <a href="avaliacoes.php?pk_produto='.$pk_produto.'?>" style="text-decoration: none ;color: black;"> '?>
                             <?php   
                             $sql = '
-                            select ROUND(AVG(avaliacoes),0) media
+                            select ROUND(AVG(avaliacoes),0) media ,count(avaliacoes) num
                             from avaliacoes
                             where fk_produto =:fk_produto
                             ';
@@ -122,7 +122,9 @@ if ($stmt->rowCount() > 0) {
                                 echo ' <i class="estrela-vazia fa-solid fa-star"></i>';
                                 }
                                 }
-                                echo "( $row->media )";
+                                $numero= $row->num;
+                                echo "($numero)";
+                               
                             }
                             }
                             ?>    
