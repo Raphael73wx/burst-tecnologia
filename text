@@ -78,3 +78,16 @@ if ($_POST) {
     header('Location: ./login.php');
     exit;
 }
+
+<div class="col">
+            <div class="form-group">
+                <label for="exampleInputFile">Foto 1</label>
+                <div class="input-group">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="foto_1" id="foto_1" accept="image/*">
+                        <label class="custom-file-label" for="exampleInputFile">Selecionar</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- foote

@@ -29,7 +29,7 @@ if (!empty($_POST['estrela'])) {
     $_SESSION["tipo"] = 'success';
     $_SESSION["title"] = 'Oba!';
     $_SESSION["msg"] = 'Avaliacao salva com sucesso!';
-    header("location: avaliacoes.php");
+    header("location: avaliacoes.php?pk_produto=$pk_produto");
     exit;
 } else {
     $_SESSION["tipo"] = 'error';

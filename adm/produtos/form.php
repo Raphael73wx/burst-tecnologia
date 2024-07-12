@@ -225,39 +225,6 @@ if (empty($_GET["ref"])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-        var options = {
-            onKeyPress: function(whatsapp, e, field, options) {
-                var masks = ['(00) 0000-000#', '(00) 00000-0000'];
-                var mask = (whatsapp.length > 14) ? masks[1] : masks[0];
-                $('#whatsapp').mask(mask, options);
-            }
-        };
-        $('#whatsapp').mask('(00) 0000-000#', options);
-    </script>
-
-
-    <script>
-        $(function() {
-            bsCustomFileInput.init();
-            $("#theme-mode").click(function() {
-                //pegar atributo class objeto
-                var classMode = $("#theme-mode").attr("class")
-                if (classMode == "fas fa-sun") {
-                    $("body").removeClass("dark-mode");
-                    $("#theme-mode").attr("class", "fas fa-moon");
-                    $("#navtopo").attr("class", "main-header navbar navbar-expand navbar-white navbar-light");
-                    $("#asideMenu").attr("class", "main-sidebar sidebar-light-primary elevation-4");
-                } else {
-                    $("body").addClass("dark-mode");
-                    $("#theme-mode").attr("class", "fas fa-sun");
-                    $("#navtopo").attr("class", "main-header navbar navbar-expand nav-black navbar-dark");
-                    $(" ").attr("class", "main-sidebar sidebar-dark-primary elevation-4")
-                }
-            });
-
-        })
-    </script>
 </body>
 
 </html>

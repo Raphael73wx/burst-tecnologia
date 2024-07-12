@@ -1,5 +1,34 @@
 <?php
 include('./adm/conexao-pdo.php');
+include('./adm/verificar-autenticidade.php');
+$pk_usuario = $_SESSION["pk_usuario"];
+$pk_produto = trim($_GET["pk_produto"]);
+$sql = "
+    SELECT nome,foto
+    from usuario
+    where pk_usuario =:pk_usuario
+";
+$stmt = $coon->prepare($sql);
+$stmt->bindParam(':pk_usuario', $pk_usuario);
+$stmt->execute();
+if ($stmt->rowCount() > 0) {
+    $dado = $stmt->fetch(PDO::FETCH_OBJ);
+    $nome = $dado->nome;
+    $foto = $dado->foto;
+}
+$sql = "
+select nome_do_produto,foto_1
+from produto
+where pk_produto =:pk_produto
+";
+$stmt = $coon->prepare($sql);
+$stmt->bindParam(':pk_produto', $pk_produto);
+$stmt->execute();
+if ($stmt->rowCount() > 0) {
+    $dado = $stmt->fetch(PDO::FETCH_OBJ);
+    $nome = $dado->nome_do_produto;
+    $foto_1 = $dado->foto_1;
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -16,38 +45,18 @@ include('./adm/conexao-pdo.php');
 <body>
     <?php include("nav.php"); ?>
     <div class="container-fluid">
-        <div class="row">
-            <h4 class="text-center">avaliações</h4>
-        </div>
-        <div class="row">
-            <div class="col"><img src="assets/imagens/usuarios/$foto" class="circular img-fluid" alt=""></div>
-            <div class="col">raphael</div>
-        </div>
-        <div class="row text-center">
-            <label for="">Avaliacao </label>
-            <div class="estrelas">
-                <!-- f005 -->
-                <input type="radio" id="vazio" name="estrela" value="" checked>
-
-                <label for="estrela_um"><i class="opcao fa"></i></label>
-                <input type="radio" id="estrela_um" name="estrela" value="1">
-
-                <label for="estrela_dois"><i class="opcao fa"></i></label>
-                <input type="radio" id="estrela_dois" name="estrela" value="2">
-
-                <label for="estrela_tres"><i class="opcao fa"></i></label>
-                <input type="radio" id="estrela_tres" name="estrela" value="3">
-
-                <label for="estrela_quatro"><i class="opcao fa"></i></label>
-                <input type="radio" id="estrela_quatro" name="estrela" value="4">
-
-                <label for="estrela_cinco"><i class="opcao fa"></i></label>
-                <input type="radio" id="estrela_cinco" name="estrela" value="5">
+        <div class="row" style="justify-content: center;">
+            <div class="col-2  my-4">
+                <div class="card">
+                <div class="card-header text-center">
+                    <H4>Avaliações</H4>
+                    <p><?php  echo " $nome "; ?> </p>
+                </div>
+                <div class="card-body flex" style="justify-content: center;">
+                    <?php echo ' <img src="assets/imagens/' . $foto_1. '" class=" img-fluid" style="max-width: 100px; max-height: 100px;" alt=""> '; ?>
+                </div>
+                </div>
             </div>
-        </div>
-        <div class="row text-center" style="justify-content: center;">
-            <label for="produto" class="form-label">comentario</label>
-            <input type="text" class="form-control" id="comentario" name="comentario" value="" style="max-width: 70vw;">
         </div>
         <?php
         $sql = '
@@ -55,29 +64,51 @@ include('./adm/conexao-pdo.php');
         from avaliacoes
         where fk_produto = :fk_produto
         ORDER BY pk_avaliacoes
-';
+        ';
         $stmt = $coon->prepare($sql);
         $stmt->bindParam(':fk_produto', $pk_produto);
         $stmt->execute();
         $dados = $stmt->fetchAll(PDO::FETCH_OBJ);
         if ($stmt->rowCount() > 0) {
-
+            echo '
+            <div class="row">';
             foreach ($dados as $key => $row) {
-            }
-            for($i = 1; $i<= 5; $i++){
-                if($i <= $row->avaliacoes){
-                    echo '<i class="estrela-preencida fa-solid fa-star"></i>';
-                }else{
-                    echo '<i class="estrela-vazia fa-solid fa-star"></i>';
+                echo '
+                <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        ' . $nome . '
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img src="assets/imagens/usuarios/' . $foto . '" class="circular img-fluid" style="max-width: 100px; max-height: 100px;" alt="">
+                            </div>
+                            <div class="col-md-8">
+                            <p>';
+                for ($i = 1; $i <= 5; $i++) {
+                    if ($i <= $row->avaliacoes) {
+                        echo ' <i class="estrela-preenchidas fa-solid fa-star"></i>';
+                    } else {
+                        echo ' <i class="estrela-vazia fa-solid fa-star"></i>';
+                    }
                 }
+                echo '
+                </p>
+                <p>'.$row->comentarios.'</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                ';
             }
+            echo '</div>';
         }
         ?>
+
     </div>
-    <!-- $dado = $stmt->fetch(PDO::FETCH_OBJ);
-    $avaliacoes = $dado->avaliacoes;
-    $comentarios = $dado->comentarios;
-    $data = $dado->data; -->
+    <?php include("footer.php"); ?>
 </body>
 
 </html>

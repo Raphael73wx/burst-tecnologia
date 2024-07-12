@@ -38,6 +38,7 @@ if ($stmt->rowCount() > 0) {
     <link rel="stylesheet" href="vendor/OwlCarousel/assets/owl.theme.default.min.css">
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="assets/style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>produtos</title>
 </head>
 
@@ -100,8 +101,32 @@ if ($stmt->rowCount() > 0) {
                     </div>
                     <div class="linhac"></div>
                     <div class="row l3">
-                        <div class="col-2 b">
-                            <a href="avaliacoes.php">avaliacoes</a>
+                        <div class="col-3 b">
+                            <?php echo ' <a href="avaliacoes.php?pk_produto='.$pk_produto.'?>" style="text-decoration: none ;color: black;"> '?>
+                            <?php   
+                            $sql = '
+                            select ROUND(AVG(avaliacoes),0) media
+                            from avaliacoes
+                            where fk_produto =:fk_produto
+                            ';
+                            $stmt = $coon->prepare($sql);
+                            $stmt->bindParam(':fk_produto',$pk_produto);
+                            $stmt->execute();
+                            $dados = $stmt->fetchAll(PDO::FETCH_OBJ);
+                            if ($stmt->rowCount() > 0){
+                            foreach ($dados as $key => $row) {
+                                for ($i = 1; $i <= 5; $i++) {
+                                if ($i <= $row->media) {
+                                echo ' <i class="estrela-preenchidas fa-solid fa-star"></i>';
+                                } else {
+                                echo ' <i class="estrela-vazia fa-solid fa-star"></i>';
+                                }
+                                }
+                                echo "( $row->media )";
+                            }
+                            }
+                            ?>    
+                            </a>
                         </div>
                     </div>
                     <div class="row">
