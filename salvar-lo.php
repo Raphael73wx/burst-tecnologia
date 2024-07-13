@@ -2,6 +2,7 @@
 include("./adm/sweet-alert-2.php");
 include("./adm/conexao-pdo.php");
 
+
 if (!empty($_POST['senha'])) {
     $senha = trim($_POST["senha"]);
     $nome = trim($_POST["nome"]);
@@ -32,10 +33,10 @@ if (!empty($_POST['senha'])) {
             header("location: ./");
             exit;
         }
-        $sql = '
+        $sql ='
         insert into usuario (nome,CPF,email,senha,telefone,foto)
         values(:nome,:cpf,:email,:senha,:telefone,:foto)
-         ';
+        ';
         $stmt = $coon->prepare($sql);
         $stmt->bindParam(':nome', $nome);
         $stmt->bindParam(':senha', $senha);
@@ -44,7 +45,7 @@ if (!empty($_POST['senha'])) {
         $stmt->bindParam(':cpf', $cpf);
         $stmt->bindParam(':foto', $novo_nome);
         $stmt->execute();
-        
+        // ada:?:;
         $_SESSION["tipo"] = 'success';
         $_SESSION["title"] = 'Oba!';
         $_SESSION["msg"] = 'registro salvo com sucesso!';
@@ -54,7 +55,7 @@ if (!empty($_POST['senha'])) {
 } else {
     $_SESSION["tipo"] = 'error';
     $_SESSION["title"] = 'Ops!';
-    $_SESSION["msg"] =  '$ex->getMessage()';
+    $_SESSION["msg"] =  $ex->getMessage();
     header("location: ./");
     exit;
 }

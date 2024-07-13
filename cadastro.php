@@ -20,7 +20,7 @@ include('./adm/conexao-pdo.php');
             <a href="index.php"><img class="img-fluid" src="assets/imagens/assetsall/logof.png" alt="."></a>
         </div>
         <div class="col-6">
-            <form action="salvar-lo.php" method="post" class="login">
+            <form action="salvar-lo.php" method="post" class="login" enctype="multipart/form-data">
                 <i class="bi bi2 bi-person"></i>
                 <div class="row">
                     <div class="col-7">

@@ -141,6 +141,22 @@ if ($_POST) {
                 $stmt->bindParam(':cor', $cor);
                 $stmt->bindParam(':pk_produto', $pk_produto);
             }
+            $sql = "
+            INSERT INTO rl_produto_recomendacao (fk_produto,fk_recomendacao)
+            values
+            ";
+            $relacionados = $_POST["fk_produto"];
+
+            foreach($relacionados as $key =>$rel){
+                $sql.="(:fk_recomendacao_$key,:fk_produto),";
+            };
+            $sql = substr($sql,0,-1);
+            $stmt = $coon->prepare($sql);
+            foreach($relacionados as $key =>$rel){
+                $stmt->bindParam(":fk_recomendacao_$key",$relacionados[$key]);
+                $stmt->bindParam(":fk_produto",$pk_produto);
+            }
+            $stmt->execute();
             //executa inset ou update acima
             $stmt->execute();
             $_SESSION["tipo"] = 'success';

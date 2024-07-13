@@ -4,7 +4,6 @@ include('./adm/conexao-pdo.php');
 $foto = $_SESSION["foto_usuario"];
 $nome = $_SESSION["nome_completo"];
 $pk_usuario = $_SESSION["pk_usuario"];
-
 ?>
 
 <!DOCTYPE html>
@@ -30,8 +29,8 @@ $pk_usuario = $_SESSION["pk_usuario"];
                     <h4><?php echo $nome  ?></h4>
                 </div>
                 <div class="col-3 name">
-                <?php echo '<a href="editar.php?pk_usuario='.$pk_usuario.'" class="btn btn-default " type="button" data-toggle="dropdown">';?>
-                        <i class="bi bi-gear-fill icones"></i>
+                    <?php echo '<a href="editar.php?pk_usuario=' . $pk_usuario . '" class="btn btn-default " type="button" data-toggle="dropdown">'; ?>
+                    <i class="bi bi-gear-fill icones"></i>
                     </a>
                     <a href="<?php echo caminhoURL ?>pedidosc.php" class="nav-link flex p-a">
                         <i class="nav-icon bi bi-box-seam text-success  mr-1 icones"></i>
@@ -43,18 +42,43 @@ $pk_usuario = $_SESSION["pk_usuario"];
                 </div>
             </div>
             <div class="row ll1">
-                <div class="col">
-                    <h4>Meu PC</h4>
+                <?php
+                $sql = '
+                select fk_pedidos
+                from rl_usuario_pedido
+                where fk_usuario =:pk_usuario
+                ';
+                $stmt = $coon->prepare($sql);
+                $stmt->bindParam(":pk_usuario", $pk_usuario);
+                $stmt->execute();
+                $dados = $stmt->fetchAll(PDO::FETCH_OBJ);
+                if ($stmt->rowCount() > 0) {
+                    foreach ($dados as $key => $row) {
+                        $sql = "
+                        select fk_produtos
+                        from produtos
+                        where fk_pedidos=:pk_pedidos
+                        ";
+                        $stmt = $coon->prepare($sql);
+                        $stmt->bindParam(":pk_pedidos", $row->fk_pedidos[$key]);
+                        $stmt->execute();
+                    }
+                }
+                echo '
+                div class="col">
+                    <h4>Produtos comprados</h4>
                 </div>
                 <div class="col">
                     <div class="owl-carousel owl-theme tt">
                         <div class="item">
                             <div class="card">
-                                <a href="produtos.html"><img src="https://placehold.co/100x100" alt="Avatar" style="width:100%"></a>
+                                <a href="produtos.php?pk_produto=' . $row->fk_pedidos . '"><img src="assets/imagens/' . $row->foto_1 . '" alt="" style="width:100%"></a>
                             </div>
                         </div>
                     </div>
                 </div>
+        '
+                ?>
             </div>
             <div class="row ll1">
                 <div class="col">
