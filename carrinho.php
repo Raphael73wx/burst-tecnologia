@@ -34,7 +34,7 @@ $total_pedido = 0;
         </div>
         <?php
         if (count($_SESSION["carrinho"]) > 0) {
-            echo ' <div class="row">';
+            echo ' <div class="row" style="justify-content: center;">';
             foreach ($_SESSION["carrinho"] as $key => $item) {
                 echo '
                 <div class="col-md-2 mt-3 m-2">
