@@ -10,4 +10,7 @@ echo '
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>  <a href="<?php echo caminhoURL ?>pedidosc.php" class="nav-link flex p-a">
+                        <i class="nav-icon bi bi-box-seam text-success  mr-1 icones"></i>
+                        <span class="right badge badge-danger" style="padding-right: 5px;" ></span>
+                    </a>

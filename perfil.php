@@ -32,10 +32,6 @@ $pk_usuario = $_SESSION["pk_usuario"];
                     <?php echo '<a href="editar.php?pk_usuario=' . $pk_usuario . '" class="btn btn-default " type="button" data-toggle="dropdown">'; ?>
                     <i class="bi bi-gear-fill icones"></i>
                     </a>
-                    <a href="<?php echo caminhoURL ?>pedidosc.php" class="nav-link flex p-a">
-                        <i class="nav-icon bi bi-box-seam text-success  mr-1 icones"></i>
-                        <span class="right badge badge-danger" style="padding-right: 5px;" ></span>
-                    </a>
                     <a href="logout.php" class="btn btn-default " type="button" data-toggle="dropdown">
                         <i class="bi bi-box-arrow-right icones"></i>
                     </a>
@@ -114,7 +110,7 @@ $pk_usuario = $_SESSION["pk_usuario"];
                                     echo ' 
                                     <div class="item">
                                         <div class="card">
-                                            <a href="produtos.php?pk_produto=' . base64_encode($row4->pk_produto)  . '"><img src="assets/imagens/' . $row4->foto_1 . '" alt="" style="width:100%"></a>
+                                            <a href="produtos.php?ref=' . base64_encode($row4->pk_produto)  . '"><img src="assets/imagens/' . $row4->foto_1 . '" alt="" style="width:100%"></a>
                                         </div>
                                     </div>';
                                 }

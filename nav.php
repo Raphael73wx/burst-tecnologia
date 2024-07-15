@@ -9,7 +9,6 @@
         <a href="<?php echo caminhoURL?>"><img src="assets/imagens/assetsall/logonav2.png" alt="logo"></a>
         <div class="mae2">
             <ul>
-                <li><a href="<?php echo caminhoURL?>"><i class="bi bi-search"></i></a></li>
                 <li><a href="<?php echo caminhoURL?>carrinho.php"><i class="bi bi-cart3"></i></a></li>
                 <li><a href="<?php echo caminhoURL?>perfil.php"><i class="bi bi2 bi-person"></i></a></li>
             </ul>
