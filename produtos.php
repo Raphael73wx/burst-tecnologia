@@ -44,7 +44,7 @@ if ($stmt->rowCount() > 0) {
 
 <body class="fundo">
     <div class="container-fluid">
-        <?php include("nav.php"); ?> 
+        <?php include("nav.php"); ?>
         <div class="container-xxl x">
             <div class="row">
                 <div class="col-6">
@@ -101,47 +101,81 @@ if ($stmt->rowCount() > 0) {
                     </div>
                     <div class="linhac"></div>
                     <div class="row l3">
-                        <div class="col-3 b">
-                            <?php echo ' <a href="avaliacoes.php?pk_produto='.$pk_produto.'?>" style="text-decoration: none ;color: black;"> '?>
-                            <?php   
-                            $sql = '
+                        <div class="col-6 esq">
+                            <div class="col-5 b">
+                                <?php echo ' <a href="avaliacoes.php?pk_produto=' . $pk_produto . '?>" style="text-decoration: none ;color: black;"> ' ?>
+                                <?php
+                                $sql = '
                             select ROUND(AVG(avaliacoes),0) media ,count(avaliacoes) num
                             from avaliacoes
                             where fk_produto =:fk_produto
                             ';
-                            $stmt = $coon->prepare($sql);
-                            $stmt->bindParam(':fk_produto',$pk_produto);
-                            $stmt->execute();
-                            $dados = $stmt->fetchAll(PDO::FETCH_OBJ);
-                            if ($stmt->rowCount() > 0){
-                            foreach ($dados as $key => $row) {
-                                for ($i = 1; $i <= 5; $i++) {
-                                if ($i <= $row->media) {
-                                echo ' <i class="estrela-preenchidas fa-solid fa-star"></i>';
-                                } else {
-                                echo ' <i class="estrela-vazia fa-solid fa-star"></i>';
+                                $stmt = $coon->prepare($sql);
+                                $stmt->bindParam(':fk_produto', $pk_produto);
+                                $stmt->execute();
+                                $dados = $stmt->fetchAll(PDO::FETCH_OBJ);
+                                if ($stmt->rowCount() > 0) {
+                                    foreach ($dados as $key => $row) {
+                                        for ($i = 1; $i <= 5; $i++) {
+                                            if ($i <= $row->media) {
+                                                echo ' <i class="estrela-preenchidas fa-solid fa-star"></i>';
+                                            } else {
+                                                echo ' <i class="estrela-vazia fa-solid fa-star"></i>';
+                                            }
+                                        }
+                                        $numero = $row->num;
+                                        echo "($numero)";
+                                    }
                                 }
-                                }
-                                $numero= $row->num;
-                                echo "($numero)";
-                               
-                            }
-                            }
-                            ?>    
-                            </a>
+                                ?>
+                                </a>
+                            </div>
+                            <div class="row">
+                                <div class="col-1 bi1"><i class="bi bi-cash"></i></div>
+                                <div class="col-9 bi3" style="padding-left: 40px;"><?php echo $preco ?></div>
+                            </div>
                         </div>
+                        <div class="col-6 dir">
+                            <div class="row">
+                                <h4>Formas de pagamento</h4>
+                            </div>
+                            <div class="row formas">
+                                <div class="col-2">
+                                    <i class="bi bi-credit-card"></i>
+                                </div>
+                                <div class="col-4">
+                                    <h4>Cartao</h4>
+                                </div>
+                            </div>
+                            <div class="row formas">
+                                <div class="col-2">
+                                    <img width="30" height="30" src="https://img.icons8.com/ios-filled/50/pix.png" alt="pix" />
+                                </div>
+                                <div class="col-4">
+                                    <h4>Pix</h4>
+                                </div>
+                            </div>
+                            <div class="row formas">
+                                <div class="col-2">
+                                    <i class="bi bi-upc"></i>
+                                </div>
+                                <div class="col-4">
+                                    <h4>Boleto</h4>
+                                </div>
+                            </div>
+                        </div>
+
+
+
                     </div>
-                    <div class="row">
-                    <div class="col-1 bi1"><i class="bi bi-cash"></i></div>
-                    <div class="col-9 bi3"><?php echo $preco ?></div>
-                    </div>
+
                     <?php
-                    echo'
+                    echo '
                     <div class="row l4">
                         <div class="tes row">
-                            <a class="btnc1 col-1" href="carrinho.php?ref=' . base64_encode($dado->pk_produto) . '">
+                            <a class="btnc1 col-1" href="cart.php?ref=' . base64_encode($dado->pk_produto) . '">
                                 <i class="bi bi-cart3"></i></a>
-                            <a class="btnc2 col-10" href="comprar.php?ref=' . base64_encode($dado->pk_produto) .'">
+                            <a class="btnc2 col-10" href="comprar.php?ref=' . base64_encode($dado->pk_produto) . '">
                                 <h5>comprar</h5>
                             </a>
                         </div>
@@ -151,9 +185,9 @@ if ($stmt->rowCount() > 0) {
                 </div>
             </div>
         </div>
-        
+
     </div>
- 
+
 
 
 

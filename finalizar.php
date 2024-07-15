@@ -1,7 +1,7 @@
 <?php
 include('./adm/verificar-autenticidade.php');
 include("./adm/conexao-pdo.php");
-
+$pk_usuario = $_SESSION["pk_usuario"];
 require('./dashboard/dist/plugins/phpmailer/src/PHPMailer.php');
 require('./dashboard/dist/plugins/phpmailer/src/SMTP.php');
 require('./dashboard/dist/plugins/phpmailer/src/Exception.php');
@@ -27,16 +27,18 @@ if ($_POST) {
 
     try {
         $sql = "
-        INSERT INTO pedidos (data_ini,data_fim, pedido, forma_de_pagamento, endereco_de_entrega,numero_do_pedido) 
-        VALUES(NOW(),NOW(),:pedido,:forma_p,:endereco,:numero_p)
+        INSERT INTO pedidos (data_ini, data_fim, fk_usuario, pedido, forma_de_pagamento, endereco_de_entrega, numero_do_pedido) 
+        VALUES(NOW(), NOW(), :fk_usuario, :pedido, :forma_p, :endereco, :numero_p)
         ";
 
         $stmt = $coon->prepare($sql);
         $stmt->bindParam(':pedido', $pedido);
+        $stmt->bindParam(':fk_usuario', $pk_usuario);
         $stmt->bindParam(':forma_p', $forma_p);
         $stmt->bindParam(':endereco', $endereco);
         $stmt->bindParam(':numero_p', $numero_p);
         $stmt->execute();
+      
 
         $fk_pedido = $coon->lastInsertId();
         $sql = "
@@ -56,7 +58,6 @@ if ($_POST) {
         INSERT INTO rl_pedido_produto (fk_pedidos,fk_produtos,preco) 
         VALUES(:fk_pedidos,:fk_produtos,:preco)
         ";
-
         // foreach ($_SESSION["carrinho"] as $key => $item) {
         //     $sql.= "($id_pedido, $item[id_produto], $item[id_tamanho], $item[id_cor], $item[qtde], $item[preco]),";
         // }
@@ -67,7 +68,7 @@ if ($_POST) {
         $stmt->execute();
         // $sql = substr($sql,0,-1);
         $sql = "
-        SELECT pk_usuario
+        SELECT pk_usuario,nome,email
         from usuario 
         where cpf = :cpf 
         ";
@@ -75,56 +76,35 @@ if ($_POST) {
         $stmt->bindParam(':cpf', $cpf);
         $stmt->execute();
         if ($stmt->rowCount() > 0) {
-            $dado = $stmt->fetch(PDO::FETCH_OBJ);
             $fk_usuario = $dado->pk_usuario;
-        }
-        $sql = "
-        INSERT INTO rl_usuario_pedido (fk_usuario,fk_pedidos) 
-        VALUES(:fk_usuario,:fk_pedidos)
-        ";
-        $stmt = $coon->prepare($sql);
-        $stmt->bindParam(':fk_pedidos', $fk_pedido);
-        $stmt->bindParam(':fk_usuario', $fk_usuario);
-        $stmt->execute();
+            $dado = $stmt->fetch(PDO::FETCH_OBJ);
 
+            //inicio de configuração do servidor email
+            $mail = new PHPMailer(true);
+            $mail->isSMTP();
+            $mail->Host            = "mail.g1a.com.br";
+            $mail->Username        = "alunos@g1a.com.br";
+            $mail->Password        = "Senac@2024";
+            $mail->SMTPSecure      = PHPMailer::ENCRYPTION_SMTPS;
+            $mail->SMTPAuth        = true;
+            $mail->Port            = 465;
 
-        $sql = "
-        SELECT pk_usuario, nome
-        FROM usuario 
-        WHERE email LIKE :email
-        ";
-        $stmt = $coon->prepare($sql);
-        $stmt->bindParam(':email', $email);
-        $stmt->execute();
-        if ($stmt->rowCount() > 0) {
-        $dado = $stmt->fetch(PDO::FETCH_OBJ);
+            //REMETENTE
+            $mail->setFrom("alunos@g1a.com.br", "Sistema Dashboard - Burst");
 
-                    //inicio de configuração do servidor email
-        $mail = new PHPMailer(true);
-        $mail->isSMTP();
-        $mail->Host            = "mail.g1a.com.br";
-        $mail->Username        = "alunos@g1a.com.br";
-        $mail->Password        = "Senac@2024";
-        $mail->SMTPSecure      = PHPMailer::ENCRYPTION_SMTPS;
-        $mail->SMTPAuth        = true;
-        $mail->Port            = 465;
+            //DESTINATARIO
+            $mail->addAddress($email, $dado->nome);
+            //DESTINATÁRIO EM CÓPIA
+            //$MAIL->addCC("email","nome");
+            //DESTINATÁRIO EM CÓPIA OCULTA
+            //$email->addBCC("email","nome");
+            //ANEXAR ARQUIVO
+            //$mail->addAttachement("caminho do arquivo");
 
-                    //REMETENTE
-        $mail->setFrom("alunos@g1a.com.br", "Sistema Dashboard - Burst");
-
-                    //DESTINATARIO
-        $mail->addAddress($email, $dado->nome);
-                    //DESTINATÁRIO EM CÓPIA
-                    //$MAIL->addCC("email","nome");
-                    //DESTINATÁRIO EM CÓPIA OCULTA
-                    //$email->addBCC("email","nome");
-                    //ANEXAR ARQUIVO
-                    //$mail->addAttachement("caminho do arquivo");
-
-        $mail->isHTML(true);
-        $mail->Subject      = "Confirmação de pedido";
-        $mail->CharSet      = "UTF-8";
-        $mail->Body         = "
+            $mail->isHTML(true);
+            $mail->Subject      = "Confirmação de pedido";
+            $mail->CharSet      = "UTF-8";
+            $mail->Body         = "
         <h2>Confirmação  de pedido<h2>
         <p>Você solicitou . $pedido .<p>
         <p> 
@@ -135,18 +115,18 @@ if ($_POST) {
         <p>
             <p>Enviado em " . date("d/m/Y - H:i") . "</p>
                         ";
-        $mail->send();
+            $mail->send();
 
             $_SESSION["tipo"] = "success";
             $_SESSION["title"] = "Oba!";
             $_SESSION["msg"] = "Uma seu pedido foi confirmado .";
+            header("Location: avaliar.php?pk_produto=$pk_produto&numero_p=$numero_p");
+            exit;
         }
+    } catch (PDOException $ex) {
+        echo $ex->getMessage();
+        exit;
     }
-    catch (PDOException $ex) {
-    echo $ex->getMessage();
-    exit;
-    }
-    header("Location: avaliar.php?pk_produto=$pk_produto&numero_p=$numero_p");
+    
     // ?ref=' . base64_encode($dado->pk_produto) . '"
-    exit;
 }

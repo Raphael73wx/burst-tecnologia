@@ -259,7 +259,7 @@ try {
                                                                     echo '
                                                                 <tr>
                                                                     <td>
-                                                                        <select required class="form-select" name="fk_servico[]">
+                                                                        <select class="form-select" name="fk_servico[]">
                                                                         ' . $options . ';
                                                                         </select>
                                                                     </td>
@@ -283,7 +283,7 @@ try {
                                                                             echo '
                                                                         <tr>
                                                                             <td>
-                                                                                <select required class="form-select" name="fk_produto[]">
+                                                                                <select class="form-select" name="fk_produto[]">
                                                                                    <option selected value="' . $row->pk_produto . '">' . $row->nome_do_produto . '</option>
                                                                                    ' . $options . ';
                                                                                 </select>

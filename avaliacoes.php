@@ -13,7 +13,7 @@ $stmt->bindParam(':pk_usuario', $pk_usuario);
 $stmt->execute();
 if ($stmt->rowCount() > 0) {
     $dado = $stmt->fetch(PDO::FETCH_OBJ);
-    $nome = $dado->nome;
+    $nomeu = $dado->nome;
     $foto = $dado->foto;
 }
 $sql = "
@@ -77,7 +77,7 @@ if ($stmt->rowCount() > 0) {
                 <div class="col-md-4 mb-4">
                 <div class="card">
                     <div class="card-header">
-                        ' . $nome . '
+                        ' . $nomeu . '
                     </div>
                     <div class="card-body">
                         <div class="row">

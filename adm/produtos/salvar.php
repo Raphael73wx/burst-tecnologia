@@ -3,20 +3,6 @@
 include("../verificar-autenticidade.php");
 include("../conexao-pdo.php");
 
-// function reArrayFiles(&$file_post) {
-
-//     $file_ary = array();
-//     $file_count = count($file_post['name']);
-//     $file_keys = array_keys($file_post);
-
-//     for ($i=0; $i<$file_count; $i++) {
-//         foreach ($file_keys as $key) {
-//             $file_ary[$i][$key] = $file_post[$key][$i];
-//         }
-//     }
-
-//     return $file_ary;
-// }
 
 //verifica se está vindo informações via post
 if ($_POST) {
@@ -155,8 +141,7 @@ if ($_POST) {
             foreach($relacionados as $key =>$rel){
                 $stmt->bindParam(":fk_recomendacao_$key",$relacionados[$key]);
                 $stmt->bindParam(":fk_produto",$pk_produto);
-            }
-            $stmt->execute();
+            } 
             //executa inset ou update acima
             $stmt->execute();
             $_SESSION["tipo"] = 'success';

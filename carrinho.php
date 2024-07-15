@@ -1,6 +1,7 @@
 <?php
 include('./adm/verificar-autenticidade.php');
 include('./adm/conexao-pdo.php');
+$total_pedido = 0;
 ?>
 
 
@@ -22,57 +23,48 @@ include('./adm/conexao-pdo.php');
     <?php
     include("nav.php");
     ?>
+
     <div class="container-fluid">
-        <?php
-        if (count($_SESSION["carrinho"]) > 0) {
-            foreach ($_SESSION["carrinho"] as $key => $item) {
-                $total_pedido = $total_pedido + ($item["preco"]);
-                echo '
-                <div class="row">
-                        <div class="col-md4">
-                            <div class="card">
-                             <div class="card-header">
-                        nome do produto
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <img src="assets/imagens/ $foto" class="circular img-fluid" style="max-width: 100px; max-height: 100px;" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        preco
-                    </div>
-                </div>
+    <div class="row" >
+            <div class="col m-4 text-center">
+               <a href="limpar-car.php"class="btn btn-success" >
+                    Limpar carrinho
+                </a>
             </div>
         </div>
-                <li class="list-group-item d-flex justify-content-between lh-sm">
-                    <div>
-                        <h6 class="my-0">
-                            ' . $item["produto"] . '
-                            <a class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger text-decoration-none" href="cart.php?index=' . $key . '">
-                                X
-                            </a>
-                        </h6>
-                        <small class="text-body-secondary">Qtde: ' . $item["qtde"] . ' x R$' . number_format($item["preco"], 2, ',', '.') . '</small>
-                    </div>
-                    <span class="text-body-secondary">
-                        R$' . number_format(($item["preco"] * $item["qtde"]), 2, ',', '.') . '
-                    </span>
-                    
-                </li>
+        <?php
+        if (count($_SESSION["carrinho"]) > 0) {
+            echo ' <div class="row">';
+            foreach ($_SESSION["carrinho"] as $key => $item) {
+                echo '
+                <div class="col-md-2 mt-3 m-2">
+                <a href="produtos.php?ref=' . base64_encode($item["pk_produto"]) . '" style="text-decoration: none; color: black;">
+                        <div class="card">
+                             <div class="card-header"  style=" display: flex; justify-content: center;" >
+                                 ' . $item["nome_do_produto"] . '
+                             </div>
+                            <div class="card-body"  style=" display: flex; justify-content: center;" >
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <img src="assets/imagens/' . $item["foto_1"] . '" class=" img-fluid" style="max-width: 100px; max-height: 100px;" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer"  style="display: flex; justify-content: center;" >
+                                ' . $item["preco"] . '
+                            </div>
+                        </div>
+                        </a>
+                </div>
+                
                 ';
             }
-        
+            echo '</div>';
+        }
+
         ?>
-        
+     
     </div>
-    <?php
-      $sql="
-      select nome_do_produto,preco,foto_1
-      "  
-    ?>
     <?php include("adm/footer.php"); ?>
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>

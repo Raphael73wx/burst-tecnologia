@@ -50,15 +50,6 @@
             </p>
           </a>
         </li>
-        <li class="nav-item">
-          <a href="<?php echo caminhoURL2 ?>recomendacoes/" class="nav-link <?php echo $pagina_ativa == 'recomendacoes' ? 'active' : ''; ?>">
-            <i class="nav-icon bi bi-box-seam text-success  mr-1 "></i>
-            <p>
-              recomendacoes
-              <!-- <span class="right badge badge-danger"></span> -->
-            </p>
-          </a>
-        </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->

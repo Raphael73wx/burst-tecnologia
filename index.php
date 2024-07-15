@@ -21,13 +21,13 @@ include('./adm/conexao-pdo.php');
             <div id="carouselExample" class="carousel slide ex ">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="https://placehold.co/1568x400" class="d-block w-100" alt="...">
+                        <img src="assets/imagens/assetsall/Group 2.png" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="https://placehold.co/1568x400" class="d-block w-100" alt="...">
+                        <img src="assets/imagens/assetsall/Group 2.png" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="https://placehold.co/1568x400" class="d-block w-100" alt="...">
+                        <img src="assets/imagens/assetsall/Group 2.png" class="d-block w-100" alt="...">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">

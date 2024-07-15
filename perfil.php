@@ -34,7 +34,7 @@ $pk_usuario = $_SESSION["pk_usuario"];
                     </a>
                     <a href="<?php echo caminhoURL ?>pedidosc.php" class="nav-link flex p-a">
                         <i class="nav-icon bi bi-box-seam text-success  mr-1 icones"></i>
-                        <span class="right badge badge-danger">5</span>
+                        <span class="right badge badge-danger" style="padding-right: 5px;" ></span>
                     </a>
                     <a href="logout.php" class="btn btn-default " type="button" data-toggle="dropdown">
                         <i class="bi bi-box-arrow-right icones"></i>
@@ -42,80 +42,85 @@ $pk_usuario = $_SESSION["pk_usuario"];
                 </div>
             </div>
             <div class="row ll1">
-                <?php
-                $sql = '
-                select fk_pedidos
-                from rl_usuario_pedido
-                where fk_usuario =:pk_usuario
-                ';
-                $stmt = $coon->prepare($sql);
-                $stmt->bindParam(":pk_usuario", $pk_usuario);
-                $stmt->execute();
-                $dados = $stmt->fetchAll(PDO::FETCH_OBJ);
-                if ($stmt->rowCount() > 0) {
-                    foreach ($dados as $key => $row) {
-                        $sql = "
-                        select fk_produtos
-                        from produtos
-                        where fk_pedidos=:pk_pedidos
-                        ";
-                        $stmt = $coon->prepare($sql);
-                        $stmt->bindParam(":pk_pedidos", $row->fk_pedidos[$key]);
-                        $stmt->execute();
-                    }
-                }
-                echo '
-                div class="col">
-                    <h4>Produtos comprados</h4>
+                <div>
+                    <h4>Minhas compras</h4>
                 </div>
                 <div class="col">
                     <div class="owl-carousel owl-theme tt">
-                        <div class="item">
-                            <div class="card">
-                                <a href="produtos.php?pk_produto=' . $row->fk_pedidos . '"><img src="assets/imagens/' . $row->foto_1 . '" alt="" style="width:100%"></a>
-                            </div>
-                        </div>
+                        <?php
+                        $sql = '
+                        select pedido 
+                        from pedidos
+                        where fk_usuario =:pk_usuario
+                        ';
+                        $stmt = $coon->prepare($sql);
+                        $stmt->bindParam(":pk_usuario", $pk_usuario);
+                        $stmt->execute();
+                        $dados = $stmt->fetchAll(PDO::FETCH_OBJ);
+                        if ($stmt->rowCount() > 0) {
+                            foreach ($dados as $key => $row) {
+                                $sql = "
+                                select foto_1,pk_produto
+                                from produto
+                                where nome_do_produto =:nome
+                                ";
+                                $stmt = $coon->prepare($sql);
+                                $stmt->bindParam(":nome", $row->pedido);
+                                $stmt->execute();
+                                $dado = $stmt->fetchAll(PDO::FETCH_OBJ);
+                                foreach ($dado as $key => $row2) {
+                                    $pk_pro = $row2->pk_produto;
+                                    echo ' 
+                                    <div class="item">
+                                        <div class="card">
+                                            <a href="produtos.php?ref=' . base64_encode($row2->pk_produto) . '"><img src="assets/imagens/' . $row2->foto_1 . '" alt="" style="width:100%"></a>
+                                        </div>
+                                    </div>';
+                                }
+                            }
+                        }
+                        ?>
                     </div>
                 </div>
-        '
-                ?>
             </div>
             <div class="row ll1">
                 <div class="col">
-                    <h4>recomendações</h4>
+                    <h4>Recomendações</h4>
                 </div>
                 <div class="col">
                     <div class="owl-carousel owl-theme tt">
-                        <div class="item">
-                            <div class="card">
-                                <a href="produtos.html"><img src="https://placehold.co/100x100" alt="Avatar" style="width:100%"></a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card">
-                                <a href="produtos.html"><img src="https://placehold.co/100x100" alt="Avatar" style="width:100%"></a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card">
-                                <a href="produtos.html"><img src="https://placehold.co/100x100" alt="Avatar" style="width:100%"></a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card">
-                                <a href="produtos.html"><img src="https://placehold.co/100x100" alt="Avatar" style="width:100%"></a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card">
-                                <a href="produtos.html"><img src="https://placehold.co/100x100" alt="Avatar" style="width:100%"></a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card">
-                                <a href="produtos.html"><img src="https://placehold.co/100x100" alt="Avatar" style="width:100%"></a>
-                            </div>
-                        </div>
+                        <?php
+                        $sql = '
+                        select fk_produto
+                        from rl_produto_recomendacao
+                        where fk_recomendacao =:pk_produto
+                        ';
+                        $stmt = $coon->prepare($sql);
+                        $stmt->bindParam(":pk_produto", $pk_pro);
+                        $stmt->execute();
+                        $info = $stmt->fetchAll(PDO::FETCH_OBJ);
+                        if ($stmt->rowCount() > 0) {
+                            foreach ($info as $key => $row3) {
+                                $sql = "
+                                select foto_1,pk_produto
+                                from produto
+                                where pk_produto =:pk_produto
+                                ";
+                                $stmt = $coon->prepare($sql);
+                                $stmt->bindParam(":pk_produto", $row3->fk_produto);
+                                $stmt->execute();
+                                $info2 = $stmt->fetchAll(PDO::FETCH_OBJ);
+                                foreach ($info2 as $key => $row4) {
+                                    echo ' 
+                                    <div class="item">
+                                        <div class="card">
+                                            <a href="produtos.php?pk_produto=' . base64_encode($row4->pk_produto)  . '"><img src="assets/imagens/' . $row4->foto_1 . '" alt="" style="width:100%"></a>
+                                        </div>
+                                    </div>';
+                                }
+                            }
+                        }
+                        ?>
                     </div>
                 </div>
             </div>

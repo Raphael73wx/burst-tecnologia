@@ -1,6 +1,8 @@
 <?php
 session_start();
-
+if (!isset($_SESSION["carrinho"])) {
+    $_SESSION["carrinho"] = [];
+}
 define("caminhoURL","http://localhost/raphael/burst/");
 define("caminhoURL2","http://localhost/raphael/burst/adm/");
 

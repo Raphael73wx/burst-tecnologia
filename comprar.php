@@ -120,7 +120,7 @@ if ($stmt->rowCount() > 0) {
                             </div>
                         </div>
 
-                        <div class="card-footer text-right">
+                        <div class="card-footer text-end">
                             <?php echo ' <a href="produtos.php?ref=' . base64_encode($dado->pk_produto) . '" class="btn btn-outline-danger ">
                                 <i class="bi bi-arrow-left"></i>
                             </a>

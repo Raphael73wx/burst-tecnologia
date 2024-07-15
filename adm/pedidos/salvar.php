@@ -34,7 +34,7 @@ if ($_POST) {
                 $stmt->bindParam(':data_fim',$data_fim);
             } else {
                 $sql = "
-                UPDATE pedidos SET pedido =:pedido, forma_de_pagamento =:forma_p, endereco_de_entrega =:endereco,numero_do_pedido =:numero_p,data_fim =:data_fim, data_ini =:data_ini
+                UPDATE pedidos SET pedido =:pedido, forma_de_pagamento =:forma_p, endereco_de_entrega =:endereco,numero_do_pedido =:numero_p
                 WHERE pk_pedidos = :pk_pedidos
                 ";
                 $stmt = $coon->prepare($sql);
@@ -43,7 +43,6 @@ if ($_POST) {
                 $stmt->bindParam(':forma_p',$forma_p);
                 $stmt->bindParam(':endereco',$endereco);
                 $stmt->bindParam(':numero_p',$numero_p);
-                $stmt->bindParam(':data_ini',$data_ini);
             }
 
             //executa inset ou update acima
@@ -58,7 +57,7 @@ if ($_POST) {
             exit;
             $_SESSION["tipo"] = 'error';
             $_SESSION["title"] = 'Ops!';
-            $_SESSION["msg"] =  '$ex->getMessage()';
+            $_SESSION["msg"] =  $ex->getMessage();
             header("location: ./");
             exit;
         }

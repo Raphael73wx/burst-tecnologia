@@ -23,7 +23,7 @@ body {
 /*classes usadas para todas as paginas */
 .flex {
     display: flex;
-
+    
 }
 
 .container-fluid {
@@ -191,9 +191,11 @@ body .topo .mae a {
 .owl-item {
     max-width: 300px;
 }
+
 .item {
     max-width: 200px;
 }
+
 .tt .item {
     max-height: 175px;
 }
@@ -227,9 +229,8 @@ body .topo .mae a {
 }
 
 .l3 {
-    justify-content: end;
+    justify-content: center;
     flex-grow: 2;
-    flex-direction: column;
 
 }
 
@@ -238,6 +239,25 @@ body .topo .mae a {
 
 }
 
+.esq,.dir {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.dir{
+   align-items: center;
+}
+.formas{
+    justify-content: center;
+    align-items: center;
+}
+.formas i{
+    font-size: 30px;
+    margin-right: 50px;
+}
+.formas img{
+    margin-right: 90px;
+}
 .l1 {
     justify-content: end;
 
@@ -380,12 +400,10 @@ h5 {
 /*fim da estilização do footer*/
 
 /*estilizacão de perfil*/
-.p-ma{
-    padding-top: 10px ;
+.p-ma {
+    padding-top: 10px;
 }
-.p-a{
-    margin-left: 10px;
-}
+
 .icones {
     font-size: 25px;
 }
@@ -409,10 +427,12 @@ h5 {
     align-items: center;
 
 }
-.ll1{
+
+.ll1 {
     display: flex;
     flex-direction: column;
 }
+
 .temp {
     animation: changeBackgroundColor 10s infinite;
 }
@@ -420,7 +440,8 @@ h5 {
 .barra {
     height: 30px;
 }
-.p-na{
+
+.p-na {
     margin-top: 6px;
     margin-left: 15px;
 }
@@ -440,9 +461,13 @@ h5 {
 .cimg {
     max-width: 100px;
     max-height: 100px;
+    
 }
 
 /* fim da pagina confirmar compra  */
+
+/* estilo pagina de carrinho */
+/* fim da pagina de carrinho  */
 
 
 /* estilizacao da pagina avaliar  */
@@ -464,18 +489,22 @@ h5 {
 .estrelas input[type=radio]:checked~label i.fa:before {
     color: var(--cinza);
 }
-.estrela-preenchidas{
+
+.estrela-preenchidas {
     color: var(--amarelo);
 }
-.estrela-vazia{
+
+.estrela-vazia {
     color: var(--cinza);
 }
-.av-nome{
+
+.av-nome {
     display: flex;
     justify-content: start;
     align-items: center;
 }
-.r-av{
+
+.r-av {
     display: flex;
     justify-content: center;
     padding: 0;
